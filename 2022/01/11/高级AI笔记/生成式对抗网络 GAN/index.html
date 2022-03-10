@@ -1,0 +1,527 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" href="/img/favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="wangkr">
+  <meta name="keywords" content="">
+  <meta name="description" content="生成式对抗网络 GANGenerative adversarial networks论文：https:&#x2F;&#x2F;proceedings.neurips.cc&#x2F;paper&#x2F;2014&#x2F;file&#x2F;5ca3e9b122f61f8f06494c97b1afccf3-Paper.pdf GAN具有生成数据样本的能力。   这种能力在一定程度上反映了它对事物的理解 GAN 有望加深人工智能的理解层面的研究  GAN">
+<meta property="og:type" content="article">
+<meta property="og:title" content="生成式对抗网络 GAN">
+<meta property="og:url" content="https://wangkr0127.github.io/2022/01/11/%E9%AB%98%E7%BA%A7AI%E7%AC%94%E8%AE%B0/%E7%94%9F%E6%88%90%E5%BC%8F%E5%AF%B9%E6%8A%97%E7%BD%91%E7%BB%9C%20GAN/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="生成式对抗网络 GANGenerative adversarial networks论文：https:&#x2F;&#x2F;proceedings.neurips.cc&#x2F;paper&#x2F;2014&#x2F;file&#x2F;5ca3e9b122f61f8f06494c97b1afccf3-Paper.pdf GAN具有生成数据样本的能力。   这种能力在一定程度上反映了它对事物的理解 GAN 有望加深人工智能的理解层面的研究  GAN">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://wangkr0127.github.io/.io//image-20211226221839763.png">
+<meta property="og:image" content="https://wangkr0127.github.io/.io//image-20211226221630593.png">
+<meta property="og:image" content="https://wangkr0127.github.io/.io//image-20211226223651501.png">
+<meta property="og:image" content="https://wangkr0127.github.io/.io//image-20211227002647531.png">
+<meta property="og:image" content="https://wangkr0127.github.io/.io//image-20211227002322145.png">
+<meta property="og:image" content="https://wangkr0127.github.io/.io//image-20211227002304327.png">
+<meta property="og:image" content="https://wangkr0127.github.io/.io//image-20211227011527410.png">
+<meta property="article:published_time" content="2022-01-11T13:52:34.404Z">
+<meta property="article:modified_time" content="2022-01-11T13:55:09.998Z">
+<meta property="article:author" content="wangkr">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://wangkr0127.github.io/.io//image-20211226221839763.png">
+  
+  <title>生成式对抗网络 GAN - Hexo</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"wangkr0127.github.io","root":"/","version":"1.8.11","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>每一个不曾起舞的日子，都是对生命的辜负</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="生成式对抗网络 GAN">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2022-01-11 21:52" pubdate>
+        2022年1月11日 晚上
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      1.5k 字
+    </span>
+  
+
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      5 分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">生成式对抗网络 GAN</h1>
+            
+            <div class="markdown-body">
+              <h1 id="生成式对抗网络-GAN"><a href="#生成式对抗网络-GAN" class="headerlink" title="生成式对抗网络 GAN"></a>生成式对抗网络 GAN</h1><h4 id="Generative-adversarial-networks"><a href="#Generative-adversarial-networks" class="headerlink" title="Generative adversarial networks"></a>Generative adversarial networks</h4><p>论文：<a target="_blank" rel="noopener" href="https://proceedings.neurips.cc/paper/2014/file/5ca3e9b122f61f8f06494c97b1afccf3-Paper.pdf">https://proceedings.neurips.cc/paper/2014/file/5ca3e9b122f61f8f06494c97b1afccf3-Paper.pdf</a></p>
+<p>GAN具有生成数据样本的能力。 </p>
+<ul>
+<li>这种能力在一定程度上反映了它对事物的理解</li>
+<li>GAN 有望加深人工智能的理解层面的研究</li>
+</ul>
+<p>GAN 作为一种生成式模型, 不直接估计数据样本的分布，而是<strong>通过模型学习来估测其潜在分布并生成同分布的新样本</strong>。这种从潜在分布生成 “无限” 新样本的能力，在图像和视觉计算、 语音和语言处理、信息安全等领域具有重大的应用价值。</p>
+<br>
+
+<h4 id="生成模型"><a href="#生成模型" class="headerlink" title="生成模型"></a>生成模型</h4><p>生成模型可以描述成一个生成数据的模型，属于一种概率模型。</p>
+<p>通过这个模型我们可以<u>生成不包含在训练数据集中的新的数据</u>。</p>
+<p>比如我们有很多马的图片通过生成模型学习这些马的图像，从中学习到马的样子，生成模型就可以生成看起来很真实的马的图像并且这个图像是不属于训练图像的。</p>
+<img src="/.io//image-20211226221839763.png" srcset="/img/loading.gif" lazyload alt="image-20211226221839763" style="zoom: 33%;">
+
+<br>
+
+<h4 id="Maximum-Likelihood"><a href="#Maximum-Likelihood" class="headerlink" title="Maximum Likelihood"></a>Maximum Likelihood</h4><p>似然：根据结果来判断这个事情本身的性质（参数）</p>
+<img src="/.io//image-20211226221630593.png" srcset="/img/loading.gif" lazyload alt="image-20211226221630593" style="zoom:50%;">
+
+<p>通过采样结果估计原始图像（数据）</p>
+<br>
+
+<h2 id="GAN的理论与实现模型"><a href="#GAN的理论与实现模型" class="headerlink" title="GAN的理论与实现模型"></a>GAN的理论与实现模型</h2><h4 id="GAN-的核心思想来源于博弈论的纳什均衡"><a href="#GAN-的核心思想来源于博弈论的纳什均衡" class="headerlink" title="GAN 的核心思想来源于博弈论的纳什均衡"></a>GAN 的核心思想来源于博弈论的纳什均衡</h4><h4 id="GAN：由一个生成器-Generator-和一个判别器-Discriminator-构成"><a href="#GAN：由一个生成器-Generator-和一个判别器-Discriminator-构成" class="headerlink" title="GAN：由一个生成器 (Generator)和一个判别器 (Discriminator) 构成"></a>GAN：由一个生成器 (Generator)和一个判别器 (Discriminator) 构成</h4><ul>
+<li><p>生成器的目的是尽量去学习真实的数据分布</p>
+</li>
+<li><p>判别器的目的是尽量正确判别输入数据是来自真实数据还是来自生成器</p>
+</li>
+<li><p>各自提高自己的生成能力和判别能力, 这个学习优化（对抗）过程就是寻找二者之间的一个纳什均衡</p>
+<p>（判别模型和生成模型极大、极小之间的博弈）</p>
+</li>
+</ul>
+<p>最后希望生成器可以获胜从而能够生成一些非常真实的数据</p>
+<br>
+
+<h4 id="G和D就是两个深度神经网络模型，在训练的过程中可以用BP算法"><a href="#G和D就是两个深度神经网络模型，在训练的过程中可以用BP算法" class="headerlink" title="G和D就是两个深度神经网络模型，在训练的过程中可以用BP算法"></a>G和D就是两个深度神经网络模型，在训练的过程中可以用BP算法</h4><ol>
+<li>把真实数据标识为‘1’(真实分布)，由生成器生成的数据标识为’0‘(生成分布)，反复迭代训练D</li>
+<li>将 G 拼接在 D 的上方，即 G 的输出作为 D 的输入，同时固定 D 的参数，并将进入 G 的噪音样本标签全部改成’1’，为了最小化损失函数，此时就只能改变 G 的每一层权重，反复迭代后 G 的生成能力因此得以改进。</li>
+<li>反复迭代（1）（2），最终 G 就会得到较好的生成能力。</li>
+</ol>
+<img src="/.io//image-20211226223651501.png" srcset="/img/loading.gif" lazyload alt="image-20211226223651501" style="zoom: 67%;">
+
+<br>
+
+<h4 id="算法步骤："><a href="#算法步骤：" class="headerlink" title="算法步骤："></a>算法步骤：</h4><ul>
+<li>Initialize generator and discriminator</li>
+<li>In each training iteration:<ul>
+<li>固定生成器，训练<strong>判别器</strong>（<u>Discriminator learns to assign high scores to real objects and low scores to generated objects</u>.）</li>
+<li>固定判别器，训练<strong>生成器</strong></li>
+</ul>
+</li>
+<li>注：第一步训练判别器，希望V(G,D)越大越好，所以<strong>加上梯度</strong>，第二步训练生成器，希望V(G,D)越小越好，所以<strong>减去梯度</strong>。整个训练过程交替进行。</li>
+</ul>
+<br>
+
+<p>数据生成Generation：想要获得真实数据的分布——极大似然估计</p>
+<br>
+
+<p>定义：<img src="/.io//image-20211227002647531.png" srcset="/img/loading.gif" lazyload alt="image-20211227002647531" style="zoom:33%;"></p>
+<p>生成器目标：</p>
+<img src="/.io//image-20211227002322145.png" srcset="/img/loading.gif" lazyload alt="image-20211227002322145" style="zoom:50%;">
+
+<p>判别器目标：</p>
+<img src="/.io//image-20211227002304327.png" srcset="/img/loading.gif" lazyload alt="image-20211227002304327" style="zoom:50%;">
+
+
+
+<p>![image-20211227003158639](生成式对抗网络 GAN.assets/image-20211227003158639.png)</p>
+<br>
+
+<h4 id="DCGAN（Deep-Convolutional-GAN）"><a href="#DCGAN（Deep-Convolutional-GAN）" class="headerlink" title="DCGAN（Deep Convolutional GAN）"></a>DCGAN（Deep Convolutional GAN）</h4><p>DCGAN 的判别器和生成器都使用了卷积神经网络（CNN）来替代GAN 中的多层感知机，同时为了使整个网络可微，拿掉了CNN 中的池化层，另外将全连接层以全局池化层替代以减轻计算量。</p>
+<p>DCGAN其实就是一个反向的CNN——创造图片而非过滤</p>
+<br>
+
+<h2 id="不同类型GAN"><a href="#不同类型GAN" class="headerlink" title="不同类型GAN"></a>不同类型GAN</h2><h3 id="1、Traditional-supervised-approach"><a href="#1、Traditional-supervised-approach" class="headerlink" title="1、Traditional supervised approach"></a>1、Traditional supervised approach</h3><h3 id="2、Conditional-GAN"><a href="#2、Conditional-GAN" class="headerlink" title="2、Conditional GAN"></a>2、Conditional GAN</h3><h3 id="3、Unsupervised-Conditional-Generation"><a href="#3、Unsupervised-Conditional-Generation" class="headerlink" title="3、Unsupervised Conditional Generation"></a>3、Unsupervised Conditional Generation</h3><h4 id="两种实现途径"><a href="#两种实现途径" class="headerlink" title="两种实现途径"></a>两种实现途径</h4><ul>
+<li>Direct Transformation</li>
+<li>Projection to Common Space</li>
+</ul>
+<img src="/.io//image-20211227011527410.png" srcset="/img/loading.gif" lazyload alt="image-20211227011527410" style="zoom:80%;">
+
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/%E9%AB%98%E7%BA%A7AI%E7%AC%94%E8%AE%B0/">高级AI笔记</a>
+                    
+                  </div>
+                
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2022/01/12/LeetCode/334.%20%E9%80%92%E5%A2%9E%E7%9A%84%E4%B8%89%E5%85%83%E5%AD%90%E5%BA%8F%E5%88%97/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">递增的三元子序列</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2022/01/11/%E9%AB%98%E7%BA%A7AI%E7%AC%94%E8%AE%B0/%E6%90%9C%E7%B4%A2/">
+                        <span class="hidden-mobile">搜索</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js" ></script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>

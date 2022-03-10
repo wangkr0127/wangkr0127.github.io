@@ -1,0 +1,536 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" href="/img/favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="wangkr">
+  <meta name="keywords" content="">
+  <meta name="description" content="ORM 对关联表的操作前面一对多，一对一，多对多关系表，都是通过外键来实现。 接下来，我们通过一个实例演示 Django ORM 如何操作外键关联关系。 在 models.py 中定义两个Model，对应两张表： 123456789# 国家表class Country(models.Model):    name &#x3D; models.CharField(max_length&#x3D;100)# 学生表， c">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ORM关联表、事务">
+<meta property="og:url" content="https://wangkr0127.github.io/2022/02/09/Django%E5%90%8E%E7%AB%AF/ORM%E5%85%B3%E8%81%94%E8%A1%A8%E3%80%81%E4%BA%8B%E5%8A%A1/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="ORM 对关联表的操作前面一对多，一对一，多对多关系表，都是通过外键来实现。 接下来，我们通过一个实例演示 Django ORM 如何操作外键关联关系。 在 models.py 中定义两个Model，对应两张表： 123456789# 国家表class Country(models.Model):    name &#x3D; models.CharField(max_length&#x3D;100)# 学生表， c">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-02-09T13:32:34.393Z">
+<meta property="article:modified_time" content="2022-02-07T12:54:34.871Z">
+<meta property="article:author" content="wangkr">
+<meta name="twitter:card" content="summary_large_image">
+  
+  <title>ORM关联表、事务 - Hexo</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"wangkr0127.github.io","root":"/","version":"1.8.11","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>每一个不曾起舞的日子，都是对生命的辜负</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="ORM关联表、事务">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2022-02-09 21:32" pubdate>
+        2022年2月9日 晚上
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      4.7k 字
+    </span>
+  
+
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      15 分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">ORM关联表、事务</h1>
+            
+            <div class="markdown-body">
+              <h2 id="ORM-对关联表的操作"><a href="#ORM-对关联表的操作" class="headerlink" title="ORM 对关联表的操作"></a>ORM 对关联表的操作</h2><p>前面一对多，一对一，多对多关系表，都是通过外键来实现。</p>
+<p>接下来，我们通过一个实例演示 Django ORM 如何操作外键关联关系。</p>
+<p>在 models.py 中定义两个Model，对应两张表：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 国家表</span><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Country</span>(<span class="hljs-params">models.Model</span>):</span><br>    name = models.CharField(max_length=<span class="hljs-number">100</span>)<br><br><span class="hljs-comment"># 学生表， country 字段是国家表的外键，形成一对多的关系</span><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Student</span>(<span class="hljs-params">models.Model</span>):</span><br>    name    = models.CharField(max_length=<span class="hljs-number">100</span>)<br>    grade   = models.PositiveSmallIntegerField()<br>    country = models.ForeignKey(Country,on_delete=models.PROTECT)<br></code></pre></td></tr></table></figure>
+
+<p>然后执行相关命令使定义生效到数据库中：</p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs vim"><span class="hljs-keyword">python</span> manage.<span class="hljs-keyword">py</span> makemigrations common<br><span class="hljs-keyword">python</span> manage.<span class="hljs-keyword">py</span> migrate<br></code></pre></td></tr></table></figure>
+
+<p>然后，命令行中执行 <code>python manage.py shell</code> ，直接启动Django命令行，输入代码。</p>
+<p>先输入如下代码，创建一些数据：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> common.models <span class="hljs-keyword">import</span> *<br>c1 = Country.objects.create(name=<span class="hljs-string">&#x27;中国&#x27;</span>)<br>c2 = Country.objects.create(name=<span class="hljs-string">&#x27;美国&#x27;</span>)<br>c3 = Country.objects.create(name=<span class="hljs-string">&#x27;法国&#x27;</span>)<br>Student.objects.create(name=<span class="hljs-string">&#x27;白月&#x27;</span>, grade=<span class="hljs-number">1</span>, country=c1)<br>Student.objects.create(name=<span class="hljs-string">&#x27;黑羽&#x27;</span>, grade=<span class="hljs-number">2</span>, country=c1)<br>Student.objects.create(name=<span class="hljs-string">&#x27;大罗&#x27;</span>, grade=<span class="hljs-number">1</span>, country=c1)<br>Student.objects.create(name=<span class="hljs-string">&#x27;真佛&#x27;</span>, grade=<span class="hljs-number">2</span>, country=c1)<br>Student.objects.create(name=<span class="hljs-string">&#x27;Mike&#x27;</span>, grade=<span class="hljs-number">1</span>, country=c2)<br>Student.objects.create(name=<span class="hljs-string">&#x27;Gus&#x27;</span>,  grade=<span class="hljs-number">1</span>, country=c2)<br>Student.objects.create(name=<span class="hljs-string">&#x27;White&#x27;</span>, grade=<span class="hljs-number">2</span>, country=c2)<br>Student.objects.create(name=<span class="hljs-string">&#x27;Napolen&#x27;</span>, grade=<span class="hljs-number">2</span>, country=c3)<br></code></pre></td></tr></table></figure>
+
+<br>
+
+<h3 id="外键表字段访问"><a href="#外键表字段访问" class="headerlink" title="外键表字段访问"></a>外键表字段访问</h3><p>如果你已经获取了一个student对象，要得到他的国家名称只需这样：</p>
+<p><strong>（类Class—表结构；每条数据—类的一个实例）</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python">s1 = Student.objects.get(name=<span class="hljs-string">&#x27;白月&#x27;</span>)<br>s1.country.name<br></code></pre></td></tr></table></figure>
+
+<p>第一句获取名为白月的 Student 对象，第二句中的 s1.country 也是一个对象。</p>
+<h3 id="外键表字段过滤"><a href="#外键表字段过滤" class="headerlink" title="外键表字段过滤"></a>外键表字段过滤</h3><p>如果我们要查找Student表中所有 <code>一年级</code> 学生：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python">Student.objects.<span class="hljs-built_in">filter</span>(grade=<span class="hljs-number">1</span>).values()<br></code></pre></td></tr></table></figure>
+
+<p>如果我们要查找Student表中所有 <code>一年级中国</code> 学生：</p>
+<p><u>不能</u>这么写：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python">Student.objects.<span class="hljs-built_in">filter</span>(grade=<span class="hljs-number">1</span>,country=<span class="hljs-string">&#x27;中国&#x27;</span>)<br></code></pre></td></tr></table></figure>
+
+<p>因为 Student 表中 <code>country</code> 并不是国家名称字符串字段，而是一个外键字段，对应 Country 表中 <code>id</code> 字段 。</p>
+<p>应该这么写：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python">cn = Country.objects.get(name=<span class="hljs-string">&#x27;中国&#x27;</span>)<br>Student.objects.<span class="hljs-built_in">filter</span>(grade=<span class="hljs-number">1</span>,country_id=cn.<span class="hljs-built_in">id</span>).values()<br></code></pre></td></tr></table></figure>
+
+<p>注意外键字段的id是通过后缀 <code>_id</code> 获取的。</p>
+<p>也可以这么写：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python">cn = Country.objects.get(name=<span class="hljs-string">&#x27;中国&#x27;</span>)<br>Student.objects.<span class="hljs-built_in">filter</span>(grade=<span class="hljs-number">1</span>,country=cn).values()<br></code></pre></td></tr></table></figure>
+
+<p>上面的方法，写起来麻烦一些，有两步操作。而且需要发送两次数据请求给数据库服务，性能不高。</p>
+<p>其实 Django ORM 中对外键关联有更方便的语法，可以这样写：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python">Student.objects.<span class="hljs-built_in">filter</span>(grade=<span class="hljs-number">1</span>,country__name=<span class="hljs-string">&#x27;中国&#x27;</span>).values() <span class="hljs-comment"># 注意为两个下划线</span><br></code></pre></td></tr></table></figure>
+
+<p>写起来简单，一步到位，而且只需要发送一个数据库请求，性能更好。</p>
+<p>如果返回结果只需要 学生姓名 和 国家名两个字段，可以这样指定values内容：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python">Student.objects.<span class="hljs-built_in">filter</span>(grade=<span class="hljs-number">1</span>,country__name=<span class="hljs-string">&#x27;中国&#x27;</span>).values(<span class="hljs-string">&#x27;name&#x27;</span>,<span class="hljs-string">&#x27;country__name&#x27;</span>)<br></code></pre></td></tr></table></figure>
+
+
+
+<p>但是这样写有个问题：选择出来的记录中，国家名是 <code>country__name</code> 。 两个下划线比较怪。</p>
+<p>有时候，前后端接口的设计者，定义好了接口格式，如果要求一定是 <code>countryname</code> 这样怎么办？</p>
+<p>可以使用 <code>annotate</code> 方法将获取的字段值进行<strong>重命名</strong>，像下面这样：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> django.db.models <span class="hljs-keyword">import</span> F<br><br><span class="hljs-comment"># annotate 可以将表字段进行别名处理</span><br>Student.objects.annotate(<br>    countryname=F(<span class="hljs-string">&#x27;country__name&#x27;</span>),<br>    studentname=F(<span class="hljs-string">&#x27;name&#x27;</span>)<br>    )\<br>    .<span class="hljs-built_in">filter</span>(grade=<span class="hljs-number">1</span>,countryname=<span class="hljs-string">&#x27;中国&#x27;</span>).values(<span class="hljs-string">&#x27;studentname&#x27;</span>,<span class="hljs-string">&#x27;countryname&#x27;</span>)<br></code></pre></td></tr></table></figure>
+
+<br>
+
+<h3 id="外键表反向访问"><a href="#外键表反向访问" class="headerlink" title="外键表反向访问"></a>外键表反向访问</h3><p>Django ORM中，关联表正向关系是通过表外键字段（或者多对多）表示，比如前面例子中Student表的 country字段。</p>
+<p>而反向关系，是通过 <u>表Model名转化为小写</u> 表示的。</p>
+<p>比如，你已经获取了一个Country对象，如下可以获取到所有属于这个国家的学生：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python">cn = Country.objects.get(name=<span class="hljs-string">&#x27;中国&#x27;</span>)<br>cn.student_set.<span class="hljs-built_in">all</span>()<br></code></pre></td></tr></table></figure>
+
+<p>通过<strong>表Model名转化为小写</strong> ，后面加上一个 <strong>_set</strong> 来获取所有的反向外键关联对象</p>
+<p>Django还给出了一个方法，可以更直观的反映关联关系。</p>
+<p>在定义Model的时候，外键字段使用 <code>related_name</code> 参数，像这样：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 国家表</span><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Country</span>(<span class="hljs-params">models.Model</span>):</span><br>    name = models.CharField(max_length=<span class="hljs-number">100</span>)<br><br><span class="hljs-comment"># country 字段是国家表的外键，形成一对多的关系</span><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Student</span>(<span class="hljs-params">models.Model</span>):</span><br>    name    = models.CharField(max_length=<span class="hljs-number">100</span>)<br>    grade   = models.PositiveSmallIntegerField()<br>    country = models.ForeignKey(Country,<br>                on_delete = models.PROTECT,<br>                <span class="hljs-comment"># 指定反向访问的名字</span><br>                related_name=<span class="hljs-string">&#x27;students&#x27;</span>)<br></code></pre></td></tr></table></figure>
+
+<p>就可以使用更直观的属性名，像这样：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python">cn = Country.objects.get(name=<span class="hljs-string">&#x27;中国&#x27;</span>)<br>cn.students.<span class="hljs-built_in">all</span>()<br></code></pre></td></tr></table></figure>
+
+<br>
+
+<h3 id="外键表反向过滤"><a href="#外键表反向过滤" class="headerlink" title="外键表反向过滤"></a>外键表反向过滤</h3><p>如果我们要获取所有具有一年级学生的国家名，该怎么写？</p>
+<p>当然可以这样：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 先获取所有的一年级学生id列表</span><br>country_ids = Student.objects.<span class="hljs-built_in">filter</span>(grade=<span class="hljs-number">1</span>).values_list(<span class="hljs-string">&#x27;country&#x27;</span>, flat=<span class="hljs-literal">True</span>)<br><br><span class="hljs-comment"># 再通过id列表使用  id__in  过滤</span><br>Country.objects.<span class="hljs-built_in">filter</span>(id__in=country_ids).values()<br></code></pre></td></tr></table></figure>
+
+<p>但是这样同样存在麻烦和性能的问题。</p>
+<p>Django ORM 可以这样写：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python">Country.objects.<span class="hljs-built_in">filter</span>(students__grade=<span class="hljs-number">1</span>).values()<br></code></pre></td></tr></table></figure>
+
+<p>注意， 因为，我们定义表的时候，用 <code>related_name=&#39;students&#39;</code> 指定了反向关联名称 <code>students</code> ，所以这里是 <code>students__grade</code> 。 使用了反向关联名字。</p>
+<p>如果定义时，没有指定related_name， 则应该使用 <code>表名转化为小写</code> ，就是这样</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python">Country.objects.<span class="hljs-built_in">filter</span>(student__grade=<span class="hljs-number">1</span>).values()<br></code></pre></td></tr></table></figure>
+
+
+
+<p>这种方式，会有重复的记录产生，此时可以使用 <code>.distinct()</code> 去重：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python">Country.objects.<span class="hljs-built_in">filter</span>(students__grade=<span class="hljs-number">1</span>).values().distinct()<br></code></pre></td></tr></table></figure>
+
+<br>
+
+<h3 id="事务、多对多记录添加"><a href="#事务、多对多记录添加" class="headerlink" title="事务、多对多记录添加"></a>事务、多对多记录添加</h3><p>两张表的插入，意味着我们要进行两次数据库操作。</p>
+<p>如果第一次插入成功， 而第二次插入失败，就会出现 Order表中把订单信息写了一部分，而OrderMedicine表中 该订单的信息却没有写成功。这是个大问题，会造成这个处理做了一半。</p>
+<p>那么数据库中就会出现数据的不一致，术语叫<strong>脏数据</strong>。</p>
+<p>针对这种情况，我们应该用数据库的<strong>事务</strong>机制来解决这个问题。</p>
+<p>把一批数据库操作放在事务中， 该<u>事务中的任何一次数据库操作失败了</u>，数据库系统就会让整个事务就会发生<strong>回滚</strong>，<strong>撤销前面的操作</strong>， 数据库回滚到这事务操作之前的状态。</p>
+<p>Django 使用 with transaction.atomic() 实现事务操作：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">addorder</span>(<span class="hljs-params">request</span>):</span><br><br>    info  = request.params[<span class="hljs-string">&#x27;data&#x27;</span>]<br><br>    <span class="hljs-comment"># 从请求消息中 获取要添加订单的信息</span><br>    <span class="hljs-comment"># 并且插入到数据库中</span><br><br>    <br>    <span class="hljs-keyword">with</span> transaction.atomic():<br>        new_order = Order.objects.create(name=info[<span class="hljs-string">&#x27;name&#x27;</span>] ,<br>                                         customer_id=info[<span class="hljs-string">&#x27;customerid&#x27;</span>])<br><br>        batch = [OrderMedicine(order_id=new_order.<span class="hljs-built_in">id</span>,medicine_id=mid,amount=<span class="hljs-number">1</span>)  <br>                    <span class="hljs-keyword">for</span> mid <span class="hljs-keyword">in</span> info[<span class="hljs-string">&#x27;medicineids&#x27;</span>]]<br><br>        <span class="hljs-comment">#  在多对多关系表中 添加了 多条关联记录</span><br>        OrderMedicine.objects.bulk_create(batch)<br><br><br>    <span class="hljs-keyword">return</span> JsonResponse(&#123;<span class="hljs-string">&#x27;ret&#x27;</span>: <span class="hljs-number">0</span>,<span class="hljs-string">&#x27;id&#x27;</span>:new_order.<span class="hljs-built_in">id</span>&#125;)<br></code></pre></td></tr></table></figure>
+
+<p><code>with transaction.atomic()</code> 下面缩进部分的代码，对数据库的操作，就都是在 <code>一个事务</code> 中进行了。</p>
+<p>如果其中有任何一步数据操作失败了，前面的操作都会回滚。</p>
+<p>这就可以防止出现前面的 Order 表记录插入成功， 而后面的订单药品记录插入失败而导致的数据不一致现象。</p>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/Django%E5%90%8E%E7%AB%AF/">Django后端</a>
+                    
+                  </div>
+                
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2022/02/09/Django%E5%90%8E%E7%AB%AF/session%20%E5%92%8C%20token/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">session 和 token</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2022/02/09/Django%E5%90%8E%E7%AB%AF/HTTP%E8%AF%B7%E6%B1%82%E7%9A%84url%E8%B7%AF%E7%94%B1/">
+                        <span class="hidden-mobile">HTTP请求的url路由</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js" ></script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>

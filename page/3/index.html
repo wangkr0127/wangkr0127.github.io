@@ -1,0 +1,885 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" href="/img/favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="wangkr">
+  <meta name="keywords" content="">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="https://wangkr0127.github.io/page/3/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:author" content="wangkr">
+<meta name="twitter:card" content="summary_large_image">
+  
+  <title>Hexo</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"wangkr0127.github.io","root":"/","version":"1.8.11","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body>
+  <header style="height: 100vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>每一个不曾起舞的日子，都是对生命的辜负</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="Welcome to Wangkr&#39;s blog">
+              
+            </span>
+
+            
+          </div>
+
+          
+            <div class="scroll-down-bar">
+              <i class="iconfont icon-arrowdown"></i>
+            </div>
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      <div class="container nopadding-x-md">
+        <div class="py-5" id="board"
+          style=margin-top:0>
+          
+          <div class="container">
+            <div class="row">
+              <div class="col-12 col-md-10 m-auto">
+                
+
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2022/01/13/Debug%E6%B1%87%E6%80%BB/" target="_self">
+          Debug汇总
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2022/01/13/Debug%E6%B1%87%E6%80%BB/" target="_self">
+          
+          
+            
+          
+          Python 通过 pip install 安装第三方库失败（网络连接原因等）1、通过官网或者 Github 链接直接下载 tar 或者 whl 文件
+2、pip install XXX.whl    直接安装
+
+
+python安装第三方包的安装路径
+dist-packages：系统自带的python
+site-packages：自己安装的python
+
+
+
+python使用os库的注意事项123
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-01-13 21:09" pubdate>
+              2022-01-13
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/%E5%85%B6%E4%BB%96/">其他</a>
+            
+          </div>
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2022/01/12/LeetCode/334.%20%E9%80%92%E5%A2%9E%E7%9A%84%E4%B8%89%E5%85%83%E5%AD%90%E5%BA%8F%E5%88%97/" target="_self">
+          递增的三元子序列
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2022/01/12/LeetCode/334.%20%E9%80%92%E5%A2%9E%E7%9A%84%E4%B8%89%E5%85%83%E5%AD%90%E5%BA%8F%E5%88%97/" target="_self">
+          
+          
+            
+          
+          题目链接：https://leetcode-cn.com/problems/increasing-triplet-subsequence/
+题意：给你一个整数数组 nums ，判断这个数组中是否存在长度为 3 的递增子序列。
+如果存在这样的三元组下标 (i, j, k) 且满足 i &lt; j &lt; k ，使得 nums[i] &lt; nums[j] &lt; nums[k] ，返回 tr
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-01-12 15:33" pubdate>
+              2022-01-12
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/LeetCode/">LeetCode</a>
+            
+          </div>
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2022/01/11/%E9%AB%98%E7%BA%A7AI%E7%AC%94%E8%AE%B0/%E7%94%9F%E6%88%90%E5%BC%8F%E5%AF%B9%E6%8A%97%E7%BD%91%E7%BB%9C%20GAN/" target="_self">
+          生成式对抗网络 GAN
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2022/01/11/%E9%AB%98%E7%BA%A7AI%E7%AC%94%E8%AE%B0/%E7%94%9F%E6%88%90%E5%BC%8F%E5%AF%B9%E6%8A%97%E7%BD%91%E7%BB%9C%20GAN/" target="_self">
+          
+          
+            
+          
+          生成式对抗网络 GANGenerative adversarial networks论文：https://proceedings.neurips.cc/paper/2014/file/5ca3e9b122f61f8f06494c97b1afccf3-Paper.pdf
+GAN具有生成数据样本的能力。 
+
+这种能力在一定程度上反映了它对事物的理解
+GAN 有望加深人工智能的理解层面的研究
+
+GAN 
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-01-11 21:52" pubdate>
+              2022-01-11
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/%E9%AB%98%E7%BA%A7AI%E7%AC%94%E8%AE%B0/">高级AI笔记</a>
+            
+          </div>
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2022/01/11/%E9%AB%98%E7%BA%A7AI%E7%AC%94%E8%AE%B0/%E6%90%9C%E7%B4%A2/" target="_self">
+          搜索
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2022/01/11/%E9%AB%98%E7%BA%A7AI%E7%AC%94%E8%AE%B0/%E6%90%9C%E7%B4%A2/" target="_self">
+          
+          
+            
+          
+          搜索搜索问题的构成:
+状态空间
+后继函数
+初始状态
+目标测试
+
+
+
+例子：三个传教士和三个野人：Problem：三个传教士与三个野人渡河，野人在岸上多于传教士会吃了传教士，一条船，只能带两个人，问怎样让传教士安全的度了河
+第一步：先过去两个食人兽，再回来一个；第二步：再过去两个食人兽，再回来一个；第三步：过去两个传教士，再回来一个传教士和一个食人兽；第四步：再过去两个传教士，回来一个食人兽；第五步
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-01-11 21:52" pubdate>
+              2022-01-11
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/%E9%AB%98%E7%BA%A7AI%E7%AC%94%E8%AE%B0/">高级AI笔记</a>
+            
+          </div>
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2022/01/11/%E9%AB%98%E7%BA%A7AI%E7%AC%94%E8%AE%B0/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/" target="_self">
+          强化学习
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2022/01/11/%E9%AB%98%E7%BA%A7AI%E7%AC%94%E8%AE%B0/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/" target="_self">
+          
+          
+            
+          
+          强化学习目标：学习从环境状态到行为的映射(即策略），智能体选择能够获得环境最大奖赏的行为，使得外部环境对学习系统在某种意义下的评价为最佳。
+区别于监督学习：
+监督学习是从标注中学习
+强化学习是从交互中学习
+
+两种反馈
+评价性反馈：
+当智能体采取某个行为时，对该行为给出一个评价，但并不知道哪个行为是最好的
+强化学习经常面临的是评价性反馈
+
+
+指导性反馈：
+直接给出某个状态下的正确或最好行为
+独立于智
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-01-11 21:52" pubdate>
+              2022-01-11
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/%E9%AB%98%E7%BA%A7AI%E7%AC%94%E8%AE%B0/">高级AI笔记</a>
+            
+          </div>
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2022/01/11/%E9%AB%98%E7%BA%A7AI%E7%AC%94%E8%AE%B0/%E5%BA%8F%E5%88%97%E6%95%B0%E6%8D%AE%E7%9A%84%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E6%A8%A1%E5%9E%8B/" target="_self">
+          循环神经网络 RNN
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2022/01/11/%E9%AB%98%E7%BA%A7AI%E7%AC%94%E8%AE%B0/%E5%BA%8F%E5%88%97%E6%95%B0%E6%8D%AE%E7%9A%84%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E6%A8%A1%E5%9E%8B/" target="_self">
+          
+          
+            
+          
+          循环神经网络 RNN（Recurrent Neural Networks）Hidden Layer会有连向下一时间Hidden Layer的边
+一般来说，RNN每一时间的输入和输出是不一样的
+时序展开在RNN中每一个时间步骤用到的参数都是一样的
+
+
+权值一致的BP算法BP算法容易实现权值间的线性约束
+同样计算梯度，然后改变梯度以满足约束
+如果权值开始时满足约束，那就会一直满足约束
+RNN可看作权值
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-01-11 21:52" pubdate>
+              2022-01-11
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/%E9%AB%98%E7%BA%A7AI%E7%AC%94%E8%AE%B0/">高级AI笔记</a>
+            
+          </div>
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2022/01/11/%E9%AB%98%E7%BA%A7AI%E7%AC%94%E8%AE%B0/%E5%9B%BE%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" target="_self">
+          图卷积神经网络
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2022/01/11/%E9%AB%98%E7%BA%A7AI%E7%AC%94%E8%AE%B0/%E5%9B%BE%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" target="_self">
+          
+          
+            
+          
+          图卷积神经网络：Graph Convolutional Network, GCN图神经网络：Graph Neural Network，GNN
+
+Convolutional Neural NetworkThe power of CNN lies in its ability to learn local stationary structures, via localized  convolutio
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-01-11 21:52" pubdate>
+              2022-01-11
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/%E9%AB%98%E7%BA%A7AI%E7%AC%94%E8%AE%B0/">高级AI笔记</a>
+            
+          </div>
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2022/01/11/%E9%AB%98%E7%BA%A7AI%E7%AC%94%E8%AE%B0/%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9CCNN/" target="_self">
+          卷积神经网络CNN
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2022/01/11/%E9%AB%98%E7%BA%A7AI%E7%AC%94%E8%AE%B0/%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9CCNN/" target="_self">
+          
+          
+            
+          
+          卷积神经网络CNN深度神经网络(Deep Neural Networks，DNN)神经网络是基于感知机的扩展，而DNN可以理解为有很多隐藏层的神经网络。多层神经网络和深度神经网络DNN其实也是指的一个东西，DNN有时也叫做多层感知机。
+
+
+卷积神经网络是一种特殊的深层神经网络模型
+它的神经元间的连接是非全连接的 —— 减少参数的数量
+表达能力不如全连接网络，但是更好训练
+
+
+同一层中某些神经元之间
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-01-11 21:52" pubdate>
+              2022-01-11
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/%E9%AB%98%E7%BA%A7AI%E7%AC%94%E8%AE%B0/">高级AI笔记</a>
+            
+          </div>
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2022/01/11/%E9%AB%98%E7%BA%A7AI%E7%AC%94%E8%AE%B0/%E5%8D%9A%E5%BC%88/" target="_self">
+          博弈
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2022/01/11/%E9%AB%98%E7%BA%A7AI%E7%AC%94%E8%AE%B0/%E5%8D%9A%E5%BC%88/" target="_self">
+          
+          
+            
+          
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-01-11 21:52" pubdate>
+              2022-01-11
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/%E9%AB%98%E7%BA%A7AI%E7%AC%94%E8%AE%B0/">高级AI笔记</a>
+            
+          </div>
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2022/01/11/%E9%AB%98%E7%BA%A7AI%E7%AC%94%E8%AE%B0/%E4%BA%BA%E5%B7%A5%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9CANN/" target="_self">
+          人工神经网络 ANN
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2022/01/11/%E9%AB%98%E7%BA%A7AI%E7%AC%94%E8%AE%B0/%E4%BA%BA%E5%B7%A5%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9CANN/" target="_self">
+          
+          
+            
+          
+          人工神经网络 ANN联结主义学派：又称仿生学派，认为人的思维基元是神经元，而不是符号处理过程
+核心：智能的本质是联接机制
+原理：神经网络及神经网络间的连接机制和学习算法
+人工神经网络：基于模仿生物大脑的结构和功能而构成的一种信息处理系统
+自底向上，起源于生物神经系统 ，从 结构模拟 到 功能模拟 
+生物里的神经元：
+
+兴奋状态：对输入信息整合后使细胞膜电位升高，当高于动作电位的阈值时，产生神经冲动
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-01-11 21:52" pubdate>
+              2022-01-11
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/%E9%AB%98%E7%BA%A7AI%E7%AC%94%E8%AE%B0/">高级AI笔记</a>
+            
+          </div>
+        
+        
+      </div>
+    </article>
+  </div>
+
+
+
+  <nav aria-label="navigation">
+    <span class="pagination" id="pagination">
+      <a class="extend prev" rel="prev" href="/page/2/#board"><i class="iconfont icon-arrowleft"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/#board">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/#board">4</a><a class="page-number" href="/page/5/#board">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/#board">8</a><a class="extend next" rel="next" href="/page/4/#board"><i class="iconfont icon-arrowright"></i></a>
+    </span>
+  </nav>
+
+
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js" ></script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>

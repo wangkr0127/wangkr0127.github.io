@@ -1,0 +1,561 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" href="/img/favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="wangkr">
+  <meta name="keywords" content="">
+  <meta name="description" content="session 和 token前面我们已经根据接口文档，编写代码，对前端发来的 Customer API请求进行处理了。 并且我们也编写了用户登录处理的代码。 但是还存在一个问题：前端发来的 Customer API 请求， 我们后端代码就直接处理了， 并没有验证 这个请求是不是已经登录的管理员发出的（或者是否有权限等）。 如果是这样，客户端可以不需要登录，直接访问登录后的主页。 这就需要我们在处">
+<meta property="og:type" content="article">
+<meta property="og:title" content="session 和 token">
+<meta property="og:url" content="https://wangkr0127.github.io/2022/02/09/Django%E5%90%8E%E7%AB%AF/session%20%E5%92%8C%20token/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="session 和 token前面我们已经根据接口文档，编写代码，对前端发来的 Customer API请求进行处理了。 并且我们也编写了用户登录处理的代码。 但是还存在一个问题：前端发来的 Customer API 请求， 我们后端代码就直接处理了， 并没有验证 这个请求是不是已经登录的管理员发出的（或者是否有权限等）。 如果是这样，客户端可以不需要登录，直接访问登录后的主页。 这就需要我们在处">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://wangkr0127.github.io/.io//image-20220204114144805.png">
+<meta property="og:image" content="https://wangkr0127.github.io/.io//image-20220204123505543.png">
+<meta property="article:published_time" content="2022-02-09T13:32:34.394Z">
+<meta property="article:modified_time" content="2022-02-04T04:50:20.794Z">
+<meta property="article:author" content="wangkr">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://wangkr0127.github.io/.io//image-20220204114144805.png">
+  
+  <title>session 和 token - Hexo</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"wangkr0127.github.io","root":"/","version":"1.8.11","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>每一个不曾起舞的日子，都是对生命的辜负</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="session 和 token">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2022-02-09 21:32" pubdate>
+        2022年2月9日 晚上
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      3.8k 字
+    </span>
+  
+
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      12 分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">session 和 token</h1>
+            
+            <div class="markdown-body">
+              <h1 id="session-和-token"><a href="#session-和-token" class="headerlink" title="session 和 token"></a>session 和 token</h1><p>前面我们已经根据接口文档，编写代码，对前端发来的 Customer API请求进行处理了。</p>
+<p>并且我们也编写了用户登录处理的代码。</p>
+<p>但是还存在一个问题：前端发来的 Customer API 请求， 我们后端代码就直接处理了， <strong>并没有验证</strong> 这个请求是不是已经登录的管理员发出的（或者是否有权限等）。</p>
+<p>如果是这样，客户端可以不需要登录，直接访问登录后的主页。</p>
+<p>这就需要我们在处理 Customer API 请求前， 判断发出该请求的用户是否登录了。</p>
+<p>对于<strong>请求消息的合法性验证</strong>， 通常有两种方案： <strong>session</strong> 和 <strong>token</strong></p>
+<br>
+
+<br>
+
+<h2 id="session-方案"><a href="#session-方案" class="headerlink" title="session 方案"></a>session 方案</h2><p><strong>session</strong> 就是 <strong>会话</strong> 的意思。</p>
+<p>session 方案的原理如下： </p>
+<ul>
+<li><p>服务端在数据库中保存一张session表。 这张表记录了每次用户登录的相关信息。</p>
+<p>具体记录什么信息，不同的系统各有差异，通常会记录该用户的 ID 、姓名、登录名之类的。</p>
+<p>Django 中该表名字就叫 django_session, 如下所示：</p>
+<img src="/.io//image-20220204114144805.png" srcset="/img/loading.gif" lazyload alt="image-20220204114144805" style="zoom:50%;">
+
+<p>可以发现 sessionid 通常就是一串字符串用来标记一个session的。 而session对应的数据在这里是加密的。通过这张表，服务端可以根据 session号（通常叫session ID） 查到 session 的信息数据。</p>
+</li>
+<li><p><strong>在用户登录成功后， 服务端就在数据库session表中创建一条记录，记录这次会话。</strong></p>
+<p>也就是创建一个新的 sessionid 插入到该表中。</p>
+<p>同时也放入一些 该session对应的数据到记录的数据字段中，比如登录用户的信息。</p>
+<p><strong>然后在该登录请求的HTTP响应消息中， 头字段 Set-Cookie 里填入 sessionid 数据。</strong></p>
+<p>类似这样：</p>
+<p><code>Set-Cookie: sessionid=6qu1cuk8cxvtf4w9rjxeppexh2izy0hh</code></p>
+<p>根据http协议， 这个 <strong>Set-Cookie</strong> 字段的意思就是<strong>要求前端将其中的数据存入 cookie 中。 并且随后访问该服务端的时候， 在HTTP请求消息中必须带上这些 cookie 数据。</strong></p>
+<p>cookie 通常就是存储在客户端浏览器的一些数据。 服务端可以通过http响应消息要求浏览器存储一些数据。</p>
+<p><strong>以后每次访问同一个网站服务，必须在HTTP请求中再带上这些cookie里面的数据。</strong></p>
+<p>cookie数据由多个键值对组成，比如：</p>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">sessionid</span>=<span class="hljs-number">6</span>qu<span class="hljs-number">1</span>cuk<span class="hljs-number">8</span>cxvtf<span class="hljs-number">4</span>w<span class="hljs-number">9</span>rjxeppexh<span class="hljs-number">2</span>izy<span class="hljs-number">0</span>hh<br><span class="hljs-attribute">username</span>=byhy<br><span class="hljs-attribute">favorite</span>=phone_laptop_watch<br></code></pre></td></tr></table></figure></li>
+<li><p>该用户的后续操作，<strong>触发的HTTP请求，都会在请求头的 Cookie 字段带上前面说的sessionid</strong> 。</p>
+<p>如下所示：</p>
+<p><code>Cookie: sessionid=6qu1cuk8cxvtf4w9rjxeppexh2izy0hh</code></p>
+<p><strong>服务端接受到该请求后，只需要到session表中查看是否有该 sessionid 对应的记录，这样就可以判断这个请求是否是前面已经登录的用户发出的。</strong></p>
+<p><strong>如果不是，就可以拒绝服务，重定向http请求到登录页面让用户登录。</strong></p>
+</li>
+</ul>
+<br>
+
+<br>
+
+<h2 id="token机制"><a href="#token机制" class="headerlink" title="token机制"></a>token机制</h2><p>使用session机制验证用户请求的合法性的主要缺点有两个</p>
+<ul>
+<li><p>性能问题</p>
+<p>因为验证请求是根据sessionid 到数据库中查找session表的，而数据库操作是服务端常见的性能瓶颈，尤其是当用户量比较大的时候。</p>
+</li>
+<li><p>扩展性问题</p>
+<p>当系统用户特别多的时候，后端处理请求的服务端通常由多个，部署在多个节点上。 但是多个节点都要访问session表，这样就要求数据库服务能够被多个节点访问，不方便切分数据库以提高性能。</p>
+</li>
+</ul>
+<p>最近比较流行的一种token机制可以比较好的解决这些问题。</p>
+<p>token 简单来说，就是包含了数据信息和校验信息的数据包。</p>
+<p>Session 机制是把数据信息（比如session表）放到服务端，<strong>服务端数据是客户无法篡改的</strong>，从而保证验证的可靠性。</p>
+<p>而 token机制数据信息直接传给客户端，客户每次请求再携带过来给服务端。服务端无需查找数据库，直接根据token里面的数据信息进行校验。</p>
+<p>那么问题来了：客户数据直接发送给客户端，如果客户端篡改了数据， 比如把自己改为 vip 用户怎么办？ 服务端怎么验证数据有没有被客户端篡改（术语叫完整性验证）呢？</p>
+<p>token 机制的原理如下：</p>
+<ul>
+<li><p>服务端配置一个<strong>密钥</strong>（secret key），该密钥是服务端私密保存的，不能外泄</p>
+</li>
+<li><p>在用户登录成功后， 服务端将 <strong>用户的信息数据 + 密钥</strong> 一起进行一个哈希计算， 得到一个哈希值。</p>
+<p>注意：哈希算法保证了， 哈希值只能根据同样的源数据得到。</p>
+<p>如果谁修改了用户信息， <strong>除非他知道密钥</strong>，再次使用哈希算法才能得到正确的新的哈希值。</p>
+<p>所以这个哈希值，就是用来校验数据是否被修改的。</p>
+<p>然后将用户数据信息和哈希值一起做成一个字节串 ，这个字节串就称之为 <strong>token</strong> 。</p>
+<p>大家可以发现 token 里面 <strong>包含了用户数据信息 和 用于校验完整性的哈希值</strong>。</p>
+<p>然后，服务端返回给客户的HTTP响应中返回了这个token。 通常token是放在HTTP响应的头部中的。 具体哪个头部字段没有规定，开发者可以自行定义。</p>
+</li>
+<li><p><strong>该用户的后续操作，触发的HTTP API请求， 会在请求消息里面带上 token 。</strong></p>
+<p>具体在请求消息的什么地方存放 token， 由开发者自己定义，通常也存放在 http 请求的头部中。</p>
+<p>服务端接收到请求后，会根据数据信息和密钥使用哈希算法再次生成哈希值。</p>
+<p>如果客户修改了数据信息， 因为他不知道密钥，没法得到正确的新的哈希值，那么服务端根据 <strong>篡改后的数据+密钥</strong> 得到的新哈希值一定和保存在token中的老哈希值 不同，就知道数据被修改了。</p>
+<p>如果客户没有修改数据，服务端根据原来的数据+密钥得到的哈希值和保存在token中原来的哈希值一致，就校验通过。</p>
+<p>校验通过后，就确信了数据没有被修改，可以放心的使用 token 里面的数据 进行后续的业务逻辑处理了。</p>
+<p>上述处理中，由于不需要服务端访问查找数据库，从而大大了提高了处理性能。</p>
+</li>
+</ul>
+<br>
+
+<br>
+
+<h2 id="使用session验证客户端请求"><a href="#使用session验证客户端请求" class="headerlink" title="使用session验证客户端请求"></a>使用session验证客户端请求</h2><p>Django 对 session 的支持是缺省就有的。</p>
+<p>前面处理登录的函数中有如下箭头所指的一行代码：</p>
+<img src="/.io//image-20220204123505543.png" srcset="/img/loading.gif" lazyload alt="image-20220204123505543" style="zoom:50%;">
+
+<p>这行代码的作用就是在登录认证后，将用户类型保存到session数据中， 也就是存入前面数据库的那张图的会话数据记录中。</p>
+<p>Django 框架会自动在 HTTP 响应消息头中加入类似下面的 sessionid cookie：</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ruby">Set-<span class="hljs-symbol">Cookie:</span> sessionid=<span class="hljs-string">??</span><span class="hljs-string">??</span><span class="hljs-string">??</span><span class="hljs-string">??</span><br></code></pre></td></tr></table></figure>
+
+<p>后续的HTTP请求就会携带这个sessionid，</p>
+<p>我们处理 URL 以 <code>/api/mgr</code> 开头的 API 请求代码里面，需加上一个验证逻辑。</p>
+<p>验证请求的 cookie 里面是否有 sessionid，并且检查session表，看看是否存在 session_key 为该 sessionid 的一条记录，该记录的数据字典里面是否包含了 usertype 为 mgr 的数据。</p>
+<p>前面实现的代码中，这些请求都是在 dispatcher 入口函数处理的，我们就只需在该dispatch中进行验证。</p>
+<p>修改 <code>mgr/customer.py</code> 的dispatcher 函数，在前面加上如下代码：</p>
+<p>（其中 redirect 为重定向）</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 根据session判断用户是否是登录的管理员用户</span><br>   <span class="hljs-keyword">if</span> <span class="hljs-string">&#x27;usertype&#x27;</span> <span class="hljs-keyword">not</span> <span class="hljs-keyword">in</span> request.session:<br>       <span class="hljs-keyword">return</span> JsonResponse(&#123;<br>           <span class="hljs-string">&#x27;ret&#x27;</span>: <span class="hljs-number">302</span>,<br>           <span class="hljs-string">&#x27;msg&#x27;</span>: <span class="hljs-string">&#x27;未登录&#x27;</span>,<br>           <span class="hljs-string">&#x27;redirect&#x27;</span>: <span class="hljs-string">&#x27;/mgr/sign.html&#x27;</span>&#125;, <br>           status=<span class="hljs-number">302</span>)<br><br>   <span class="hljs-keyword">if</span> request.session[<span class="hljs-string">&#x27;usertype&#x27;</span>] != <span class="hljs-string">&#x27;mgr&#x27;</span> :<br>       <span class="hljs-keyword">return</span> JsonResponse(&#123;<br>           <span class="hljs-string">&#x27;ret&#x27;</span>: <span class="hljs-number">302</span>,<br>           <span class="hljs-string">&#x27;msg&#x27;</span>: <span class="hljs-string">&#x27;用户非mgr类型&#x27;</span>,<br>           <span class="hljs-string">&#x27;redirect&#x27;</span>: <span class="hljs-string">&#x27;/mgr/sign.html&#x27;</span>&#125; ,<br>           status=<span class="hljs-number">302</span>)<br></code></pre></td></tr></table></figure>
+
+<p>注意 request 对象里面的 session 属性对应的就是 session 记录里面的数据。</p>
+<p>该数据对象类似字典，所以检查是否有 usertype 类型为 mgr 的信息，就是这样写：</p>
+<p><code>if request.session[&#39;usertype&#39;] != &#39;mgr&#39; </code></p>
+<br>
+
+<br>
+
+<h2 id="基于Session、Token的身份验证小结"><a href="#基于Session、Token的身份验证小结" class="headerlink" title="基于Session、Token的身份验证小结"></a>基于Session、Token的身份验证小结</h2><ul>
+<li><p>Cookie 存储在client</p>
+</li>
+<li><p>Session 会话，存储在server，server需要对session进行定期清理</p>
+</li>
+<li><p>Token 服务端验证成功后根据一定规则签发的一个‘令牌’，server端每次收到请求都用相同的规则再次生成’令牌’与其对比，而无需存储。</p>
+</li>
+</ul>
+<h5 id="验证流程："><a href="#验证流程：" class="headerlink" title="验证流程："></a>验证流程：</h5><p>login</p>
+<p>=&gt; 发送http请求，账号密码验证成功</p>
+<p>=&gt; server端通过response Set-Cookie的方式将sessionId传递到clinet作为cookie（后端或前端跳转）</p>
+<p>=&gt; client后续再发送http请求，header自动携带cookie，用于server端鉴权</p>
+<p>=&gt; server端通过http请求头中的sessionId进行鉴权，成功则返回数据，否则报错（重定向到登录页）</p>
+<p>（使用token的差别在于将session换成token，token可以选择放在cookie或localstorage等，在请求时置于header或header中的cookie里）</p>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/Django%E5%90%8E%E7%AB%AF/">Django后端</a>
+                    
+                  </div>
+                
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2022/02/09/Django%E5%90%8E%E7%AB%AF/Web%20%E5%BC%80%E5%8F%91%E7%AE%80%E4%BB%8B%E5%8F%8A%E5%89%8D%E5%90%8E%E7%AB%AF%E5%88%86%E7%A6%BB/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Web 开发简介及前后端分离</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2022/02/09/Django%E5%90%8E%E7%AB%AF/ORM%E5%85%B3%E8%81%94%E8%A1%A8%E3%80%81%E4%BA%8B%E5%8A%A1/">
+                        <span class="hidden-mobile">ORM关联表、事务</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js" ></script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>

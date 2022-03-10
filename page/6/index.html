@@ -1,0 +1,826 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" href="/img/favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="wangkr">
+  <meta name="keywords" content="">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="https://wangkr0127.github.io/page/6/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:author" content="wangkr">
+<meta name="twitter:card" content="summary_large_image">
+  
+  <title>Hexo</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"wangkr0127.github.io","root":"/","version":"1.8.11","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body>
+  <header style="height: 100vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>每一个不曾起舞的日子，都是对生命的辜负</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="Welcome to Wangkr&#39;s blog">
+              
+            </span>
+
+            
+          </div>
+
+          
+            <div class="scroll-down-bar">
+              <i class="iconfont icon-arrowdown"></i>
+            </div>
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      <div class="container nopadding-x-md">
+        <div class="py-5" id="board"
+          style=margin-top:0>
+          
+          <div class="container">
+            <div class="row">
+              <div class="col-12 col-md-10 m-auto">
+                
+
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/10/26/%E5%89%8D%E7%AB%AF%E6%9D%82%E8%AE%B0/JavaScript%E4%B8%8EHTML-DOM/" target="_self">
+          JavaScript与HTML-DOM
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/10/26/%E5%89%8D%E7%AB%AF%E6%9D%82%E8%AE%B0/JavaScript%E4%B8%8EHTML-DOM/" target="_self">
+          
+          
+            
+          
+          一、JavaScript HTML DOM概述通过 HTML DOM， JavaScript可访问 HTML 文档的所有元素。
+
+
+HTML DOM (文档对象模型)当网页被加载时，浏览器会创建页面的文档对象模型（Document Object Model）。
+HTML DOM 模型被构造为对象的树：
+
+
+通过可编程的对象模型，JavaScript 获得了足够的能力来创建动态的 HTML。
+
+Ja
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-10-26 17:54" pubdate>
+              2021-10-26
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/%E5%89%8D%E7%AB%AF%E6%9D%82%E8%AE%B0/">前端杂记</a>
+            
+          </div>
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/10/26/%E5%89%8D%E7%AB%AF%E6%9D%82%E8%AE%B0/JavaScript%20%E5%BC%82%E6%AD%A5%E7%BC%96%E7%A8%8B/" target="_self">
+          JavaScript 异步编程
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/10/26/%E5%89%8D%E7%AB%AF%E6%9D%82%E8%AE%B0/JavaScript%20%E5%BC%82%E6%AD%A5%E7%BC%96%E7%A8%8B/" target="_self">
+          
+          
+            
+          
+          JavaScript 异步编程同步按你的代码顺序执行，异步不按照代码顺序执行，异步的执行效率更高。
+异步就是从主线程发射一个子线程来完成任务。
+
+
+异步编程：
+我们常常用子线程来完成一些可能消耗时间足够长以至于被用户察觉的事情，比如读取一个大文件或者发出一个网络请求。因为子线程独立于主线程，所以即使出现阻塞也不会影响主线程的运行。但是子线程有一个局限：一旦发射了以后就会与主线程失去同步，我们无法确
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-10-26 10:28" pubdate>
+              2021-10-26
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/%E5%89%8D%E7%AB%AF%E6%9D%82%E8%AE%B0/">前端杂记</a>
+            
+          </div>
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/10/23/%E5%89%8D%E7%AB%AF%E6%9D%82%E8%AE%B0/document.write%E8%A6%86%E7%9B%96%E9%97%AE%E9%A2%98/" target="_self">
+          document.write覆盖问题
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/10/23/%E5%89%8D%E7%AB%AF%E6%9D%82%E8%AE%B0/document.write%E8%A6%86%E7%9B%96%E9%97%AE%E9%A2%98/" target="_self">
+          
+          
+            
+          
+          建议使用 document.write() 仅仅向文档输出写内容。
+如果在文档已完成加载后执行 document.write（如函数调用），整个 HTML 页面将被覆盖。
+eg：
+无覆盖的情况：
+12345678910111213141516&lt;!DOCTYPE html&gt;&lt;html&gt;&lt;head&gt; &lt;meta charset=&quot;utf-8&quot
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-10-23 10:06" pubdate>
+              2021-10-23
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/%E5%89%8D%E7%AB%AF%E6%9D%82%E8%AE%B0/">前端杂记</a>
+            
+          </div>
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/10/22/%E5%89%8D%E7%AB%AF%E6%9D%82%E8%AE%B0/%E5%93%8D%E5%BA%94%E5%BC%8FWeb%E8%AE%BE%E8%AE%A1%E6%A1%86%E6%9E%B6-Minimalist-Bootstrap/" target="_self">
+          响应式Web设计框架-Minimalist-Bootstrap
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/10/22/%E5%89%8D%E7%AB%AF%E6%9D%82%E8%AE%B0/%E5%93%8D%E5%BA%94%E5%BC%8FWeb%E8%AE%BE%E8%AE%A1%E6%A1%86%E6%9E%B6-Minimalist-Bootstrap/" target="_self">
+          
+          
+            
+          
+          响应式网页设计页面的设计与开发根据用户行为以及设备环境(系统平台、屏幕尺寸、屏幕定向等)进行相应的响应和调整称之为响应式 Web 设计。
+
+响应式 Web 设计让你的网页能在所有设备上有好显示。
+
+响应式 Web 设计只使用 HTML 和 CSS。
+
+响应式 Web 设计不是一个程序或Javascript脚本。
+
+友好的用户体验是网页可以在任何设备上展示和操作，设备包括桌面系统设备，平板电脑，iP
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-10-22 02:12" pubdate>
+              2021-10-22
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/%E5%89%8D%E7%AB%AF%E6%9D%82%E8%AE%B0/">前端杂记</a>
+            
+          </div>
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/10/19/LeetCode/%E9%9D%A2%E8%AF%95%E9%A2%98%2017.05-%E5%AD%97%E6%AF%8D%E4%B8%8E%E6%95%B0%E5%AD%97/" target="_self">
+          前缀和-面试题 17.05-字母与数字
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/10/19/LeetCode/%E9%9D%A2%E8%AF%95%E9%A2%98%2017.05-%E5%AD%97%E6%AF%8D%E4%B8%8E%E6%95%B0%E5%AD%97/" target="_self">
+          
+          
+            
+          
+          题目链接：https://leetcode-cn.com/problems/find-longest-subarray-lcci/
+题意：给定一个放有字母和数字的数组，找到最长的子数组，且包含的字母和数字的个数相同。
+返回该子数组，若存在多个最长子数组，返回左端点下标值最小的子数组。若不存在这样的数组，返回一个空数组。
+样例：
+123输入: [&quot;A&quot;,&quot;1&quot;
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-10-19 10:03" pubdate>
+              2021-10-19
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/LeetCode/">LeetCode</a>
+            
+          </div>
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/10/18/%E5%89%8D%E7%AB%AF%E6%9D%82%E8%AE%B0/HTTP%20%E6%96%B9%E6%B3%95%EF%BC%9AGET%20%E5%AF%B9%E6%AF%94%20POST/" target="_self">
+          HTTP 请求：GET 对比 POST
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/10/18/%E5%89%8D%E7%AB%AF%E6%9D%82%E8%AE%B0/HTTP%20%E6%96%B9%E6%B3%95%EF%BC%9AGET%20%E5%AF%B9%E6%AF%94%20POST/" target="_self">
+          
+          
+            
+          
+          HTTP超文本传输协议（HTTP）=&gt; 保证客户端与服务器之间的通信。
+web 浏览器可能是客户端，而计算机上的网络应用程序也可能作为服务器端。
+eg：客户端（浏览器）向服务器提交 HTTP 请求；服务器向客户端返回响应。响应包含关于请求的状态信息以及可能被请求的内容。
+两种 HTTP 请求方法：GET 和 POST在客户机和服务器之间进行请求-响应时，两种最常被用到的方法是：GET 和 P
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-10-18 17:46" pubdate>
+              2021-10-18
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/%E5%89%8D%E7%AB%AF%E6%9D%82%E8%AE%B0/">前端杂记</a>
+            
+          </div>
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/10/12/AJAX/%E5%90%8C%E6%BA%90%E7%AD%96%E7%95%A5%E4%BB%A5%E5%8F%8A%E5%AE%9E%E7%8E%B0%E8%B7%A8%E5%9F%9F-AJAX/" target="_self">
+          同源策略以及实现跨域-AJAX
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/10/12/AJAX/%E5%90%8C%E6%BA%90%E7%AD%96%E7%95%A5%E4%BB%A5%E5%8F%8A%E5%AE%9E%E7%8E%B0%E8%B7%A8%E5%9F%9F-AJAX/" target="_self">
+          
+          
+            
+          
+          同源策略
+同源策略(Same-Origin Policy)最早由Netscape 公司提出，是浏览器的一种安全策略
+同源： 协议、域名、端口号必须完全相同
+跨域： 违背同源策略就是跨域
+
+如何解决跨域1、JSONPJSONP (JSON with Padding)，是一个非官方的跨域解决方案，纯粹凭借程序员的聪明才智开发出来，只支持get 请求。
+在网页有一些标签天生具有跨域能力，比如：img l
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-10-12 21:20" pubdate>
+              2021-10-12
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/AJAX/">AJAX</a>
+            
+          </div>
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/10/12/AJAX/Axios-AJAX/" target="_self">
+          Axios-AJAX
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/10/12/AJAX/Axios-AJAX/" target="_self">
+          
+          
+            
+          
+          什么是 axios？Axios 是一个基于 promise 的 HTTP 库，可以用在浏览器和 node.js 中。
+特性：
+从浏览器中创建 XMLHttpRequests
+从 node.js 创建 http 请求
+支持 Promise API
+拦截请求和响应
+转换请求数据和响应数据
+取消请求
+自动转换 JSON 数据
+客户端支持防御 XSRF
+
+使用方法：①npm安装
+②使用CDN链接（注：使用
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-10-12 00:11" pubdate>
+              2021-10-12
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/AJAX/">AJAX</a>
+            
+          </div>
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/10/11/AJAX/jQuery-AJAX/" target="_self">
+          jQuery-AJAX
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/10/11/AJAX/jQuery-AJAX/" target="_self">
+          
+          
+            
+          
+          jQuery 简介jQuery 是一个 JavaScript 函数库。
+jQuery 是一个轻量级的”写的少，做的多”的 JavaScript 库。
+jQuery 库包含以下功能：
+
+HTML 元素选取
+HTML 元素操作
+CSS 操作
+HTML 事件函数
+JavaScript 特效和动画
+HTML DOM 遍历和修改
+AJAX
+Utilities
+
+tips：除此之外，jQuery 还提供了大量
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-10-11 15:50" pubdate>
+              2021-10-11
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/AJAX/">AJAX</a>
+            
+          </div>
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/10/10/AJAX/%E8%A7%A3%E5%86%B3%E9%87%8D%E5%A4%8D%E5%8F%91%E9%80%81AJAX%E8%AF%B7%E6%B1%82%E9%97%AE%E9%A2%98/" target="_self">
+          解决重复发送AJAX请求问题
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/10/10/AJAX/%E8%A7%A3%E5%86%B3%E9%87%8D%E5%A4%8D%E5%8F%91%E9%80%81AJAX%E8%AF%B7%E6%B1%82%E9%97%AE%E9%A2%98/" target="_self">
+          
+          
+            
+          
+          问题起因：
+用户连续点击发送按钮，这个按钮用于发送多条相同的ajax请求，导致服务器处理数据的负担太大，所以需要解决这个问题。
+思路：无论用户重复发送多少次请求，都把上一次未完成的请求取消，相同请求只发送一次
+Solve：通过一个变量 isSending 来标识是否正在发送请求。
+前端代码：123456789101112131415161718192021222324252627282930313
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-10-10 23:17" pubdate>
+              2021-10-10
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/AJAX/">AJAX</a>
+            
+          </div>
+        
+        
+      </div>
+    </article>
+  </div>
+
+
+
+  <nav aria-label="navigation">
+    <span class="pagination" id="pagination">
+      <a class="extend prev" rel="prev" href="/page/5/#board"><i class="iconfont icon-arrowleft"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/#board">4</a><a class="page-number" href="/page/5/#board">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/#board">7</a><a class="page-number" href="/page/8/#board">8</a><a class="extend next" rel="next" href="/page/7/#board"><i class="iconfont icon-arrowright"></i></a>
+    </span>
+  </nav>
+
+
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js" ></script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>

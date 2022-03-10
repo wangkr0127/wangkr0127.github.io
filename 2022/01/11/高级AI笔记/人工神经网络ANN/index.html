@@ -1,0 +1,648 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" href="/img/favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="wangkr">
+  <meta name="keywords" content="">
+  <meta name="description" content="人工神经网络 ANN联结主义学派：又称仿生学派，认为人的思维基元是神经元，而不是符号处理过程 核心：智能的本质是联接机制 原理：神经网络及神经网络间的连接机制和学习算法 人工神经网络：基于模仿生物大脑的结构和功能而构成的一种信息处理系统 自底向上，起源于生物神经系统 ，从 结构模拟 到 功能模拟  生物里的神经元：  兴奋状态：对输入信息整合后使细胞膜电位升高，当高于动作电位的阈值时，产生神经冲动">
+<meta property="og:type" content="article">
+<meta property="og:title" content="人工神经网络 ANN">
+<meta property="og:url" content="https://wangkr0127.github.io/2022/01/11/%E9%AB%98%E7%BA%A7AI%E7%AC%94%E8%AE%B0/%E4%BA%BA%E5%B7%A5%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9CANN/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="人工神经网络 ANN联结主义学派：又称仿生学派，认为人的思维基元是神经元，而不是符号处理过程 核心：智能的本质是联接机制 原理：神经网络及神经网络间的连接机制和学习算法 人工神经网络：基于模仿生物大脑的结构和功能而构成的一种信息处理系统 自底向上，起源于生物神经系统 ，从 结构模拟 到 功能模拟  生物里的神经元：  兴奋状态：对输入信息整合后使细胞膜电位升高，当高于动作电位的阈值时，产生神经冲动">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://wangkr0127.github.io/.io//image-20211224151148765.png">
+<meta property="og:image" content="https://wangkr0127.github.io/.io//image-20211224153651949.png">
+<meta property="og:image" content="https://wangkr0127.github.io/.io//image-20211224153606713.png">
+<meta property="og:image" content="https://wangkr0127.github.io/.io//image-20211225232625756.png">
+<meta property="og:image" content="https://wangkr0127.github.io/.io//image-20211224161330406.png">
+<meta property="og:image" content="https://wangkr0127.github.io/.io//image-20211224163214044.png">
+<meta property="og:image" content="https://wangkr0127.github.io/.io//image-20211224165606171.png">
+<meta property="og:image" content="https://wangkr0127.github.io/.io//image-20211225232723901.png">
+<meta property="og:image" content="https://wangkr0127.github.io/.io//image-20211224180622770.png">
+<meta property="og:image" content="https://wangkr0127.github.io/.io//image-20211224181604854.png">
+<meta property="og:image" content="https://wangkr0127.github.io/.io//image-20211224223759973.png">
+<meta property="og:image" content="https://wangkr0127.github.io/.io//image-20211225011344712.png">
+<meta property="og:image" content="https://wangkr0127.github.io/.io//image-20211225140257874.png">
+<meta property="og:image" content="https://wangkr0127.github.io/.io//image-20211225014201846.png">
+<meta property="og:image" content="https://wangkr0127.github.io/.io//image-20211225014807818.png">
+<meta property="og:image" content="https://wangkr0127.github.io/.io//image-20211225015105785.png">
+<meta property="og:image" content="https://wangkr0127.github.io/.io//image-20211225021303050.png">
+<meta property="og:image" content="https://wangkr0127.github.io/.io//image-20211225021918911.png">
+<meta property="og:image" content="https://wangkr0127.github.io/.io//image-20211225023720489.png">
+<meta property="article:published_time" content="2022-01-11T13:52:34.393Z">
+<meta property="article:modified_time" content="2022-01-11T13:54:33.440Z">
+<meta property="article:author" content="wangkr">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://wangkr0127.github.io/.io//image-20211224151148765.png">
+  
+  <title>人工神经网络 ANN - Hexo</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"wangkr0127.github.io","root":"/","version":"1.8.11","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>每一个不曾起舞的日子，都是对生命的辜负</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="人工神经网络 ANN">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2022-01-11 21:52" pubdate>
+        2022年1月11日 晚上
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      3k 字
+    </span>
+  
+
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      9 分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">人工神经网络 ANN</h1>
+            
+            <div class="markdown-body">
+              <h1 id="人工神经网络-ANN"><a href="#人工神经网络-ANN" class="headerlink" title="人工神经网络 ANN"></a>人工神经网络 ANN</h1><p>联结主义学派：又称仿生学派，认为人的思维基元是神经元，而不是符号处理过程</p>
+<p>核心：智能的本质是联接机制</p>
+<p>原理：神经网络及神经网络间的连接机制和学习算法</p>
+<p>人工神经网络：基于模仿生物大脑的结构和功能而构成的一种信息处理系统</p>
+<p>自底向上，起源于生物神经系统 ，从 <strong>结构模拟</strong> 到 <strong>功能模拟</strong> </p>
+<p>生物里的神经元：</p>
+<ul>
+<li>兴奋状态：对输入信息整合后使细胞膜电位升高，当高于动作电位的阈值时，产生神经冲动，并由轴突输出。</li>
+<li>抑制状态：对输入信息整合后使细胞膜电位降低，当低于动作电位的阈值时，无神经冲动产生。</li>
+</ul>
+<p>神经元之间的<strong>柔性连接</strong>：突触的信息传递特性是可变的——<u>学习记忆的基础</u></p>
+<br>
+
+<h3 id="神经元模型"><a href="#神经元模型" class="headerlink" title="神经元模型"></a>神经元模型</h3><ul>
+<li>二值神经元模型——MP模型（组合函数：加权和函数；激活函数：阈值函数）</li>
+<li>模拟神经元模型（组合函数：加权和函数；激活函数：Sigmod函数等）</li>
+</ul>
+<br>
+
+<h3 id="M-P模型"><a href="#M-P模型" class="headerlink" title="M-P模型"></a>M-P模型</h3><img src="/.io//image-20211224151148765.png" srcset="/img/loading.gif" lazyload alt="image-20211224151148765" style="zoom:50%;">
+
+<p>神经网络学的是 <strong>连接权</strong> 和 <strong>阈值</strong></p>
+<p>多个人工神经元按照特定的网络结构联接在一起，就构成了一个人工神经网络。 </p>
+<p>神经网络的目标就是将输入转换成有意义的输出。</p>
+<br>
+
+<h3 id="ANN的学习规则"><a href="#ANN的学习规则" class="headerlink" title="ANN的学习规则"></a>ANN的学习规则</h3><p><strong>基于能量最小原则</strong>：保持突触强度需要能量，所以在需要的地方保持，在不需要的地方不保持。</p>
+<p>ENERGY = measure of task performance error    （可以用性能评价作能量的函数定义）</p>
+<br>
+
+<h3 id="ANN的2种结构"><a href="#ANN的2种结构" class="headerlink" title="ANN的2种结构"></a>ANN的2种结构</h3><ul>
+<li><strong>前馈结构</strong>(Feedforward Architecture) ：无环、静态</li>
+</ul>
+<img src="/.io//image-20211224153651949.png" srcset="/img/loading.gif" lazyload alt="image-20211224153651949" style="zoom:33%;">
+
+<p>​                                            （前馈无需考虑时间因素）</p>
+<ul>
+<li><strong>反馈/循环结构</strong>(Feedback/Recurrent Architecture) ：有环、动态</li>
+</ul>
+<img src="/.io//image-20211224153606713.png" srcset="/img/loading.gif" lazyload alt="image-20211224153606713" style="zoom:33%;">
+
+<p>​                                            （反馈输出会变成输入）</p>
+<br>
+
+<h3 id="ANN的学习方法"><a href="#ANN的学习方法" class="headerlink" title="ANN的学习方法"></a>ANN的学习方法</h3><p>通过神经网络所在环境的模拟过程，调整网络中的自由参数（通过数据集的数据进行学习）</p>
+<h5 id="学习策略-Error-Correction（错误纠正）"><a href="#学习策略-Error-Correction（错误纠正）" class="headerlink" title="学习策略: Error Correction（错误纠正）"></a>学习策略: Error Correction（错误纠正）</h5><p>最小化实际输出与期望输出之间的误差(Supervised)</p>
+<p>常用的错误纠正策略：Delta Rule 、BP学习算法</p>
+<br>
+
+<h2 id="感知机"><a href="#感知机" class="headerlink" title="感知机"></a>感知机</h2><p>感知机由两层神经元构成：输入层 + 输出层，输出层是M-P神经元，只有输出层进行激活函数处理</p>
+<p>主要针对<u>监督学习</u>，感知机是最简单的前馈网络</p>
+<p>Loss function 损失函数：预测值和实际值之间的差距度量（一般学习目标是最小化损失函数）</p>
+<p>感知机实质上是一种<strong>神经元模型</strong>，与M-P模型的区别：感知机组合函数里的权值w是可变的</p>
+<img src="/.io//image-20211225232625756.png" srcset="/img/loading.gif" lazyload alt="image-20211225232625756" style="zoom: 67%;">
+
+<img src="/.io//image-20211224161330406.png" srcset="/img/loading.gif" lazyload alt="image-20211224161330406" style="zoom: 50%;">
+
+<h5 id="感知机特性："><a href="#感知机特性：" class="headerlink" title="感知机特性："></a>感知机特性：</h5><p>通过感知机可以实现与、或、非，但是不能实现<strong>异或</strong></p>
+<p><strong>感知机收敛性：</strong></p>
+<p>感知机收敛定理 ：<strong>若训练数据集是线性可分的，则感知机模型收敛</strong>。</p>
+<img src="/.io//image-20211224163214044.png" srcset="/img/loading.gif" lazyload alt="image-20211224163214044" style="zoom:50%;">
+
+<h5 id="感知机存在的问题"><a href="#感知机存在的问题" class="headerlink" title="感知机存在的问题"></a>感知机存在的问题</h5><ul>
+<li><strong>噪声</strong>（不可分情况）:数据集不可分，感知机无法收敛（无法求得最终解）</li>
+<li><strong>泛化性</strong>：无法找到性能最好的超平面</li>
+</ul>
+<br>
+
+<h5 id="改进感知机：加入隐层可实现异或操作"><a href="#改进感知机：加入隐层可实现异或操作" class="headerlink" title="改进感知机：加入隐层可实现异或操作"></a>改进感知机：加入隐层可实现异或操作</h5><img src="/.io//image-20211224165606171.png" srcset="/img/loading.gif" lazyload alt="image-20211224165606171" style="zoom:50%;">
+
+<br>
+
+<h2 id="多层感知机-MLP"><a href="#多层感知机-MLP" class="headerlink" title="多层感知机 (MLP)"></a>多层感知机 (MLP)</h2><p>由 输入层、隐层、输出层 构成</p>
+<p>层间神经元<strong>全连接</strong>，采用<u>模拟神经元模型</u></p>
+<p>多层感知机就是一个<strong>多个隐层</strong>的全连接神经网络</p>
+<img src="/.io//image-20211225232723901.png" srcset="/img/loading.gif" lazyload alt="image-20211225232723901" style="zoom:50%;">
+
+<h5 id="MLP的表达能力"><a href="#MLP的表达能力" class="headerlink" title="MLP的表达能力"></a>MLP的表达能力</h5><ul>
+<li>3 layers: 可以模拟所有的连续函数</li>
+<li>4 layers: all functions</li>
+</ul>
+<h5 id="BP网络：BP算法训练的多层前馈神经网络（多层感知机），采用-Sigmoid-激活函数"><a href="#BP网络：BP算法训练的多层前馈神经网络（多层感知机），采用-Sigmoid-激活函数" class="headerlink" title="BP网络：BP算法训练的多层前馈神经网络（多层感知机），采用 Sigmoid 激活函数"></a>BP网络：BP算法训练的多层前馈神经网络（多层感知机），采用 Sigmoid 激活函数</h5><h4 id="多层感知机的学习算法：BP学习算法"><a href="#多层感知机的学习算法：BP学习算法" class="headerlink" title="多层感知机的学习算法：BP学习算法"></a>多层感知机的学习算法：<strong>BP学习算法</strong></h4><img src="/.io//image-20211224180622770.png" srcset="/img/loading.gif" lazyload alt="image-20211224180622770" style="zoom:50%;">
+
+<h5 id="BP算法步骤："><a href="#BP算法步骤：" class="headerlink" title="BP算法步骤："></a>BP算法步骤：</h5><p>Step1. Select a pattern from the training set and present it to the network. </p>
+<p>Step2. Compute activation of input, hidden and output neurons in that sequence. </p>
+<p>Step3. Compute the error over the output neurons by comparing the generated outputs with the             desired outputs. </p>
+<p>Step4. Use the calculated error to update all weights in the network, such that a global error             measure gets reduced. </p>
+<p>Step5. Repeat Step1 through Step4 until the global error falls below a predefined threshold.</p>
+<h5 id="调整权重的过程采用：梯度下降法"><a href="#调整权重的过程采用：梯度下降法" class="headerlink" title="调整权重的过程采用：梯度下降法"></a>调整权重的过程采用：梯度下降法</h5><h4 id="梯度下降法——寻找最小化均方误差e-w-的权重w-优化方法"><a href="#梯度下降法——寻找最小化均方误差e-w-的权重w-优化方法" class="headerlink" title="梯度下降法——寻找最小化均方误差e(w)的权重w    (优化方法)"></a>梯度下降法——寻找最小化均方误差e(w)的权重w    (优化方法)</h4><img src="/.io//image-20211224181604854.png" srcset="/img/loading.gif" lazyload alt="image-20211224181604854" style="zoom:50%;">
+
+<h4 id="多层感知机的优缺点"><a href="#多层感知机的优缺点" class="headerlink" title="多层感知机的优缺点"></a>多层感知机的优缺点</h4><ul>
+<li><p>优点：很强的表达能力；容易执行</p>
+</li>
+<li><p>缺点：</p>
+<ul>
+<li>收敛速度慢——采用Newton法</li>
+<li>过拟合（Over-fitting）—— 加正则化项，约束权值的平滑性，采用更少（但足够数量）的隐层神经元</li>
+<li>局部极小——尝试不同的初始化增加扰动</li>
+</ul>
+</li>
+</ul>
+<h4 id="深度神经网络中BP算法遇到的问题："><a href="#深度神经网络中BP算法遇到的问题：" class="headerlink" title="深度神经网络中BP算法遇到的问题："></a>深度神经网络中BP算法遇到的问题：</h4><p><img src="/.io//image-20211224223759973.png" srcset="/img/loading.gif" lazyload alt="image-20211224223759973"></p>
+<br>
+
+<h4 id="深度神经网络训练"><a href="#深度神经网络训练" class="headerlink" title="深度神经网络训练"></a>深度神经网络训练</h4><ul>
+<li>自下向上的非监督学习（贪婪预训练获得网络良好的初始化 ）</li>
+<li>自顶向下的监督学习<ul>
+<li>通过带标签的数据去训练，误差自顶向下传输，对网络进行微调</li>
+<li>微调特征（中间层），使得与问题更相关</li>
+</ul>
+</li>
+</ul>
+<br>
+
+<h2 id="Deep-Learning-的常用模型"><a href="#Deep-Learning-的常用模型" class="headerlink" title="Deep Learning 的常用模型"></a>Deep Learning 的常用模型</h2><h3 id="AutoEncoder自动编码器"><a href="#AutoEncoder自动编码器" class="headerlink" title="AutoEncoder自动编码器"></a>AutoEncoder自动编码器</h3><p>学习过程：</p>
+<ul>
+<li>无标签数据，用非监督学习学习特征</li>
+<li>监督学习：Deep结构，有监督微调</li>
+</ul>
+<p>三层结构：输入层，隐藏层，输出层</p>
+<img src="/.io//image-20211225011344712.png" srcset="/img/loading.gif" lazyload alt="image-20211225011344712" style="zoom:33%;">
+
+<ul>
+<li><p>输入层神经元数=输出层神经元数 </p>
+</li>
+<li><p>隐层神经元数量&lt;输入层神经元数量     意义：迫使隐藏层节点学习得到输入数据的<strong>压缩</strong>表示方法</p>
+</li>
+</ul>
+<h4 id="两隐层自编码网络MNIST手写数字识别"><a href="#两隐层自编码网络MNIST手写数字识别" class="headerlink" title="两隐层自编码网络MNIST手写数字识别"></a>两隐层自编码网络MNIST手写数字识别</h4><ol>
+<li>用原始输入x(k)训练第一个自编码器，学习得到原始输入的一阶特征表示h(1)(k)</li>
+<li>把上一层的一阶特征作为另一个稀疏自编码器的输入，使用它们来学习二阶特征h(2)(k)</li>
+<li>将二阶特征作为softmax分类器的输入，训练得到一个能将二阶特征映射到数字标签的模型</li>
+<li>将这三层结合起来构成一个<strong>栈式自编码网络</strong>，通过反向传播算法(BP)同时调整所有层的参数以改善学习结果(称为整体细调fine- tuning)</li>
+</ol>
+<h4 id="栈式自编码器神经网络"><a href="#栈式自编码器神经网络" class="headerlink" title="栈式自编码器神经网络"></a>栈式自编码器神经网络</h4><img src="/.io//image-20211225140257874.png" srcset="/img/loading.gif" lazyload alt="image-20211225140257874" style="zoom:50%;">
+
+<p><strong>学习方式</strong>：前层的输出作为下一层输入的方式依次训练</p>
+<p>如果网络的输入数据是图像，网络的第一层会学习如何去识别边，第二层一般会学习如何去组合边，从而构成轮廓、角等。更高层会学习如何去组合更形象且有意义的特征。</p>
+<p>如果输入数据集包含人脸图像，更高层会学习如何识别或组合眼睛、鼻子、嘴等人脸器官。</p>
+<br>
+
+<h3 id="Hopfield-Network"><a href="#Hopfield-Network" class="headerlink" title="Hopfield Network"></a>Hopfield Network</h3><img src="/.io//image-20211225014201846.png" srcset="/img/loading.gif" lazyload alt="image-20211225014201846" style="zoom: 33%;">
+
+<p>单层全互连、对称权值的<strong>反馈</strong>网络</p>
+<p>网络演化：从初始状态按能量减小的方向进行演化，直到达到稳定状态。稳定状态即为网络的输出</p>
+<br>
+
+<h3 id="波尔兹曼机-Boltzmann-Machine"><a href="#波尔兹曼机-Boltzmann-Machine" class="headerlink" title="波尔兹曼机 Boltzmann Machine"></a>波尔兹曼机 Boltzmann Machine</h3><h5 id="属于反馈神经网络"><a href="#属于反馈神经网络" class="headerlink" title="属于反馈神经网络"></a>属于反馈神经网络</h5><img src="/.io//image-20211225014807818.png" srcset="/img/loading.gif" lazyload alt="image-20211225014807818" style="zoom:50%;">
+
+<h5 id="BM基本原理："><a href="#BM基本原理：" class="headerlink" title="BM基本原理："></a>BM基本原理：</h5><ul>
+<li>BM中一部分神经元与外部相连，可以起到网络的输入、输出功能，或者严格地说可以受到外部条件的约束。另一部分神经元则不与外部相连，因而属于隐单元</li>
+<li>每个神经元只取1或0这两种状态：状态1代表该神经元处于接通状态，状态0代表该神经元处于断开状态</li>
+</ul>
+<br>
+
+<h3 id="受限波尔兹曼机-Restricted-Boltzmann-Machines（RBM）"><a href="#受限波尔兹曼机-Restricted-Boltzmann-Machines（RBM）" class="headerlink" title="受限波尔兹曼机 Restricted Boltzmann Machines（RBM）"></a>受限波尔兹曼机 Restricted Boltzmann Machines（RBM）</h3><h5 id="属于反馈神经网络-1"><a href="#属于反馈神经网络-1" class="headerlink" title="属于反馈神经网络"></a>属于反馈神经网络</h5><img src="/.io//image-20211225015105785.png" srcset="/img/loading.gif" lazyload alt="image-20211225015105785" style="zoom: 50%;">
+
+<ul>
+<li>一个可见层</li>
+<li>一个隐层</li>
+<li>层内无连接</li>
+<li>学习目标：极大似然</li>
+</ul>
+<br>
+
+<h3 id="Deep-Belief-Networks-DBN-深度置信网络"><a href="#Deep-Belief-Networks-DBN-深度置信网络" class="headerlink" title="Deep Belief Networks(DBN) 深度置信网络"></a>Deep Belief Networks(DBN) 深度置信网络</h3><p>概率生成模型，由多个RBM堆积而成（栈式叠加）</p>
+<p>深层结构——多层</p>
+<p>非监督的预学习提供了网络好的初始化</p>
+<p>监督微调(fine-tuning)</p>
+<h4 id="DBN-网络结构："><a href="#DBN-网络结构：" class="headerlink" title="DBN 网络结构："></a>DBN 网络结构：</h4><img src="/.io//image-20211225021303050.png" srcset="/img/loading.gif" lazyload alt="image-20211225021303050" style="zoom:50%;">
+
+<img src="/.io//image-20211225021918911.png" srcset="/img/loading.gif" lazyload alt="image-20211225021918911" style="zoom:50%;">
+
+<h4 id="DBN-学习算法："><a href="#DBN-学习算法：" class="headerlink" title="DBN 学习算法："></a>DBN 学习算法：</h4><ul>
+<li>非监督的预学习+监督微调</li>
+<li>训练的时候采用逐层贪婪训练使得网络层数堆积</li>
+</ul>
+<br>
+
+<h3 id="Deep-Boltzmann-Machines-深度玻尔兹曼机"><a href="#Deep-Boltzmann-Machines-深度玻尔兹曼机" class="headerlink" title="Deep Boltzmann Machines 深度玻尔兹曼机"></a>Deep Boltzmann Machines 深度玻尔兹曼机</h3><p>所有层间无向连接  （同层神经元间无连接）</p>
+<p>高层表示由无标注数据建立</p>
+<p>标注数据仅用来微调网络</p>
+<h4 id="DBM-网络结构："><a href="#DBM-网络结构：" class="headerlink" title="DBM 网络结构："></a>DBM 网络结构：</h4><img src="/.io//image-20211225023720489.png" srcset="/img/loading.gif" lazyload alt="image-20211225023720489" style="zoom:50%;">
+
+<h4 id="DBM-学习算法："><a href="#DBM-学习算法：" class="headerlink" title="DBM 学习算法："></a>DBM 学习算法：</h4><ul>
+<li>非监督的预学习+监督微调</li>
+<li>训练时采用双方向，在训练单层时需要同时考虑两个或者多个隐层</li>
+</ul>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/%E9%AB%98%E7%BA%A7AI%E7%AC%94%E8%AE%B0/">高级AI笔记</a>
+                    
+                  </div>
+                
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2022/01/11/%E9%AB%98%E7%BA%A7AI%E7%AC%94%E8%AE%B0/%E5%8D%9A%E5%BC%88/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">博弈</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2022/01/11/LeetCode/16.%20%E6%9C%80%E6%8E%A5%E8%BF%91%E7%9A%84%E4%B8%89%E6%95%B0%E4%B9%8B%E5%92%8C/">
+                        <span class="hidden-mobile">双指针-最接近的三数之和</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js" ></script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>

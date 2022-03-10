@@ -1,0 +1,499 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" href="/img/favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="wangkr">
+  <meta name="keywords" content="">
+  <meta name="description" content="web系统，通常可以分为 ： 客户端 和 服务端 。 BS 模式是一种特殊的 CS 模式。 比如，手机应用（比如微信）就是 客户端， 腾讯公司的微信服务程序（运行在腾讯的机房里面）就是服务端。 客户端称之为前端 ，服务端称之为后端。 我们先关注浏览器前端， 也就是web前端。   Web 前端开发Web 前端开发的重点是 ： 提供用户界面给用户进行观看和操作。 前端开发文件（html，css，js">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Web 开发简介及前后端分离">
+<meta property="og:url" content="https://wangkr0127.github.io/2022/02/09/Django%E5%90%8E%E7%AB%AF/Web%20%E5%BC%80%E5%8F%91%E7%AE%80%E4%BB%8B%E5%8F%8A%E5%89%8D%E5%90%8E%E7%AB%AF%E5%88%86%E7%A6%BB/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="web系统，通常可以分为 ： 客户端 和 服务端 。 BS 模式是一种特殊的 CS 模式。 比如，手机应用（比如微信）就是 客户端， 腾讯公司的微信服务程序（运行在腾讯的机房里面）就是服务端。 客户端称之为前端 ，服务端称之为后端。 我们先关注浏览器前端， 也就是web前端。   Web 前端开发Web 前端开发的重点是 ： 提供用户界面给用户进行观看和操作。 前端开发文件（html，css，js">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://wangkr0127.github.io/.io//image-20220113235906612.png">
+<meta property="article:published_time" content="2022-02-09T13:32:34.395Z">
+<meta property="article:modified_time" content="2022-01-22T09:36:07.592Z">
+<meta property="article:author" content="wangkr">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://wangkr0127.github.io/.io//image-20220113235906612.png">
+  
+  <title>Web 开发简介及前后端分离 - Hexo</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"wangkr0127.github.io","root":"/","version":"1.8.11","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>每一个不曾起舞的日子，都是对生命的辜负</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="Web 开发简介及前后端分离">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2022-02-09 21:32" pubdate>
+        2022年2月9日 晚上
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      1k 字
+    </span>
+  
+
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      3 分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">Web 开发简介及前后端分离</h1>
+            
+            <div class="markdown-body">
+              <p>web系统，通常可以分为 ： <strong>客户端</strong> 和 <strong>服务端</strong> 。</p>
+<p>BS 模式是一种特殊的 CS 模式。</p>
+<p>比如，手机应用（比如微信）就是 客户端， 腾讯公司的微信服务程序（运行在腾讯的机房里面）就是服务端。</p>
+<p>客户端称之为前端 ，服务端称之为后端。</p>
+<p>我们先关注浏览器前端， 也就是web前端。</p>
+<br>
+
+<h2 id="Web-前端开发"><a href="#Web-前端开发" class="headerlink" title="Web 前端开发"></a>Web 前端开发</h2><p>Web 前端开发的重点是 ： 提供用户界面给用户进行观看和操作。</p>
+<p>前端开发文件（html，css，js）没法直接放到浏览器端，都是部署在后端服务器上（有些在cdn上）。</p>
+<p>当我们浏览一个网站的时候，浏览器先通过http协议获取这些文档，然后读取解释它们的内容，生成对应的界面呈现给我们操作。</p>
+<br>
+
+<h2 id="Web-后端开发"><a href="#Web-后端开发" class="headerlink" title="Web 后端开发"></a>Web 后端开发</h2><p>后端要开发服务进程，处理前端http请求，返回相应的数据。</p>
+<p>通常包括数据的查询、增加、删除、修改。</p>
+<p>通常，后端的开发涉及到：</p>
+<ul>
+<li>静态文件服务方案</li>
+</ul>
+<p>就是前端开发出来的HTML、css、js文件存储在什么地方，使用什么的服务提供给前端浏览器访问。 通常一个比较大型的网站， 静态文件往往会使用单独的服务器专门提供服务，甚至一部分特别消耗带宽的数据（比如视频、图片）会使用第三方的云服务厂商（比如阿里云的cdn和oss服务）。</p>
+<ul>
+<li><p>API 接口设计， 就是 定义 前端和后端交互接口规范。</p>
+<p>目前流行的是REST API 风格的接口，但是需要我们设计具体的API请求和响应消息的组成细节。</p>
+<p>这个通常应该是架构师设计的， 但是往往这工作经常会落到后端工程师头上。实际上 很多公司里面，系统架构师 也会做后端开发的工作。</p>
+</li>
+<li><p>数据库存储方案，比如：选择什么样的数据库，包括 关系型和非关系型的数据库。</p>
+</li>
+<li><p>数据库表结构设计， 要能合理、高效的存储业务数据，这样才能高效查询、修改各种关联性的数据。</p>
+</li>
+<li><p>为了提高性能， 需要决定使用怎样的 缓存服务 和 异步任务服务</p>
+</li>
+<li><p>还有其它种种特殊的考虑，比如要熟悉目前日益流行的云存储技术，将有的数据，如图片，视频等 合理存储在云端</p>
+</li>
+<li><p>有的系统还需要有大数据分析的需求要后端高效实现。</p>
+</li>
+</ul>
+<br>
+
+<h2 id="前后端分离"><a href="#前后端分离" class="headerlink" title="前后端分离"></a>前后端分离</h2><p>前后端分离是目前一种非常流行的开发模式，它使项目的分工更加明确：</p>
+<ul>
+<li>后端：负责处理、存储数据</li>
+<li>前端：负责显示数据</li>
+</ul>
+<h4 id="职责分离："><a href="#职责分离：" class="headerlink" title="职责分离："></a>职责分离：</h4><ul>
+<li>前后端仅仅通过异步接口(AJAX / JSONP)来编程</li>
+<li>前后端都各自有自己的开发流程，构建工具，测试集合</li>
+<li>关注点分离，前后端变得相对独立并解耦合</li>
+</ul>
+<img src="/.io//image-20220113235906612.png" srcset="/img/loading.gif" lazyload alt="image-20220113235906612" style="zoom: 50%;">
+
+<br>
+
+<h4 id="Vue-Django"><a href="#Vue-Django" class="headerlink" title="Vue + Django:"></a>Vue + Django:</h4><ul>
+<li><p>Vue：写好页面内容，准备好 ajax 请求</p>
+</li>
+<li><p>Django：写好 url 配置，针对不同的 url 请求写好对应的处理函数，比如返回需要的 json 数据等。</p>
+</li>
+</ul>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/Django%E5%90%8E%E7%AB%AF/">Django后端</a>
+                    
+                  </div>
+                
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2022/02/09/Django%E5%90%8E%E7%AB%AF/%E5%88%86%E9%A1%B5%E5%92%8C%E8%BF%87%E6%BB%A4/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">分页和过滤</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2022/02/09/Django%E5%90%8E%E7%AB%AF/session%20%E5%92%8C%20token/">
+                        <span class="hidden-mobile">session 和 token</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js" ></script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>

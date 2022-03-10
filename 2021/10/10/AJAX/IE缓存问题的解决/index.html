@@ -1,0 +1,452 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" href="/img/favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="wangkr">
+  <meta name="keywords" content="">
+  <meta name="description" content="IE ajax缓存问题：在默认情况下，IE会缓存相同地址ajax请求的结果。IE的第一次ajax请求会发送到服务器端处理，如果后续的请求的参数与第一次的一样，IE浏览器会直接返回缓存的结果而不是去服务器获取。 ☞导致实时的数据不能及时呈现 注：CHrome谷歌浏览器不存在此问题 前端代码：Solve：利用Date.now() 获取当前的时间戳，向浏览器表明每次都是不同的请求(不同的url)，从而跳">
+<meta property="og:type" content="article">
+<meta property="og:title" content="解决IE缓存问题">
+<meta property="og:url" content="https://wangkr0127.github.io/2021/10/10/AJAX/IE%E7%BC%93%E5%AD%98%E9%97%AE%E9%A2%98%E7%9A%84%E8%A7%A3%E5%86%B3/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="IE ajax缓存问题：在默认情况下，IE会缓存相同地址ajax请求的结果。IE的第一次ajax请求会发送到服务器端处理，如果后续的请求的参数与第一次的一样，IE浏览器会直接返回缓存的结果而不是去服务器获取。 ☞导致实时的数据不能及时呈现 注：CHrome谷歌浏览器不存在此问题 前端代码：Solve：利用Date.now() 获取当前的时间戳，向浏览器表明每次都是不同的请求(不同的url)，从而跳">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-10-10T08:24:33.904Z">
+<meta property="article:modified_time" content="2021-10-10T08:55:25.453Z">
+<meta property="article:author" content="wangkr">
+<meta name="twitter:card" content="summary_large_image">
+  
+  <title>解决IE缓存问题 - Hexo</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"wangkr0127.github.io","root":"/","version":"1.8.11","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>每一个不曾起舞的日子，都是对生命的辜负</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="解决IE缓存问题">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-10-10 16:24" pubdate>
+        2021年10月10日 下午
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      2.8k 字
+    </span>
+  
+
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      9 分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">解决IE缓存问题</h1>
+            
+            <div class="markdown-body">
+              <h4 id="IE-ajax缓存问题："><a href="#IE-ajax缓存问题：" class="headerlink" title="IE ajax缓存问题："></a>IE ajax缓存问题：</h4><p>在默认情况下，IE会缓存相同地址ajax请求的结果。IE的第一次ajax请求会发送到服务器端处理，如果后续的请求的参数与第一次的一样，IE浏览器会<strong>直接返回缓存的结果而不是去服务器获取</strong>。</p>
+<p>☞导致实时的数据不能及时呈现</p>
+<p><strong>注：CHrome谷歌浏览器不存在此问题</strong></p>
+<h4 id="前端代码："><a href="#前端代码：" class="headerlink" title="前端代码："></a>前端代码：</h4><p>Solve：利用Date.now() 获取当前的时间戳，向浏览器表明每次都是不同的请求(不同的url)，从而跳过IE的缓存，每次都向服务器端发送请求。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-meta-keyword">html</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">html</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">&quot;en&quot;</span>&gt;</span><br><br><span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">&quot;UTF-8&quot;</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">http-equiv</span>=<span class="hljs-string">&quot;X-UA-Compatible&quot;</span> <span class="hljs-attr">content</span>=<span class="hljs-string">&quot;IE=edge&quot;</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;viewport&quot;</span> <span class="hljs-attr">content</span>=<span class="hljs-string">&quot;width=device-width, initial-scale=1.0&quot;</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>IE缓存问题<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span><span class="css"></span><br><span class="css">        <span class="hljs-selector-id">#result</span> &#123;</span><br><span class="css">            <span class="hljs-attribute">width</span>: <span class="hljs-number">200px</span>;</span><br><span class="css">            <span class="hljs-attribute">height</span>: <span class="hljs-number">100px</span>;</span><br><span class="css">            <span class="hljs-attribute">border</span>: solid <span class="hljs-number">1px</span> <span class="hljs-number">#258</span>;</span><br><span class="css">        &#125;</span><br><span class="css">    </span><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span><br><br><span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">button</span>&gt;</span>点击发送请求<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;result&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript"></span><br><span class="javascript">        <span class="hljs-keyword">const</span> btn = <span class="hljs-built_in">document</span>.getElementsByTagName(<span class="hljs-string">&#x27;button&#x27;</span>)[<span class="hljs-number">0</span>];</span><br><span class="javascript">        <span class="hljs-keyword">const</span> result = <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">&#x27;#result&#x27;</span>);<span class="hljs-comment">//Document 对象使我们可以从脚本中对 HTML 页面中的所有元素进行访问</span></span><br><span class="javascript"></span><br><span class="javascript">        btn.addEventListener(<span class="hljs-string">&#x27;click&#x27;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;</span><br><span class="javascript"></span><br><span class="javascript">            <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&#x27;test&#x27;</span>);</span><br><span class="javascript"></span><br><span class="javascript">            <span class="hljs-keyword">const</span> xhr = <span class="hljs-keyword">new</span> XMLHttpRequest();<span class="hljs-comment">//Ajax 的核心是 XMLHttpRequest 对象</span></span><br><span class="javascript"></span><br><span class="javascript">            xhr.open(<span class="hljs-string">&#x27;GET&#x27;</span>, <span class="hljs-string">&#x27;http://127.0.0.1:8000/ie?t=&#x27;</span>+<span class="hljs-built_in">Date</span>.now());</span><br><span class="javascript">            <span class="hljs-comment">//Date.now() 获取当前的时间戳，向浏览器表明每次都是不同的请求(不同的url)</span></span><br><span class="javascript"></span><br><span class="javascript">            xhr.send();</span><br><span class="javascript">            xhr.onreadystatechange = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;</span><br><span class="javascript">                <span class="hljs-keyword">if</span> (xhr.readyState === <span class="hljs-number">4</span>) &#123;</span><br><span class="javascript">                    <span class="hljs-keyword">if</span> (xhr.status &gt;= <span class="hljs-number">200</span> &amp;&amp; xhr.status &lt; <span class="hljs-number">300</span>) &#123;</span><br><span class="javascript">                        result.innerHTML = xhr.response;</span><br><span class="javascript">                    &#125;</span><br><span class="javascript">                &#125;</span><br><span class="javascript">            &#125;</span><br><span class="javascript">        &#125;)</span><br><span class="javascript"></span><br><span class="javascript">    </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span><br><br><span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+
+
+<br>
+
+<h4 id="服务器端代码（后端）："><a href="#服务器端代码（后端）：" class="headerlink" title="服务器端代码（后端）："></a>服务器端代码（后端）：</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-comment">// express框架 服务端</span><br><span class="hljs-comment">//1.引入express</span><br><span class="hljs-keyword">const</span> express = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;express&#x27;</span>);<br><br><span class="hljs-comment">//2.创建应用对象</span><br><span class="hljs-keyword">const</span> app = express();<br><br><span class="hljs-comment">//3.创建路由规则</span><br><span class="hljs-comment">// request 是对请求报文的封装</span><br><span class="hljs-comment">// response 是对响应报文的封装</span><br>app.get(<span class="hljs-string">&#x27;/server&#x27;</span>,<span class="hljs-function">(<span class="hljs-params">request, response</span>)=&gt;</span>&#123;<br>    <span class="hljs-comment">//设置响应头 设置允许跨域</span><br>    response.setHeader(<span class="hljs-string">&quot;Access-Control-Allow-Origin&quot;</span>,<span class="hljs-string">&quot;*&quot;</span>);<br><br>    <span class="hljs-comment">//设置响应体</span><br>    response.send(<span class="hljs-string">&quot;Hello AJAX&quot;</span>);<br>&#125;)<br><br>app.get(<span class="hljs-string">&#x27;/ie&#x27;</span>,<span class="hljs-function">(<span class="hljs-params">request, response</span>)=&gt;</span>&#123;<br>    <span class="hljs-comment">//设置响应头 设置允许跨域</span><br>    response.setHeader(<span class="hljs-string">&quot;Access-Control-Allow-Origin&quot;</span>,<span class="hljs-string">&quot;*&quot;</span>);<br><br>    <span class="hljs-comment">//设置响应体</span><br>    response.send(<span class="hljs-string">&quot;Hello IE&quot;</span>);<br>&#125;)<br><br>app.post(<span class="hljs-string">&#x27;/server&#x27;</span>,<span class="hljs-function">(<span class="hljs-params">request, response</span>)=&gt;</span>&#123;<br>    <span class="hljs-comment">//设置响应头 设置允许跨域</span><br>    response.setHeader(<span class="hljs-string">&quot;Access-Control-Allow-Origin&quot;</span>,<span class="hljs-string">&quot;*&quot;</span>);<br><br>    <span class="hljs-built_in">console</span>.log(request.headers);<span class="hljs-comment">//在终端输出请求头信息</span><br>    <span class="hljs-comment">//设置响应体</span><br>    response.send(<span class="hljs-string">&quot;Hello AJAX POST&quot;</span>);<br>&#125;)<br><br><span class="hljs-comment">//app.all()可以接收任意类型的HTTP请求</span><br>app.all(<span class="hljs-string">&#x27;/json-server&#x27;</span>,<span class="hljs-function">(<span class="hljs-params">request, response</span>)=&gt;</span>&#123;<br>    <span class="hljs-comment">//设置响应头 设置允许跨域</span><br>    response.setHeader(<span class="hljs-string">&quot;Access-Control-Allow-Origin&quot;</span>,<span class="hljs-string">&quot;*&quot;</span>);<br><br>    <span class="hljs-built_in">console</span>.log(request.headers);<span class="hljs-comment">//在终端输出请求头信息</span><br><br>    <span class="hljs-comment">//响应一个数据</span><br>    <span class="hljs-keyword">const</span> data = &#123;<br>        <span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;wang&#x27;</span><br>    &#125;<br>    <span class="hljs-comment">//对对象进行字符串转换</span><br>    <span class="hljs-keyword">let</span> str = <span class="hljs-built_in">JSON</span>.stringify(data);<br><br>    <span class="hljs-comment">//设置响应体</span><br>    response.send(str);<br>&#125;)<br><br><span class="hljs-comment">//4.监听端口</span><br>app.listen(<span class="hljs-number">8000</span>,<span class="hljs-function">()=&gt;</span>&#123;<br>    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;服务器已经启动，8000 端口监听中....&quot;</span>);<br>&#125;)<br></code></pre></td></tr></table></figure>
+
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/AJAX/">AJAX</a>
+                    
+                  </div>
+                
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2021/10/10/AJAX/%E8%AF%B7%E6%B1%82%E8%B6%85%E6%97%B6%E4%B8%8E%E7%BD%91%E7%BB%9C%E5%BC%82%E5%B8%B8/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">请求超时与网络异常</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/10/10/AJAX/%E6%9C%8D%E5%8A%A1%E7%AB%AF%E5%93%8D%E5%BA%94JSON%E6%95%B0%E6%8D%AE/">
+                        <span class="hidden-mobile">服务端响应JSON数据</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js" ></script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>
