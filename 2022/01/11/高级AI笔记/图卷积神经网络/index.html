@@ -23,24 +23,24 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="图卷积神经网络：Graph Convolutional Network, GCN图神经网络：Graph Neural Network，GNN  Convolutional Neural NetworkThe power of CNN lies in its ability to learn local stationary structures, via localized  convolutio">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://wangkr0127.github.io/.io//image-20220102213125373.png">
-<meta property="og:image" content="https://wangkr0127.github.io/.io//image-20220102222905061.png">
-<meta property="og:image" content="https://wangkr0127.github.io/.io//image-20220102230814980.png">
-<meta property="og:image" content="https://wangkr0127.github.io/.io//image-20220102231853465.png">
-<meta property="og:image" content="https://wangkr0127.github.io/.io//image-20220102233409177.png">
-<meta property="og:image" content="https://wangkr0127.github.io/.io//image-20220102233614588.png">
-<meta property="og:image" content="https://wangkr0127.github.io/.io//image-20220102234137961.png">
-<meta property="og:image" content="https://wangkr0127.github.io/.io//image-20220102235424719.png">
-<meta property="og:image" content="https://wangkr0127.github.io/.io//image-20220103015125388.png">
-<meta property="og:image" content="https://wangkr0127.github.io/.io//image-20220103015211589.png">
-<meta property="og:image" content="https://wangkr0127.github.io/.io//image-20220103020040731.png">
-<meta property="og:image" content="https://wangkr0127.github.io/.io//image-20220103020510949.png">
-<meta property="og:image" content="https://wangkr0127.github.io/.io//image-20220103020700164.png">
+<meta property="og:image" content="https://wangkr0127.github.io/2022/01/11/%E9%AB%98%E7%BA%A7AI%E7%AC%94%E8%AE%B0/%E5%9B%BE%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/图卷积神经网络.assets/image-20220102213125373.png">
+<meta property="og:image" content="https://wangkr0127.github.io/2022/01/11/%E9%AB%98%E7%BA%A7AI%E7%AC%94%E8%AE%B0/%E5%9B%BE%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/图卷积神经网络.assets/image-20220102222905061.png">
+<meta property="og:image" content="https://wangkr0127.github.io/2022/01/11/%E9%AB%98%E7%BA%A7AI%E7%AC%94%E8%AE%B0/%E5%9B%BE%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/图卷积神经网络.assets/image-20220102230814980.png">
+<meta property="og:image" content="https://wangkr0127.github.io/2022/01/11/%E9%AB%98%E7%BA%A7AI%E7%AC%94%E8%AE%B0/%E5%9B%BE%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/图卷积神经网络.assets/image-20220102231853465.png">
+<meta property="og:image" content="https://wangkr0127.github.io/2022/01/11/%E9%AB%98%E7%BA%A7AI%E7%AC%94%E8%AE%B0/%E5%9B%BE%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/%E5%9B%BE%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C.assets/image-20220102233409177.png">
+<meta property="og:image" content="https://wangkr0127.github.io/2022/01/11/%E9%AB%98%E7%BA%A7AI%E7%AC%94%E8%AE%B0/%E5%9B%BE%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/图卷积神经网络.assets/image-20220102233614588.png">
+<meta property="og:image" content="https://wangkr0127.github.io/2022/01/11/%E9%AB%98%E7%BA%A7AI%E7%AC%94%E8%AE%B0/%E5%9B%BE%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/图卷积神经网络.assets/image-20220102234137961.png">
+<meta property="og:image" content="https://wangkr0127.github.io/2022/01/11/%E9%AB%98%E7%BA%A7AI%E7%AC%94%E8%AE%B0/%E5%9B%BE%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/图卷积神经网络.assets/image-20220102235424719.png">
+<meta property="og:image" content="https://wangkr0127.github.io/2022/01/11/%E9%AB%98%E7%BA%A7AI%E7%AC%94%E8%AE%B0/%E5%9B%BE%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/图卷积神经网络.assets/image-20220103015125388.png">
+<meta property="og:image" content="https://wangkr0127.github.io/2022/01/11/%E9%AB%98%E7%BA%A7AI%E7%AC%94%E8%AE%B0/%E5%9B%BE%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/图卷积神经网络.assets/image-20220103015211589.png">
+<meta property="og:image" content="https://wangkr0127.github.io/2022/01/11/%E9%AB%98%E7%BA%A7AI%E7%AC%94%E8%AE%B0/%E5%9B%BE%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/图卷积神经网络.assets/image-20220103020040731.png">
+<meta property="og:image" content="https://wangkr0127.github.io/2022/01/11/%E9%AB%98%E7%BA%A7AI%E7%AC%94%E8%AE%B0/%E5%9B%BE%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/图卷积神经网络.assets/image-20220103020510949.png">
+<meta property="og:image" content="https://wangkr0127.github.io/2022/01/11/%E9%AB%98%E7%BA%A7AI%E7%AC%94%E8%AE%B0/%E5%9B%BE%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/图卷积神经网络.assets/image-20220103020700164.png">
 <meta property="article:published_time" content="2022-01-11T13:52:34.398Z">
 <meta property="article:modified_time" content="2022-01-11T13:55:33.733Z">
 <meta property="article:author" content="wangkr">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://wangkr0127.github.io/.io//image-20220102213125373.png">
+<meta name="twitter:image" content="https://wangkr0127.github.io/2022/01/11/%E9%AB%98%E7%BA%A7AI%E7%AC%94%E8%AE%B0/%E5%9B%BE%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/图卷积神经网络.assets/image-20220102213125373.png">
   
   <title>图卷积神经网络 - Hexo</title>
 
@@ -255,12 +255,12 @@
 
 <h2 id="Convolutional-Neural-Network"><a href="#Convolutional-Neural-Network" class="headerlink" title="Convolutional Neural Network"></a>Convolutional Neural Network</h2><p>The power of CNN lies in its ability to learn local stationary structures, via localized  convolution filter, and compose them to form multi-scale hierarchical patterns.</p>
 <h4 id="从-CNN-到-graph-CNN需要解决的问题："><a href="#从-CNN-到-graph-CNN需要解决的问题：" class="headerlink" title="从 CNN 到 graph CNN需要解决的问题："></a>从 CNN 到 graph CNN需要解决的问题：</h4><p>（在不规则的图graph上定义<strong>卷积算子</strong>）</p>
-<h4 id="how-to-generalize-convolution-to-non-Euclidean-domain"><a href="#how-to-generalize-convolution-to-non-Euclidean-domain" class="headerlink" title="how to generalize convolution to non-Euclidean domain"></a>how to generalize convolution to non-Euclidean domain</h4><img src="/.io//image-20220102213125373.png" srcset="/img/loading.gif" lazyload alt="image-20220102213125373" style="zoom:50%;">
+<h4 id="how-to-generalize-convolution-to-non-Euclidean-domain"><a href="#how-to-generalize-convolution-to-non-Euclidean-domain" class="headerlink" title="how to generalize convolution to non-Euclidean domain"></a>how to generalize convolution to non-Euclidean domain</h4><img src="图卷积神经网络.assets/image-20220102213125373.png" srcset="/img/loading.gif" lazyload alt="image-20220102213125373" style="zoom:50%;" />
 
 <br>
 
 <h2 id="在图上定义卷积运算"><a href="#在图上定义卷积运算" class="headerlink" title="在图上定义卷积运算"></a>在图上定义卷积运算</h2><h3 id="1-Spectral-methods-谱方法"><a href="#1-Spectral-methods-谱方法" class="headerlink" title="1. Spectral methods 谱方法"></a>1. Spectral methods 谱方法</h3><p><strong>原理：在图上做傅里叶变换</strong></p>
-<img src="/.io//image-20220102222905061.png" srcset="/img/loading.gif" lazyload alt="image-20220102222905061" style="zoom:67%;">
+<img src="图卷积神经网络.assets/image-20220102222905061.png" srcset="/img/loading.gif" lazyload alt="image-20220102222905061" style="zoom:67%;" />
 
 <p><strong>缺点</strong></p>
 <ul>
@@ -271,22 +271,22 @@
 <p>**解决上述问题：ChebyNet **</p>
 <br>
 
-<h3 id="2-Spatial-methods-空间方法"><a href="#2-Spatial-methods-空间方法" class="headerlink" title="2. Spatial methods 空间方法"></a>2. Spatial methods 空间方法</h3><img src="/.io//image-20220102230814980.png" srcset="/img/loading.gif" lazyload alt="image-20220102230814980" style="zoom:67%;">
+<h3 id="2-Spatial-methods-空间方法"><a href="#2-Spatial-methods-空间方法" class="headerlink" title="2. Spatial methods 空间方法"></a>2. Spatial methods 空间方法</h3><img src="图卷积神经网络.assets/image-20220102230814980.png" srcset="/img/loading.gif" lazyload alt="image-20220102230814980" style="zoom:67%;" />
 
 <br>
 
-<h4 id="方法示例：GraphSAGE"><a href="#方法示例：GraphSAGE" class="headerlink" title="方法示例：GraphSAGE"></a>方法示例：GraphSAGE</h4><img src="/.io//image-20220102231853465.png" srcset="/img/loading.gif" lazyload alt="image-20220102231853465" style="zoom:67%;">
+<h4 id="方法示例：GraphSAGE"><a href="#方法示例：GraphSAGE" class="headerlink" title="方法示例：GraphSAGE"></a>方法示例：GraphSAGE</h4><img src="图卷积神经网络.assets/image-20220102231853465.png" srcset="/img/loading.gif" lazyload alt="image-20220102231853465" style="zoom:67%;" />
 
 <br>
 
-<p><img src="/.io//image-20220102233409177.png" srcset="/img/loading.gif" lazyload alt="image-20220102233409177"></p>
+<p><img src="%E5%9B%BE%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C.assets/image-20220102233409177.png" srcset="/img/loading.gif" lazyload alt="image-20220102233409177"></p>
 <br>
 
-<h4 id="加入注意力机制："><a href="#加入注意力机制：" class="headerlink" title="加入注意力机制："></a>加入<u>注意力</u>机制：</h4><img src="/.io//image-20220102233614588.png" srcset="/img/loading.gif" lazyload alt="image-20220102233614588" style="zoom:67%;">
+<h4 id="加入注意力机制："><a href="#加入注意力机制：" class="headerlink" title="加入注意力机制："></a>加入<u>注意力</u>机制：</h4><img src="图卷积神经网络.assets/image-20220102233614588.png" srcset="/img/loading.gif" lazyload alt="image-20220102233614588" style="zoom:67%;" />
 
 <br>
 
-<h4 id="MoNet定义了一个一般方法"><a href="#MoNet定义了一个一般方法" class="headerlink" title="MoNet定义了一个一般方法"></a>MoNet定义了一个一般方法</h4><img src="/.io//image-20220102234137961.png" srcset="/img/loading.gif" lazyload alt="image-20220102234137961" style="zoom:67%;">
+<h4 id="MoNet定义了一个一般方法"><a href="#MoNet定义了一个一般方法" class="headerlink" title="MoNet定义了一个一般方法"></a>MoNet定义了一个一般方法</h4><img src="图卷积神经网络.assets/image-20220102234137961.png" srcset="/img/loading.gif" lazyload alt="image-20220102234137961" style="zoom:67%;" />
 
 <br>
 
@@ -299,31 +299,31 @@
 <li><strong>最后进行逆变换，把谱域中的卷积转换到空间域或者说节点域中</strong></li>
 </ul>
 <p><strong>空间方法</strong>：直接在原空间进行定义（可能不是卷积）</p>
-<img src="/.io//image-20220102235424719.png" srcset="/img/loading.gif" lazyload alt="image-20220102235424719" style="zoom:67%;">
+<img src="图卷积神经网络.assets/image-20220102235424719.png" srcset="/img/loading.gif" lazyload alt="image-20220102235424719" style="zoom:67%;" />
 
 <br>
 
 <h2 id="Graph-Pooling-图的池化"><a href="#Graph-Pooling-图的池化" class="headerlink" title="Graph Pooling 图的池化"></a>Graph Pooling 图的池化</h2><p>1、粗化（对图中多个结点进行聚合）</p>
 <p>2、选择图中的部分结点</p>
-<img src="/.io//image-20220103015125388.png" srcset="/img/loading.gif" lazyload alt="image-20220103015125388" style="zoom:67%;">
+<img src="图卷积神经网络.assets/image-20220103015125388.png" srcset="/img/loading.gif" lazyload alt="image-20220103015125388" style="zoom:67%;" />
 
-<img src="/.io//image-20220103015211589.png" srcset="/img/loading.gif" lazyload alt="image-20220103015211589" style="zoom:67%;">
+<img src="图卷积神经网络.assets/image-20220103015211589.png" srcset="/img/loading.gif" lazyload alt="image-20220103015211589" style="zoom:67%;" />
 
 <br>
 
 <h2 id="图神经网络的表达能力"><a href="#图神经网络的表达能力" class="headerlink" title="图神经网络的表达能力"></a>图神经网络的表达能力</h2><p>表达能力介绍：</p>
 <p>神经网络主要考虑<strong>近似能力 Approximation capability</strong></p>
-<img src="/.io//image-20220103020040731.png" srcset="/img/loading.gif" lazyload alt="image-20220103020040731" style="zoom:67%;">
+<img src="图卷积神经网络.assets/image-20220103020040731.png" srcset="/img/loading.gif" lazyload alt="image-20220103020040731" style="zoom:67%;" />
 
 <br>
 
 <h3 id="GNN表达能力的有限性示例："><a href="#GNN表达能力的有限性示例：" class="headerlink" title="GNN表达能力的有限性示例："></a>GNN表达能力的有限性示例：</h3><p>无法区分以下两个网络：（图中每个节点的特征相同）</p>
-<img src="/.io//image-20220103020510949.png" srcset="/img/loading.gif" lazyload alt="image-20220103020510949" style="zoom:67%;">
+<img src="图卷积神经网络.assets/image-20220103020510949.png" srcset="/img/loading.gif" lazyload alt="image-20220103020510949" style="zoom:67%;" />
 
 <br>
 
 <h3 id="GNN表达能力的上限"><a href="#GNN表达能力的上限" class="headerlink" title="GNN表达能力的上限"></a>GNN表达能力的上限</h3><p>WL测试——判断两张图是否是同构的</p>
-<img src="/.io//image-20220103020700164.png" srcset="/img/loading.gif" lazyload alt="image-20220103020700164" style="zoom:67%;">
+<img src="图卷积神经网络.assets/image-20220103020700164.png" srcset="/img/loading.gif" lazyload alt="image-20220103020700164" style="zoom:67%;" />
 
 <ul>
 <li>测出不同构一定不同构</li>
