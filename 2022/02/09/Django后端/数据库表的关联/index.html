@@ -272,7 +272,7 @@
 <p>其中客户字段对应的客户 <strong>只能是 Customer</strong> 中的某个客户记录，而一个客户记录可以对应多条订单记录。</p>
 <p>这就是一对多的关系，可以用如下图片表示：</p>
 <p>（客户——Customer；订单——Order）</p>
-<img src="images/image-20220204225409465.png" srcset="/img/loading.gif" lazyload alt="image-20220204225409465" style="zoom:50%;" />
+<img src="images/image-20220204225409465.png" srcset="/img/loading.gif" lazyload alt="image-20220204225409465" style="zoom:50%;">
 
 <p>像这种一对多的关系，数据库中是用 <strong>外键</strong> 来表示的。</p>
 <p>如果一个表中的某个字段是<strong>外键</strong>，那就意味着这个外键字段的记录的取值，只能是它<strong>关联表的某个记录的主键</strong>的值。</p>
@@ -335,11 +335,11 @@
 <figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs vim"><span class="hljs-keyword">python</span> manage.<span class="hljs-keyword">py</span> makemigrations common<br><span class="hljs-keyword">python</span> manage.<span class="hljs-keyword">py</span> migrate<br></code></pre></td></tr></table></figure>
 
 <p>就会发现产生如下的一张新表 common_ordermedicine：</p>
-<img src="images/image-20220206155652200.png" srcset="/img/loading.gif" lazyload alt="image-20220206155652200" style="zoom: 50%;" />
+<img src="images/image-20220206155652200.png" srcset="/img/loading.gif" lazyload alt="image-20220206155652200" style="zoom: 50%;">
 
 <p>可以发现这张表中有 order_id 和 medicine_id 两个字段。</p>
 <p>比如一个order表的订单id 为 1， 如果该订单中对应的药品有3种，它们的id分别 为 3，4，5。 那么就会有类似这样的这样3条记录在 common_order_medicine 表中。</p>
-<img src="images/image-20220206155728338.png" srcset="/img/loading.gif" lazyload alt="image-20220206155728338" style="zoom:50%;" />
+<img src="images/image-20220206155728338.png" srcset="/img/loading.gif" lazyload alt="image-20220206155728338" style="zoom:50%;">
             </div>
             <hr>
             <div>

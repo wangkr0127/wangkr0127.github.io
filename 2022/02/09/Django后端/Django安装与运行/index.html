@@ -274,7 +274,7 @@
 <p>它们通常是运行在一个python进程中的两个模块，或者说两个子系统。</p>
 <p><code>wsgi web server</code> 接受到前端的http请求后，会调用 <code>wsgi web application</code> 的接口（ 比如函数或者类方法）方法，由<code>wsgi web application</code> 具体处理该请求。然后再把处理结果返回给 <code>wsgi web server</code>， <code>wsgi web server</code>再返回给前端。</p>
 <p>如下图所示:</p>
-<img src="images/image-20220114234806593.png" srcset="/img/loading.gif" lazyload alt="image-20220114234806593" style="zoom: 50%;" />
+<img src="images/image-20220114234806593.png" srcset="/img/loading.gif" lazyload alt="image-20220114234806593" style="zoom: 50%;">
 
 <p><code>wsgi web server</code> 负责<strong>提供高效的http请求处理环境</strong>，可以使用多线程、多进程或者协程的机制。</p>
 <p>http 请求发送到 <code>wsgi web server</code> ， <code>wsgi web server</code> 分配 线程或者进程或者轻量级线程(协程)，然后在这些线程、进程、或者协程里面，去调用执行 <code>wsgi web application</code> 的入口代码。</p>

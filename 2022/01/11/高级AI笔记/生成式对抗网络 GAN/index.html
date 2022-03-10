@@ -23,18 +23,18 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="生成式对抗网络 GANGenerative adversarial networks论文：https:&#x2F;&#x2F;proceedings.neurips.cc&#x2F;paper&#x2F;2014&#x2F;file&#x2F;5ca3e9b122f61f8f06494c97b1afccf3-Paper.pdf GAN具有生成数据样本的能力。   这种能力在一定程度上反映了它对事物的理解 GAN 有望加深人工智能的理解层面的研究  GAN">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://wangkr0127.github.io/2022/01/11/%E9%AB%98%E7%BA%A7AI%E7%AC%94%E8%AE%B0/%E7%94%9F%E6%88%90%E5%BC%8F%E5%AF%B9%E6%8A%97%E7%BD%91%E7%BB%9C%20GAN/生成式对抗网络%20GAN.assets/image-20211226221839763.png">
-<meta property="og:image" content="https://wangkr0127.github.io/2022/01/11/%E9%AB%98%E7%BA%A7AI%E7%AC%94%E8%AE%B0/%E7%94%9F%E6%88%90%E5%BC%8F%E5%AF%B9%E6%8A%97%E7%BD%91%E7%BB%9C%20GAN/生成式对抗网络%20GAN.assets/image-20211226221630593.png">
-<meta property="og:image" content="https://wangkr0127.github.io/2022/01/11/%E9%AB%98%E7%BA%A7AI%E7%AC%94%E8%AE%B0/%E7%94%9F%E6%88%90%E5%BC%8F%E5%AF%B9%E6%8A%97%E7%BD%91%E7%BB%9C%20GAN/生成式对抗网络%20GAN.assets/image-20211226223651501.png">
-<meta property="og:image" content="https://wangkr0127.github.io/2022/01/11/%E9%AB%98%E7%BA%A7AI%E7%AC%94%E8%AE%B0/%E7%94%9F%E6%88%90%E5%BC%8F%E5%AF%B9%E6%8A%97%E7%BD%91%E7%BB%9C%20GAN/生成式对抗网络%20GAN.assets/image-20211227002647531.png">
-<meta property="og:image" content="https://wangkr0127.github.io/2022/01/11/%E9%AB%98%E7%BA%A7AI%E7%AC%94%E8%AE%B0/%E7%94%9F%E6%88%90%E5%BC%8F%E5%AF%B9%E6%8A%97%E7%BD%91%E7%BB%9C%20GAN/生成式对抗网络%20GAN.assets/image-20211227002322145.png">
-<meta property="og:image" content="https://wangkr0127.github.io/2022/01/11/%E9%AB%98%E7%BA%A7AI%E7%AC%94%E8%AE%B0/%E7%94%9F%E6%88%90%E5%BC%8F%E5%AF%B9%E6%8A%97%E7%BD%91%E7%BB%9C%20GAN/生成式对抗网络%20GAN.assets/image-20211227002304327.png">
-<meta property="og:image" content="https://wangkr0127.github.io/2022/01/11/%E9%AB%98%E7%BA%A7AI%E7%AC%94%E8%AE%B0/%E7%94%9F%E6%88%90%E5%BC%8F%E5%AF%B9%E6%8A%97%E7%BD%91%E7%BB%9C%20GAN/生成式对抗网络%20GAN.assets/image-20211227011527410.png">
+<meta property="og:image" content="https://wangkr0127.github.io/.io//image-20211226221839763.png">
+<meta property="og:image" content="https://wangkr0127.github.io/.io//image-20211226221630593.png">
+<meta property="og:image" content="https://wangkr0127.github.io/.io//image-20211226223651501.png">
+<meta property="og:image" content="https://wangkr0127.github.io/.io//image-20211227002647531.png">
+<meta property="og:image" content="https://wangkr0127.github.io/.io//image-20211227002322145.png">
+<meta property="og:image" content="https://wangkr0127.github.io/.io//image-20211227002304327.png">
+<meta property="og:image" content="https://wangkr0127.github.io/.io//image-20211227011527410.png">
 <meta property="article:published_time" content="2022-01-11T13:52:34.404Z">
 <meta property="article:modified_time" content="2022-01-11T13:55:09.998Z">
 <meta property="article:author" content="wangkr">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://wangkr0127.github.io/2022/01/11/%E9%AB%98%E7%BA%A7AI%E7%AC%94%E8%AE%B0/%E7%94%9F%E6%88%90%E5%BC%8F%E5%AF%B9%E6%8A%97%E7%BD%91%E7%BB%9C%20GAN/生成式对抗网络%20GAN.assets/image-20211226221839763.png">
+<meta name="twitter:image" content="https://wangkr0127.github.io/.io//image-20211226221839763.png">
   
   <title>生成式对抗网络 GAN - Hexo</title>
 
@@ -257,12 +257,12 @@
 <h4 id="生成模型"><a href="#生成模型" class="headerlink" title="生成模型"></a>生成模型</h4><p>生成模型可以描述成一个生成数据的模型，属于一种概率模型。</p>
 <p>通过这个模型我们可以<u>生成不包含在训练数据集中的新的数据</u>。</p>
 <p>比如我们有很多马的图片通过生成模型学习这些马的图像，从中学习到马的样子，生成模型就可以生成看起来很真实的马的图像并且这个图像是不属于训练图像的。</p>
-<img src="生成式对抗网络 GAN.assets/image-20211226221839763.png" srcset="/img/loading.gif" lazyload alt="image-20211226221839763" style="zoom: 33%;" />
+<img src="/.io//image-20211226221839763.png" srcset="/img/loading.gif" lazyload alt="image-20211226221839763" style="zoom: 33%;">
 
 <br>
 
 <h4 id="Maximum-Likelihood"><a href="#Maximum-Likelihood" class="headerlink" title="Maximum Likelihood"></a>Maximum Likelihood</h4><p>似然：根据结果来判断这个事情本身的性质（参数）</p>
-<img src="生成式对抗网络 GAN.assets/image-20211226221630593.png" srcset="/img/loading.gif" lazyload alt="image-20211226221630593" style="zoom:50%;" />
+<img src="/.io//image-20211226221630593.png" srcset="/img/loading.gif" lazyload alt="image-20211226221630593" style="zoom:50%;">
 
 <p>通过采样结果估计原始图像（数据）</p>
 <br>
@@ -284,7 +284,7 @@
 <li>将 G 拼接在 D 的上方，即 G 的输出作为 D 的输入，同时固定 D 的参数，并将进入 G 的噪音样本标签全部改成’1’，为了最小化损失函数，此时就只能改变 G 的每一层权重，反复迭代后 G 的生成能力因此得以改进。</li>
 <li>反复迭代（1）（2），最终 G 就会得到较好的生成能力。</li>
 </ol>
-<img src="生成式对抗网络 GAN.assets/image-20211226223651501.png" srcset="/img/loading.gif" lazyload alt="image-20211226223651501" style="zoom: 67%;" />
+<img src="/.io//image-20211226223651501.png" srcset="/img/loading.gif" lazyload alt="image-20211226223651501" style="zoom: 67%;">
 
 <br>
 
@@ -302,12 +302,12 @@
 <p>数据生成Generation：想要获得真实数据的分布——极大似然估计</p>
 <br>
 
-<p>定义：<img src="生成式对抗网络 GAN.assets/image-20211227002647531.png" srcset="/img/loading.gif" lazyload alt="image-20211227002647531" style="zoom:33%;" /></p>
+<p>定义：<img src="/.io//image-20211227002647531.png" srcset="/img/loading.gif" lazyload alt="image-20211227002647531" style="zoom:33%;"></p>
 <p>生成器目标：</p>
-<img src="生成式对抗网络 GAN.assets/image-20211227002322145.png" srcset="/img/loading.gif" lazyload alt="image-20211227002322145" style="zoom:50%;" />
+<img src="/.io//image-20211227002322145.png" srcset="/img/loading.gif" lazyload alt="image-20211227002322145" style="zoom:50%;">
 
 <p>判别器目标：</p>
-<img src="生成式对抗网络 GAN.assets/image-20211227002304327.png" srcset="/img/loading.gif" lazyload alt="image-20211227002304327" style="zoom:50%;" />
+<img src="/.io//image-20211227002304327.png" srcset="/img/loading.gif" lazyload alt="image-20211227002304327" style="zoom:50%;">
 
 
 
@@ -322,7 +322,7 @@
 <li>Direct Transformation</li>
 <li>Projection to Common Space</li>
 </ul>
-<img src="生成式对抗网络 GAN.assets/image-20211227011527410.png" srcset="/img/loading.gif" lazyload alt="image-20211227011527410" style="zoom:80%;" />
+<img src="/.io//image-20211227011527410.png" srcset="/img/loading.gif" lazyload alt="image-20211227011527410" style="zoom:80%;">
 
 
             </div>

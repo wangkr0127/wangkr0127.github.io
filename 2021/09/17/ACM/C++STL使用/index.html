@@ -237,7 +237,7 @@
             <h1 style="display: none">C++ STL使用</h1>
             
             <div class="markdown-body">
-              <h1 id="1、vector"><a href="#1、vector" class="headerlink" title="1、vector"></a>1、<strong>vector</strong></h1><h4 id="（1）初始化"><a href="#（1）初始化" class="headerlink" title="（1）初始化"></a>（1）初始化</h4><p>一维vector：vector<int> v;</p>
+              <h1 id="1、vector"><a href="#1、vector" class="headerlink" title="1、vector"></a>1、<strong>vector</strong></h1><h4 id="（1）初始化"><a href="#（1）初始化" class="headerlink" title="（1）初始化"></a>（1）初始化</h4><p>一维vector：vector<int> v;</int></p>
 <p><strong>二维vector初始化方法</strong>：</p>
 <p>①利用push_back()函数</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs c++">vector&lt;vector&lt;<span class="hljs-keyword">int</span>&gt;&gt; vec;<br><br>vector&lt;<span class="hljs-keyword">int</span>&gt; a;<br>a.<span class="hljs-built_in">push_back</span>(<span class="hljs-number">1</span>);<br>a.<span class="hljs-built_in">push_back</span>(<span class="hljs-number">2</span>);<br> <br>vector&lt;<span class="hljs-keyword">int</span>&gt; b;<br>b.<span class="hljs-built_in">push_back</span>(<span class="hljs-number">4</span>);<br>b.<span class="hljs-built_in">push_back</span>(<span class="hljs-number">5</span>);<br> <br>vec.<span class="hljs-built_in">push_back</span>(a);<br>vec.<span class="hljs-built_in">push_back</span>(b);<br></code></pre></td></tr></table></figure>
@@ -249,12 +249,12 @@
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs c++">vector&lt; vector&lt;<span class="hljs-keyword">int</span>&gt; &gt; <span class="hljs-built_in">points</span>(<span class="hljs-number">3</span>,vector&lt;<span class="hljs-keyword">int</span>&gt;(<span class="hljs-number">2</span>,<span class="hljs-number">0</span>));<br></code></pre></td></tr></table></figure>
 
 <p>说明：声明一个名为points的容器，其元素为vector容器，类似int类型的二维数组。</p>
-<p>初始化数值：points有3个子元素，每个子元素vector<int>的长度为2，初始化为0。</p>
+<p>初始化数值：points有3个子元素，每个子元素vector<int>的长度为2，初始化为0。</int></p>
 <p>注意：两个’&lt;’符号之间要隔开。</p>
 <br>
 
 <h4 id="（2）取长度"><a href="#（2）取长度" class="headerlink" title="（2）取长度"></a>（2）取长度</h4><p>使用size()函数</p>
-<p>eg：针对二维vector：vector&lt;vector<int> &gt; vec;</p>
+<p>eg：针对二维vector：vector&lt;vector<int> &gt; vec;</int></p>
 <p>vec.size()和 vec[0].size()来分别获取行数和列数。</p>
 <br>
 
@@ -271,14 +271,14 @@
 
 <h4 id="（4）vector排序"><a href="#（4）vector排序" class="headerlink" title="（4）vector排序"></a>（4）vector排序</h4><p>一维vector：sort(v.begin(), v.end())；</p>
 <p><strong>二维vector</strong>：sort()函数，默认的是对二维数组按照第一列进行排序。</p>
-<p>如：vector&lt;vector<int>&gt; v(10);  [[3,2],[6,1],[2,4]]</p>
+<p>如：vector&lt;vector<int>&gt; v(10);  [[3,2],[6,1],[2,4]]</int></p>
 <p>sort(v.begin(), v.end())；后结果为：[[2,4],[3,2],[6,1]]</p>
 <h5 id="自定义排序："><a href="#自定义排序：" class="headerlink" title="自定义排序："></a>自定义排序：</h5><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-function"><span class="hljs-keyword">bool</span> <span class="hljs-title">cmp</span><span class="hljs-params">(vector&lt;<span class="hljs-keyword">int</span>&gt; a, vector&lt;<span class="hljs-keyword">int</span>&gt; b)</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-keyword">if</span>(a[<span class="hljs-number">0</span>] == b[<span class="hljs-number">0</span>])<br>        <span class="hljs-keyword">return</span> a[<span class="hljs-number">1</span>] &gt; b[<span class="hljs-number">1</span>];<br>	<span class="hljs-keyword">return</span> a[<span class="hljs-number">0</span>] &gt; b[<span class="hljs-number">0</span>];<br>&#125;<br><span class="hljs-built_in">sort</span>(v.<span class="hljs-built_in">begin</span>(), v.<span class="hljs-built_in">end</span>(),cmp);<br></code></pre></td></tr></table></figure>
 
 <p>注：排序的传参用<strong>引用</strong>，这样更快，如：</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-function"><span class="hljs-keyword">bool</span> <span class="hljs-title">cmp</span><span class="hljs-params">(<span class="hljs-keyword">const</span> vector&lt;<span class="hljs-keyword">int</span>&gt; &amp;a, <span class="hljs-keyword">const</span> vector&lt;<span class="hljs-keyword">int</span>&gt; &amp;b)</span></span><br></code></pre></td></tr></table></figure>
 
-<br/>
+<br>
 
 <h1 id="2、map"><a href="#2、map" class="headerlink" title="2、map"></a>2、map</h1><h4 id="（1）初始化-1"><a href="#（1）初始化-1" class="headerlink" title="（1）初始化"></a>（1）初始化</h4><p>（key—value）</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs c++">map&lt;string,<span class="hljs-keyword">int</span>&gt; myMap;<br></code></pre></td></tr></table></figure>
