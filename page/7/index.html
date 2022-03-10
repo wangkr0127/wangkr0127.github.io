@@ -190,6 +190,53 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
+        <a href="/2021/10/10/AJAX/%E8%A7%A3%E5%86%B3%E9%87%8D%E5%A4%8D%E5%8F%91%E9%80%81AJAX%E8%AF%B7%E6%B1%82%E9%97%AE%E9%A2%98/" target="_self">
+          解决重复发送AJAX请求问题
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/10/10/AJAX/%E8%A7%A3%E5%86%B3%E9%87%8D%E5%A4%8D%E5%8F%91%E9%80%81AJAX%E8%AF%B7%E6%B1%82%E9%97%AE%E9%A2%98/" target="_self">
+          
+          
+            
+          
+          问题起因：
+用户连续点击发送按钮，这个按钮用于发送多条相同的ajax请求，导致服务器处理数据的负担太大，所以需要解决这个问题。
+思路：无论用户重复发送多少次请求，都把上一次未完成的请求取消，相同请求只发送一次
+Solve：通过一个变量 isSending 来标识是否正在发送请求。
+前端代码：123456789101112131415161718192021222324252627282930313
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-10-10 23:17" pubdate>
+              2021-10-10
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/AJAX/">AJAX</a>
+            
+          </div>
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
         <a href="/2021/10/10/AJAX/%E5%8F%96%E6%B6%88%E8%AF%B7%E6%B1%82/" target="_self">
           取消请求
         </a>
@@ -584,52 +631,6 @@ solve：O(n^2)求LIS + cnt[]记录个数
             <i class="iconfont icon-date"></i>
             <time datetime="2021-09-20 11:13" pubdate>
               2021-09-20
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/ACM/">ACM</a>
-            
-          </div>
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2021/09/17/ACM/C++STL%E4%BD%BF%E7%94%A8/" target="_self">
-          C++ STL使用
-        </a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2021/09/17/ACM/C++STL%E4%BD%BF%E7%94%A8/" target="_self">
-          
-          
-            
-          
-          1、vector（1）初始化一维vector：vector v;
-二维vector初始化方法：
-①利用push_back()函数
-123456789101112vector&lt;vector&lt;int&gt;&gt; vec;vector&lt;int&gt; a;a.push_back(1);a.push_back(2); vector&lt;int&gt; b;b.push_back(4
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2021-09-17 09:51" pubdate>
-              2021-09-17
             </time>
           </div>
         

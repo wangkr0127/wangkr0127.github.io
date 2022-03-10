@@ -16,17 +16,20 @@
   <meta name="description" content="">
   <meta name="author" content="wangkr">
   <meta name="keywords" content="">
-  <meta name="description" content="Python 通过 pip install 安装第三方库失败（网络连接原因等）1、通过官网或者 Github 链接直接下载 tar 或者 whl 文件 2、pip install XXX.whl    直接安装   python安装第三方包的安装路径 dist-packages：系统自带的python site-packages：自己安装的python    python使用os库的注意事项123">
+  <meta name="description" content="Python 通过 pip install 安装第三方库失败（网络连接原因等）1、通过官网或者 Github 链接直接下载 tar 或者 whl 文件 2、pip install XXX.whl &#x2F; XXX.tar.gz    直接安装（同一路径下）     python安装第三方包的安装路径 dist-packages：系统自带的python site-packages：自己安装的python">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Debug汇总">
 <meta property="og:url" content="https://wangkr0127.github.io/2022/01/13/Debug%E6%B1%87%E6%80%BB/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="Python 通过 pip install 安装第三方库失败（网络连接原因等）1、通过官网或者 Github 链接直接下载 tar 或者 whl 文件 2、pip install XXX.whl    直接安装   python安装第三方包的安装路径 dist-packages：系统自带的python site-packages：自己安装的python    python使用os库的注意事项123">
+<meta property="og:description" content="Python 通过 pip install 安装第三方库失败（网络连接原因等）1、通过官网或者 Github 链接直接下载 tar 或者 whl 文件 2、pip install XXX.whl &#x2F; XXX.tar.gz    直接安装（同一路径下）     python安装第三方包的安装路径 dist-packages：系统自带的python site-packages：自己安装的python">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://wangkr0127.github.io/2022/01/13/Debug%E6%B1%87%E6%80%BB/images/image-20220222012428291.png">
+<meta property="og:image" content="https://wangkr0127.github.io/2022/01/13/Debug%E6%B1%87%E6%80%BB/images/image-20220301150635665.png">
 <meta property="article:published_time" content="2022-01-13T13:09:12.254Z">
-<meta property="article:modified_time" content="2022-01-21T13:58:04.700Z">
+<meta property="article:modified_time" content="2022-03-10T12:59:03.859Z">
 <meta property="article:author" content="wangkr">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://wangkr0127.github.io/2022/01/13/Debug%E6%B1%87%E6%80%BB/images/image-20220222012428291.png">
   
   <title>Debug汇总 - Hexo</title>
 
@@ -196,7 +199,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      947 字
+      1.5k 字
     </span>
   
 
@@ -205,7 +208,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      3 分钟
+      5 分钟
     </span>
   
 
@@ -238,7 +241,9 @@
             
             <div class="markdown-body">
               <h4 id="Python-通过-pip-install-安装第三方库失败（网络连接原因等）"><a href="#Python-通过-pip-install-安装第三方库失败（网络连接原因等）" class="headerlink" title="Python 通过 pip install 安装第三方库失败（网络连接原因等）"></a>Python 通过 pip install 安装第三方库失败（网络连接原因等）</h4><p>1、通过官网或者 Github 链接直接下载 tar 或者 whl 文件</p>
-<p>2、pip install XXX.whl    直接安装</p>
+<p>2、pip install XXX.whl / XXX.tar.gz    直接安装（同一路径下）</p>
+<br>
+
 <br>
 
 <h4 id="python安装第三方包的安装路径"><a href="#python安装第三方包的安装路径" class="headerlink" title="python安装第三方包的安装路径"></a>python安装第三方包的安装路径</h4><ul>
@@ -247,17 +252,23 @@
 </ul>
 <br>
 
+<br>
+
 <h4 id="python使用os库的注意事项"><a href="#python使用os库的注意事项" class="headerlink" title="python使用os库的注意事项"></a>python使用os库的注意事项</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python">output_path = os.path.join(<span class="hljs-string">&#x27;./&#x27;</span>, <span class="hljs-string">&#x27;new_data&#x27;</span>, <span class="hljs-string">&#x27;2021&#x27;</span>, domain)<br><span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> os.path.exists(output_path):<br>	os.mkdir(output_path)<br></code></pre></td></tr></table></figure>
 
 <p>os.mkdir 用来创建缺失的目录（只能创建<strong>最后一级</strong>）：</p>
 <p>如果目录有多级，则创建最后一级，如果最后一级目录的上级目录有不存在的，则会抛出一个 Error。</p>
 <br>
 
-<h4 id="Linux下运行bash脚本显示“-usr-bin-env-“bash-r”-没有那个文件或目录"><a href="#Linux下运行bash脚本显示“-usr-bin-env-“bash-r”-没有那个文件或目录" class="headerlink" title="Linux下运行bash脚本显示“: /usr/bin/env: “bash\r”: 没有那个文件或目录"></a>Linux下运行bash脚本显示“: /usr/bin/env: “bash\r”: 没有那个文件或目录</h4><p>解决办法：</p>
+<br>
+
+<h4 id="Linux下运行shell脚本显示“-usr-bin-env-“bash-r”-没有那个文件或目录"><a href="#Linux下运行shell脚本显示“-usr-bin-env-“bash-r”-没有那个文件或目录" class="headerlink" title="Linux下运行shell脚本显示“: /usr/bin/env: “bash\r”: 没有那个文件或目录"></a>Linux下运行shell脚本显示“: /usr/bin/env: “bash\r”: 没有那个文件或目录</h4><p>解决办法：</p>
 <p>  用vim打开sh脚本文件（vim filename.txt）， 重新设置文件的格式</p>
 <p>  ：set ff 然后回车 再重新设置下文件格式：</p>
 <p>  ：set ff=unix 然后保存退出</p>
 <p>  ：wq! 回车</p>
+<br>
+
 <br>
 
 <h4 id="执行Shell脚本：–do-eval-未找到命令"><a href="#执行Shell脚本：–do-eval-未找到命令" class="headerlink" title="执行Shell脚本：–do_eval:未找到命令"></a>执行Shell脚本：–do_eval:未找到命令</h4><p>原因：shell脚本采用了错误的注释方式：</p>
@@ -268,9 +279,47 @@
 
 <br>
 
+<br>
+
 <h4 id="使用-Filezilla-连接服务器以后文件目录缺失"><a href="#使用-Filezilla-连接服务器以后文件目录缺失" class="headerlink" title="使用 Filezilla 连接服务器以后文件目录缺失"></a>使用 Filezilla 连接服务器以后文件目录缺失</h4><p>Solve：连接端口号改为22，采用 sftp 协议</p>
 <p>（ SFTP 比 FTP 更安全，但传输的效率比 FTP 要低一些）</p>
+<p><br><br></p>
+<h4 id="计算交叉熵损失函数报错"><a href="#计算交叉熵损失函数报错" class="headerlink" title="计算交叉熵损失函数报错"></a>计算交叉熵损失函数报错</h4><p><img src="images/image-20220222012428291.png" srcset="/img/loading.gif" lazyload alt="image-20220222012428291"></p>
+<p>报错原因：tensor的维度不正确</p>
+<p>——Tensor实际上就是一个多维数组，计算交叉熵时维度需要调对</p>
+<p>解决办法：</p>
+<p>[4] → [1, 4]    利用tensor的view方法调整维度</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">if</span> p_domain_logits.shape == torch.Size([<span class="hljs-number">4</span>]):<br>    y1 = p_domain_logits.view(<span class="hljs-number">1</span>, <span class="hljs-number">4</span>)<br>    y2 = s_domain_logits.view(<span class="hljs-number">1</span>, <span class="hljs-number">4</span>)<br>    p_domain_logits = y1<br>    s_domain_logits = y2<br></code></pre></td></tr></table></figure>
+
 <br>
+
+<br>
+
+<h4 id="Git-Push-报错"><a href="#Git-Push-报错" class="headerlink" title="Git Push 报错"></a>Git Push 报错</h4><h5 id="error-src-refspec-main-does-not-match-any"><a href="#error-src-refspec-main-does-not-match-any" class="headerlink" title="error: src refspec main does not match any"></a>error: src refspec main does not match any</h5><p>Solve：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs git">git show-ref<br></code></pre></td></tr></table></figure>
+
+<p>返回：8c4c7afc8d831dcba4f8989e39eb8286c1657439 refs/heads/master</p>
+<p>确定分支的名称后再push</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs git">git push -u origin master<br></code></pre></td></tr></table></figure>
+
+<br>
+
+<br>
+
+<h4 id="RuntimeError-cuDNN-error-CUDNN-STATUS-EXECUTION-FAILED"><a href="#RuntimeError-cuDNN-error-CUDNN-STATUS-EXECUTION-FAILED" class="headerlink" title="RuntimeError: cuDNN error: CUDNN_STATUS_EXECUTION_FAILED"></a>RuntimeError: cuDNN error: CUDNN_STATUS_EXECUTION_FAILED</h4><p>cudnn是cuda的一个工具，专门用于加速深度网络。</p>
+<p>方法一：减小 batch size</p>
+<p><strong>方法二（推荐）：</strong></p>
+<ul>
+<li>先 <strong>nvidia-smi</strong> 查看 GPU 的显存使用情况</li>
+</ul>
+<img src="images/image-20220301150635665.png" srcset="/img/loading.gif" lazyload alt="image-20220301150635665" style="zoom: 50%;" />
+
+<ul>
+<li><p>再 <strong>ps -aux</strong> 查看未结束的无用进程</p>
+</li>
+<li><p>最后 <strong>kill -9 PID</strong> 结束指定的进程（PID为进程号）</p>
+</li>
+</ul>
 
             </div>
             <hr>
