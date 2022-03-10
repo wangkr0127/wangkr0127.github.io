@@ -23,14 +23,14 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="数据库表的关联后端系统开发中，数据库设计是重中之重。 特别是前后端分离的系统，后端的职责基本就是数据管理，开发的代码几乎都是围绕数据操作的。 目前使用的数据库系统主要还是 关系型数据库 。 什么是关系型数据库？就是建立在关系模型基础上的数据库。 比如mysql、oracle、 sqlserver、SQLite 都是关系型数据库，而 mongodb则不是。 （mongodb是基于分布式文件存储的数据">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://wangkr0127.github.io/2022/02/09/Django%E5%90%8E%E7%AB%AF/%E6%95%B0%E6%8D%AE%E5%BA%93%E8%A1%A8%E7%9A%84%E5%85%B3%E8%81%94/images/image-20220204225409465.png">
-<meta property="og:image" content="https://wangkr0127.github.io/2022/02/09/Django%E5%90%8E%E7%AB%AF/%E6%95%B0%E6%8D%AE%E5%BA%93%E8%A1%A8%E7%9A%84%E5%85%B3%E8%81%94/images/image-20220206155652200.png">
-<meta property="og:image" content="https://wangkr0127.github.io/2022/02/09/Django%E5%90%8E%E7%AB%AF/%E6%95%B0%E6%8D%AE%E5%BA%93%E8%A1%A8%E7%9A%84%E5%85%B3%E8%81%94/images/image-20220206155728338.png">
+<meta property="og:image" content="https://wangkr0127.github.io/images/image-20220204225409465.png">
+<meta property="og:image" content="https://wangkr0127.github.io/images/image-20220206155652200.png">
+<meta property="og:image" content="https://wangkr0127.github.io/images/image-20220206155728338.png">
 <meta property="article:published_time" content="2022-02-09T13:32:34.403Z">
-<meta property="article:modified_time" content="2022-03-10T12:39:24.834Z">
+<meta property="article:modified_time" content="2022-03-10T13:16:20.835Z">
 <meta property="article:author" content="wangkr">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://wangkr0127.github.io/2022/02/09/Django%E5%90%8E%E7%AB%AF/%E6%95%B0%E6%8D%AE%E5%BA%93%E8%A1%A8%E7%9A%84%E5%85%B3%E8%81%94/images/image-20220204225409465.png">
+<meta name="twitter:image" content="https://wangkr0127.github.io/images/image-20220204225409465.png">
   
   <title>数据库表的关联 - Hexo</title>
 
@@ -272,7 +272,7 @@
 <p>其中客户字段对应的客户 <strong>只能是 Customer</strong> 中的某个客户记录，而一个客户记录可以对应多条订单记录。</p>
 <p>这就是一对多的关系，可以用如下图片表示：</p>
 <p>（客户——Customer；订单——Order）</p>
-<img src="images/image-20220204225409465.png" srcset="/img/loading.gif" lazyload alt="image-20220204225409465" style="zoom:50%;">
+<img src="/images/image-20220204225409465.png" srcset="/img/loading.gif" lazyload alt="image-20220204225409465" style="zoom:50%;">
 
 <p>像这种一对多的关系，数据库中是用 <strong>外键</strong> 来表示的。</p>
 <p>如果一个表中的某个字段是<strong>外键</strong>，那就意味着这个外键字段的记录的取值，只能是它<strong>关联表的某个记录的主键</strong>的值。</p>
@@ -335,11 +335,11 @@
 <figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs vim"><span class="hljs-keyword">python</span> manage.<span class="hljs-keyword">py</span> makemigrations common<br><span class="hljs-keyword">python</span> manage.<span class="hljs-keyword">py</span> migrate<br></code></pre></td></tr></table></figure>
 
 <p>就会发现产生如下的一张新表 common_ordermedicine：</p>
-<img src="images/image-20220206155652200.png" srcset="/img/loading.gif" lazyload alt="image-20220206155652200" style="zoom: 50%;">
+<img src="/images/image-20220206155652200.png" srcset="/img/loading.gif" lazyload alt="image-20220206155652200" style="zoom: 50%;">
 
 <p>可以发现这张表中有 order_id 和 medicine_id 两个字段。</p>
 <p>比如一个order表的订单id 为 1， 如果该订单中对应的药品有3种，它们的id分别 为 3，4，5。 那么就会有类似这样的这样3条记录在 common_order_medicine 表中。</p>
-<img src="images/image-20220206155728338.png" srcset="/img/loading.gif" lazyload alt="image-20220206155728338" style="zoom:50%;">
+<img src="/images/image-20220206155728338.png" srcset="/img/loading.gif" lazyload alt="image-20220206155728338" style="zoom:50%;">
             </div>
             <hr>
             <div>
