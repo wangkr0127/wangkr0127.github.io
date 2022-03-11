@@ -4,6 +4,44 @@
   
   
   <entry>
+    <title>合并多个TXT文件</title>
+    <link href="/2022/03/11/%E5%B0%8FSkills/%E5%90%88%E5%B9%B6%E5%A4%9A%E4%B8%AATXT%E6%96%87%E4%BB%B6/"/>
+    <url>/2022/03/11/%E5%B0%8FSkills/%E5%90%88%E5%B9%B6%E5%A4%9A%E4%B8%AATXT%E6%96%87%E4%BB%B6/</url>
+    
+    <content type="html"><![CDATA[<p>1、将需要合并的多个TXT文件复制到同一文件夹下，按下“win+R”，输入“cmd”，点击“确定”</p><p>2、在弹出窗口中，输入文件夹所在的磁盘，以F盘为例，输入完成按下“回车”，再次输入例如“cd F：\baidu”，输入完成按下“回车”。</p><p>3、输入“type *.txt.&gt;&gt;f：\baidu\111.txt”，按下“回车”键即可。</p><p>4、此时界面下方会显示所复制的txt和合并后的txt的名称。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>小Skills</category>
+      
+    </categories>
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>批量修改文件名后缀</title>
+    <link href="/2022/03/11/%E5%B0%8FSkills/%E6%89%B9%E9%87%8F%E4%BF%AE%E6%94%B9%E6%96%87%E4%BB%B6%E5%90%8D%E5%90%8E%E7%BC%80/"/>
+    <url>/2022/03/11/%E5%B0%8FSkills/%E6%89%B9%E9%87%8F%E4%BF%AE%E6%94%B9%E6%96%87%E4%BB%B6%E5%90%8D%E5%90%8E%E7%BC%80/</url>
+    
+    <content type="html"><![CDATA[<p>如下图所示，如何将Word 97 -2003文档(*.doc)的后缀名批量更改为.docx？</p><p><img src="/images/image-20220311141728193.png" alt="image-20220311141728193"></p><br><p>在文件夹里面新建一个txt，之后输入代码ren *.doc *.docx，然后按Ctrl+S保存，随后将记事本的后缀名更改为bat，双击即可更改。</p><br><p>注意：ren后面是有空格的。</p><br><p>ren是DOS命令之一，rename的缩写，如果需要给文件重命名，就可以使用rename命令。</p><p>*表示任意字符</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>小Skills</category>
+      
+    </categories>
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>注解与反射</title>
     <link href="/2022/03/11/java/%E6%B3%A8%E8%A7%A3%E4%B8%8E%E5%8F%8D%E5%B0%84/"/>
     <url>/2022/03/11/java/%E6%B3%A8%E8%A7%A3%E4%B8%8E%E5%8F%8D%E5%B0%84/</url>
