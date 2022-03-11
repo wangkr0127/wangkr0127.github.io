@@ -16,22 +16,19 @@
   <meta name="description" content="">
   <meta name="author" content="wangkr">
   <meta name="keywords" content="">
-  <meta name="description" content="对于一个大于1正整数n可以分解质因数：(p表示prime)  则n的正约数的个数就是  如：用python求num的约束个数： Solve 1234567891011def solve_it(num):    r &#x3D; 1    for i in range(2,num+1):        cnt &#x3D; 1        while(num%i&#x3D;&#x3D;0):            cnt +&#x3D; 1">
+  <meta name="description" content="题目链接：673. 最长递增子序列的个数 - 力扣（LeetCode） (leetcode-cn.com) 题意：给定一个未排序的整数数组，找到最长递增子序列的个数。 样例： 12输入: [1,3,5,4,7]输出: 2    solve：O(n^2)求LIS + cnt[]记录个数 **dp[i]**：以nums[i]结尾的最长递增子序列的长度 **cnt[i]**：以nums[i]为结尾的字符">
 <meta property="og:type" content="article">
-<meta property="og:title" content="约束个数定理">
-<meta property="og:url" content="https://wangkr0127.github.io/2021/09/25/ACM/%E7%BA%A6%E6%9D%9F%E4%B8%AA%E6%95%B0%E5%AE%9A%E7%90%86/index.html">
+<meta property="og:title" content="最长递增子序列的个数">
+<meta property="og:url" content="https://wangkr0127.github.io/2021/09/20/LeetCode/%E6%9C%80%E9%95%BF%E9%80%92%E5%A2%9E%E5%AD%90%E5%BA%8F%E5%88%97%E7%9A%84%E4%B8%AA%E6%95%B0/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="对于一个大于1正整数n可以分解质因数：(p表示prime)  则n的正约数的个数就是  如：用python求num的约束个数： Solve 1234567891011def solve_it(num):    r &#x3D; 1    for i in range(2,num+1):        cnt &#x3D; 1        while(num%i&#x3D;&#x3D;0):            cnt +&#x3D; 1">
+<meta property="og:description" content="题目链接：673. 最长递增子序列的个数 - 力扣（LeetCode） (leetcode-cn.com) 题意：给定一个未排序的整数数组，找到最长递增子序列的个数。 样例： 12输入: [1,3,5,4,7]输出: 2    solve：O(n^2)求LIS + cnt[]记录个数 **dp[i]**：以nums[i]结尾的最长递增子序列的长度 **cnt[i]**：以nums[i]为结尾的字符">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://wangkr0127.github.io/.io//1.png">
-<meta property="og:image" content="https://wangkr0127.github.io/.io//2.png">
-<meta property="article:published_time" content="2021-09-24T16:33:11.197Z">
-<meta property="article:modified_time" content="2021-09-27T10:55:06.918Z">
+<meta property="article:published_time" content="2021-09-20T03:13:44.359Z">
+<meta property="article:modified_time" content="2021-09-20T03:45:12.282Z">
 <meta property="article:author" content="wangkr">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://wangkr0127.github.io/.io//1.png">
   
-  <title>约束个数定理 - Hexo</title>
+  <title>最长递增子序列的个数 - Hexo</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
 
@@ -178,7 +175,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="约束个数定理">
+            <span class="h2" id="subtitle" title="最长递增子序列的个数">
               
             </span>
 
@@ -188,8 +185,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2021-09-25 00:33" pubdate>
-        2021年9月25日 凌晨
+      <time datetime="2021-09-20 11:13" pubdate>
+        2021年9月20日 上午
       </time>
     </span>
   
@@ -199,7 +196,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      179 字
+      737 字
     </span>
   
 
@@ -208,7 +205,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      1 分钟
+      2 分钟
     </span>
   
 
@@ -237,16 +234,22 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">约束个数定理</h1>
+            <h1 style="display: none">最长递增子序列的个数</h1>
             
             <div class="markdown-body">
-              <p>对于一个大于1正整数n可以<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E5%88%86%E8%A7%A3%E8%B4%A8%E5%9B%A0%E6%95%B0">分解质因数</a>：(p表示prime)</p>
-<p><img src="/.io//1.png" srcset="/img/loading.gif" lazyload alt="img"></p>
-<p>则n的<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E6%AD%A3%E7%BA%A6%E6%95%B0/882466">正约数</a>的个数就是</p>
-<p><img src="/.io//2.png" srcset="/img/loading.gif" lazyload alt="img"></p>
-<p>如：用python求num的约束个数：</p>
-<p><strong>Solve</strong></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">solve_it</span>(<span class="hljs-params">num</span>):</span><br>    r = <span class="hljs-number">1</span><br>    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">2</span>,num+<span class="hljs-number">1</span>):<br>        cnt = <span class="hljs-number">1</span><br>        <span class="hljs-keyword">while</span>(num%i==<span class="hljs-number">0</span>):<br>            cnt += <span class="hljs-number">1</span><br>            num /= i<br>        r = r * cnt<br>        <span class="hljs-keyword">if</span> num == <span class="hljs-number">1</span>:<br>            <span class="hljs-keyword">break</span><br>    <span class="hljs-keyword">return</span> r<br></code></pre></td></tr></table></figure>
+              <p>题目链接：<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/number-of-longest-increasing-subsequence/">673. 最长递增子序列的个数 - 力扣（LeetCode） (leetcode-cn.com)</a></p>
+<p>题意：给定一个未排序的整数数组，找到最长递增子序列的个数。</p>
+<p>样例：</p>
+<figure class="highlight makefile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs makefile"><span class="hljs-section">输入: [1,3,5,4,7]</span><br><span class="hljs-section">输出: 2</span><br></code></pre></td></tr></table></figure>
+
+
+
+<h3 id="solve："><a href="#solve：" class="headerlink" title="solve："></a>solve：</h3><p><strong>O(n^2)求LIS + cnt[]记录个数</strong></p>
+<p>**dp[i]**：以nums[i]结尾的最长递增子序列的长度</p>
+<p>**cnt[i]**：以nums[i]为结尾的字符串，最长递增子序列的个数</p>
+<p>(原数组为nums)</p>
+<p>code:</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">findNumberOfLIS</span><span class="hljs-params">(vector&lt;<span class="hljs-keyword">int</span>&gt;&amp; nums)</span> </span>&#123;<br>    <span class="hljs-keyword">int</span> dp[<span class="hljs-number">2010</span>];<br>    <span class="hljs-keyword">int</span> cnt[<span class="hljs-number">2010</span>];<br>    <span class="hljs-keyword">int</span> n=nums.<span class="hljs-built_in">size</span>();<br>    <span class="hljs-keyword">int</span> i,j;<br>    <span class="hljs-keyword">for</span>(i=<span class="hljs-number">0</span>;i&lt;n;i++)<br>    &#123;<br>        dp[i]=<span class="hljs-number">1</span>;<br>        cnt[i]=<span class="hljs-number">1</span>;<br>    &#125;<br>    <span class="hljs-keyword">for</span>(i=<span class="hljs-number">1</span>;i&lt;n;i++)<br>    &#123;<br>        <span class="hljs-keyword">for</span>(j=<span class="hljs-number">0</span>;j&lt;i;j++)<br>            <span class="hljs-keyword">if</span>(nums[j]&lt;nums[i])<br>            &#123;<br>                <span class="hljs-keyword">if</span>(dp[i]&lt;dp[j]+<span class="hljs-number">1</span>)<br>                &#123;<br>                    dp[i]=dp[j]+<span class="hljs-number">1</span>;<br>                    cnt[i]=cnt[j];<br>                &#125;<br>                <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(dp[i]==dp[j]+<span class="hljs-number">1</span>)<br>                    cnt[i]+=cnt[j];<br>            &#125;<br>    &#125;<br>    <span class="hljs-keyword">int</span> maxlen=<span class="hljs-number">-1</span>;<br>    <span class="hljs-keyword">for</span>(i=<span class="hljs-number">0</span>;i&lt;n;i++)<br>        maxlen=<span class="hljs-built_in">max</span>(maxlen,dp[i]);<br>    <span class="hljs-keyword">int</span> r=<span class="hljs-number">0</span>;<br>    <span class="hljs-keyword">for</span>(i=<span class="hljs-number">0</span>;i&lt;n;i++)<br>    &#123;<br>        <span class="hljs-keyword">if</span>(dp[i]==maxlen)<br>            r+=cnt[i];<br>    &#125;<br>    <span class="hljs-keyword">return</span> r;<br>&#125;<br></code></pre></td></tr></table></figure>
 
 
             </div>
@@ -285,8 +288,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2021/09/20/ACM/%E6%9C%80%E9%95%BF%E9%80%92%E5%A2%9E%E5%AD%90%E5%BA%8F%E5%88%97%E7%9A%84%E4%B8%AA%E6%95%B0/">
-                        <span class="hidden-mobile">最长递增子序列的个数</span>
+                      <a href="/2021/09/17/ACM/C++STL%E4%BD%BF%E7%94%A8/">
+                        <span class="hidden-mobile">C++ STL使用</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
