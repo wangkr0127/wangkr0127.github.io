@@ -1,0 +1,520 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" href="/img/favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="wangkr">
+  <meta name="keywords" content="">
+  <meta name="description" content="JDBC1、什么是JDBCJava Database Connectivity —— Java连接数据库 思想——架构：没有什么是加一层解决不了的  需要jar包的支持：  java.sql javax.sql mysql-conneter-java… 连接驱动（必须要导入）  2、实验环境搭建2.1 创建MySQL数据库表格1234567891011121314151617CREATE TABL">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="https://wangkr0127.github.io/2022/03/24/java/JavaWeb%E5%85%A5%E9%97%A8/12-JDBC/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="JDBC1、什么是JDBCJava Database Connectivity —— Java连接数据库 思想——架构：没有什么是加一层解决不了的  需要jar包的支持：  java.sql javax.sql mysql-conneter-java… 连接驱动（必须要导入）  2、实验环境搭建2.1 创建MySQL数据库表格1234567891011121314151617CREATE TABL">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://wangkr0127.github.io/.io//image-20220320155833170.png">
+<meta property="og:image" content="https://wangkr0127.github.io/.io//image-20220320193034391.png">
+<meta property="og:image" content="https://wangkr0127.github.io/.io//image-20220320193122424.png">
+<meta property="og:image" content="https://wangkr0127.github.io/.io//image-20220320193157550.png">
+<meta property="og:image" content="https://wangkr0127.github.io/.io//image-20220320200024499.png">
+<meta property="og:image" content="https://wangkr0127.github.io/.io//image-20220320203844328.png">
+<meta property="og:image" content="https://wangkr0127.github.io/.io//image-20220320203902937.png">
+<meta property="article:published_time" content="2022-03-24T11:43:27.185Z">
+<meta property="article:modified_time" content="2022-03-23T14:18:59.114Z">
+<meta property="article:author" content="wangkr">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://wangkr0127.github.io/.io//image-20220320155833170.png">
+  
+  <title>Hexo</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"wangkr0127.github.io","root":"/","version":"1.8.11","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>每一个不曾起舞的日子，都是对生命的辜负</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2022-03-24 19:43" pubdate>
+        2022年3月24日 晚上
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      4.7k 字
+    </span>
+  
+
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      15 分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none"></h1>
+            
+            <div class="markdown-body">
+              <h1 id="JDBC"><a href="#JDBC" class="headerlink" title="JDBC"></a>JDBC</h1><h3 id="1、什么是JDBC"><a href="#1、什么是JDBC" class="headerlink" title="1、什么是JDBC"></a>1、什么是JDBC</h3><p>Java Database Connectivity —— Java连接数据库</p>
+<p>思想——架构：没有什么是加一层解决不了的</p>
+<p><img src="/.io//image-20220320155833170.png" srcset="/img/loading.gif" lazyload alt="image-20220320155833170"></p>
+<p>需要jar包的支持：</p>
+<ul>
+<li>java.sql</li>
+<li>javax.sql</li>
+<li>mysql-conneter-java… 连接驱动（必须要导入）</li>
+</ul>
+<h3 id="2、实验环境搭建"><a href="#2、实验环境搭建" class="headerlink" title="2、实验环境搭建"></a>2、<strong>实验环境搭建</strong></h3><h4 id="2-1-创建MySQL数据库表格"><a href="#2-1-创建MySQL数据库表格" class="headerlink" title="2.1 创建MySQL数据库表格"></a><strong>2.1 创建MySQL数据库表格</strong></h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> users(<br>    id <span class="hljs-type">INT</span> <span class="hljs-keyword">PRIMARY</span> KEY,<br>    `name` <span class="hljs-type">VARCHAR</span>(<span class="hljs-number">40</span>),<br>    `password` <span class="hljs-type">VARCHAR</span>(<span class="hljs-number">40</span>),<br>    email <span class="hljs-type">VARCHAR</span>(<span class="hljs-number">60</span>),<br>    birthday <span class="hljs-type">DATE</span><br>);<br><br><span class="hljs-keyword">INSERT</span> <span class="hljs-keyword">INTO</span> users(id,`name`,`password`,email,birthday)<br><span class="hljs-keyword">VALUES</span>(<span class="hljs-number">1</span>,<span class="hljs-string">&#x27;张三&#x27;</span>,<span class="hljs-string">&#x27;123456&#x27;</span>,<span class="hljs-string">&#x27;zs@qq.com&#x27;</span>,<span class="hljs-string">&#x27;2000-01-01&#x27;</span>);<br><span class="hljs-keyword">INSERT</span> <span class="hljs-keyword">INTO</span> users(id,`name`,`password`,email,birthday)<br><span class="hljs-keyword">VALUES</span>(<span class="hljs-number">2</span>,<span class="hljs-string">&#x27;李四&#x27;</span>,<span class="hljs-string">&#x27;123456&#x27;</span>,<span class="hljs-string">&#x27;ls@qq.com&#x27;</span>,<span class="hljs-string">&#x27;2000-01-01&#x27;</span>);<br><span class="hljs-keyword">INSERT</span> <span class="hljs-keyword">INTO</span> users(id,`name`,`password`,email,birthday)<br><span class="hljs-keyword">VALUES</span>(<span class="hljs-number">3</span>,<span class="hljs-string">&#x27;王五&#x27;</span>,<span class="hljs-string">&#x27;123456&#x27;</span>,<span class="hljs-string">&#x27;ww@qq.com&#x27;</span>,<span class="hljs-string">&#x27;2000-01-01&#x27;</span>);<br><br><br><span class="hljs-keyword">SELECT</span>	<span class="hljs-operator">*</span> <span class="hljs-keyword">FROM</span> users;<br></code></pre></td></tr></table></figure>
+
+
+
+<h4 id="2-1-导入数据库依赖"><a href="#2-1-导入数据库依赖" class="headerlink" title="2.1  导入数据库依赖"></a>2.1  导入数据库依赖</h4><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-comment">&lt;!--mysql的驱动--&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>mysql<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>mysql-connector-java<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>5.1.47<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+
+
+<h3 id="3、IDEA中连接数据库："><a href="#3、IDEA中连接数据库：" class="headerlink" title="3、IDEA中连接数据库："></a>3、IDEA中连接数据库：</h3><ul>
+<li>输入用户和密码</li>
+<li>选择Schemas</li>
+<li>选择Driver</li>
+</ul>
+<img src="/.io//image-20220320193034391.png" srcset="/img/loading.gif" lazyload alt="image-20220320193034391" style="zoom:67%;">
+
+<img src="/.io//image-20220320193122424.png" srcset="/img/loading.gif" lazyload alt="image-20220320193122424" style="zoom:67%;">
+
+<img src="/.io//image-20220320193157550.png" srcset="/img/loading.gif" lazyload alt="image-20220320193157550" style="zoom:67%;">
+
+<img src="/.io//image-20220320200024499.png" srcset="/img/loading.gif" lazyload alt="image-20220320200024499" style="zoom:67%;">
+
+
+
+<h3 id="4、JDBC-固定步骤："><a href="#4、JDBC-固定步骤：" class="headerlink" title="4、JDBC 固定步骤："></a>4、<strong>JDBC 固定步骤：</strong></h3><ol>
+<li>加载驱动</li>
+<li>连接数据库，代表数据库</li>
+<li>向数据库发送SQL的对象Statement：CRUD</li>
+<li>编写SQL （根据业务，不同的SQL）</li>
+<li>执行SQL</li>
+<li>关闭连接（先开的后关）</li>
+</ol>
+<p><strong>注：查询用executeQuery()，增删改都用executeUpdate()</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TestJdbc</span> </span>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> <span class="hljs-keyword">throws</span> ClassNotFoundException, SQLException </span>&#123;<br>        <span class="hljs-comment">//配置信息</span><br>        <span class="hljs-comment">//useUnicode=true&amp;characterEncoding=utf-8 解决中文乱码</span><br>        String url=<span class="hljs-string">&quot;jdbc:mysql://localhost:3306/jdbc?useUnicode=true&amp;characterEncoding=utf-8&quot;</span>;<br>        String username = <span class="hljs-string">&quot;root&quot;</span>;<br>        String password = <span class="hljs-string">&quot;123456&quot;</span>;<br><br>        <span class="hljs-comment">//1.加载驱动</span><br>        Class.forName(<span class="hljs-string">&quot;com.mysql.jdbc.Driver&quot;</span>);<br>        <span class="hljs-comment">//2.连接数据库,代表数据库</span><br>        Connection connection = DriverManager.getConnection(url, username, password);<br><br>        <span class="hljs-comment">//3.向数据库发送SQL的对象Statement,PreparedStatement : CRUD</span><br>        Statement statement = connection.createStatement();<br><br>        <span class="hljs-comment">//4.编写SQL</span><br>        String sql = <span class="hljs-string">&quot;select * from users&quot;</span>;<br><br>        <span class="hljs-comment">//5.执行查询SQL，返回一个 ResultSet  ： 结果集</span><br>        ResultSet rs = statement.executeQuery(sql);<br><br>        <span class="hljs-keyword">while</span> (rs.next())&#123;<br>            System.out.println(<span class="hljs-string">&quot;id=&quot;</span>+rs.getObject(<span class="hljs-string">&quot;id&quot;</span>));<br>            System.out.println(<span class="hljs-string">&quot;name=&quot;</span>+rs.getObject(<span class="hljs-string">&quot;name&quot;</span>));<br>            System.out.println(<span class="hljs-string">&quot;password=&quot;</span>+rs.getObject(<span class="hljs-string">&quot;password&quot;</span>));<br>            System.out.println(<span class="hljs-string">&quot;email=&quot;</span>+rs.getObject(<span class="hljs-string">&quot;email&quot;</span>));<br>            System.out.println(<span class="hljs-string">&quot;birthday=&quot;</span>+rs.getObject(<span class="hljs-string">&quot;birthday&quot;</span>));<br>        &#125;<br><br>        <span class="hljs-comment">//6.关闭连接，释放资源（一定要做） 先开后关</span><br>        rs.close();<br>        statement.close();<br>        connection.close();<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+
+
+<h3 id="5、预编译SQL"><a href="#5、预编译SQL" class="headerlink" title="5、预编译SQL"></a><strong>5、预编译SQL</strong></h3><h4 id="预编译语句基本概念"><a href="#预编译语句基本概念" class="headerlink" title="预编译语句基本概念"></a>预编译语句基本概念</h4><p>通常我们的一条sql在db接收到最终执行完毕返回可以分为下面三个过程：</p>
+<ol>
+<li>词法和语义解析</li>
+<li>优化sql语句，制定执行计划</li>
+<li>执行并返回结果</li>
+</ol>
+<p>我们把这种普通语句称作<strong>Immediate Statements</strong>。</p>
+<p>但是很多情况，我们的一条sql语句可能会反复执行，或者每次执行的时候只有个别的值不同（比如query的where子句值不同，update的set子句值不同,insert的values值不同）。<br>如果每次都需要经过上面的词法语义解析、语句优化、制定执行计划等，则效率就明显不行了。</p>
+<p>所谓预编译语句就是将这类语句中的值用占位符替代，可以视为<strong>将sql语句模板化或者说参数化</strong>，一般称这类语句叫<strong>Prepared Statements</strong>或者<strong>Parameterized Statements</strong><br>预编译语句的优势在于归纳为：<strong>一次编译、多次运行，省去了解析优化等过程；此外预编译语句能防止sql注入</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TestJDBC2</span> </span>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> <span class="hljs-keyword">throws</span> Exception </span>&#123;<br>        <span class="hljs-comment">//配置信息</span><br>        <span class="hljs-comment">//useUnicode=true&amp;characterEncoding=utf-8 解决中文乱码</span><br>        String url=<span class="hljs-string">&quot;jdbc:mysql://localhost:3306/jdbc?useUnicode=true&amp;characterEncoding=utf-8&quot;</span>;<br>        String username = <span class="hljs-string">&quot;root&quot;</span>;<br>        String password = <span class="hljs-string">&quot;123456&quot;</span>;<br><br>        <span class="hljs-comment">//1.加载驱动</span><br>        Class.forName(<span class="hljs-string">&quot;com.mysql.jdbc.Driver&quot;</span>);<br>        <span class="hljs-comment">//2.连接数据库,代表数据库</span><br>        Connection connection = DriverManager.getConnection(url, username, password);<br><br>        <span class="hljs-comment">//3.编写SQL</span><br>        String sql = <span class="hljs-string">&quot;insert into  users(id, name, password, email, birthday) values (?,?,?,?,?);&quot;</span>;<br><br>        <span class="hljs-comment">//4.预编译</span><br>        PreparedStatement preparedStatement = connection.prepareStatement(sql);<br><br>        preparedStatement.setInt(<span class="hljs-number">1</span>,<span class="hljs-number">2</span>);<span class="hljs-comment">//给第一个占位符？ 的值赋值为1；</span><br>        preparedStatement.setString(<span class="hljs-number">2</span>,<span class="hljs-string">&quot;狂神说Java&quot;</span>);<span class="hljs-comment">//给第二个占位符？ 的值赋值为狂神说Java；</span><br>        preparedStatement.setString(<span class="hljs-number">3</span>,<span class="hljs-string">&quot;123456&quot;</span>);<span class="hljs-comment">//给第三个占位符？ 的值赋值为123456；</span><br>        preparedStatement.setString(<span class="hljs-number">4</span>,<span class="hljs-string">&quot;24736743@qq.com&quot;</span>);<span class="hljs-comment">//给第四个占位符？ 的值赋值为1；</span><br>        preparedStatement.setDate(<span class="hljs-number">5</span>,<span class="hljs-keyword">new</span> Date(<span class="hljs-keyword">new</span> java.util.Date().getTime()));<span class="hljs-comment">//给第五个占位符？ 的值赋值为new Date(new java.util.Date().getTime())；</span><br><br>        <span class="hljs-comment">//5.执行SQL</span><br>        <span class="hljs-keyword">int</span> i = preparedStatement.executeUpdate();<br><br>        <span class="hljs-keyword">if</span> (i&gt;<span class="hljs-number">0</span>)&#123;<br>            System.out.println(<span class="hljs-string">&quot;插入成功@&quot;</span>);<br>        &#125;<br><br>        <span class="hljs-comment">//6.关闭连接，释放资源（一定要做） 先开后关</span><br>        preparedStatement.close();<br>        connection.close();<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+
+
+<h3 id="6、事务-amp-ACID原则"><a href="#6、事务-amp-ACID原则" class="headerlink" title="6、事务 &amp; ACID原则"></a><strong>6、事务 &amp; ACID原则</strong></h3><p>要么都成功，要么都失败！</p>
+<p>ACID原则：保证数据的安全。</p>
+<p><strong>原子性(Atomicity)：</strong>是指一个事务要么全部执行，要么不执行，也就是说一个事务不可能只执行了一半就停止了。</p>
+<p>**一致性(Consistency)**：是指事务的运行并不改变数据库中数据的一致性。例如，完整性约束了a+b=10，一个事务改变了a，那么b也应该随之改变。</p>
+<p><strong>独立性(Isolation）：</strong>事务的独立性也称作隔离性，是指两个以上的事务不会出现交错执行的状态。因为这样可能会导致数据不一致，更加具体的来讲，就是事务之间的操作是独立的。</p>
+<p><strong>持久性(Durability）：</strong>事务的持久性是指事务执行成功以后，该事务对数据库所作的更改便是持久的保存在数据库之中，不会无缘无故的回滚。</p>
+<figure class="highlight isbl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs isbl">执行顺序：<br><br>开启事务<br>事务提交  <span class="hljs-function"><span class="hljs-title">commit</span>()</span><br>事务回滚  <span class="hljs-function"><span class="hljs-title">rollback</span>()</span><br>关闭事务<br><br></code></pre></td></tr></table></figure>
+
+
+
+<h3 id="7、Junit单元测试"><a href="#7、Junit单元测试" class="headerlink" title="7、Junit单元测试"></a>7、<strong>Junit单元测试</strong></h3><p>依赖</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-comment">&lt;!--单元测试--&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>junit<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>junit<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>4.12<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<p>简单使用：</p>
+<p><strong>@Test注解只有在方法上有效，只要加了这个注解的方法，就可以直接运行！</strong></p>
+<p>（可以只运行注解标注的方法）</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Test</span><br><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">test</span><span class="hljs-params">()</span></span>&#123;<br>    System.out.println(<span class="hljs-string">&quot;Hello&quot;</span>);<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p><img src="/.io//image-20220320203844328.png" srcset="/img/loading.gif" lazyload alt="image-20220320203844328"></p>
+<p>失败的时候是红色：</p>
+<p><img src="/.io//image-20220320203902937.png" srcset="/img/loading.gif" lazyload alt="image-20220320203902937"></p>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2022/03/24/java/JavaWeb%E5%85%A5%E9%97%A8/13-Spring%20Boot%E5%8F%96%E4%BB%A3JSP/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile"></span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2022/03/24/java/JavaWeb%E5%85%A5%E9%97%A8/11-%E7%9B%91%E5%90%AC%E5%99%A8/">
+                        <span class="hidden-mobile"></span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js" ></script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>

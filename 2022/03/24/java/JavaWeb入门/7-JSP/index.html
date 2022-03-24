@@ -1,0 +1,571 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" href="/img/favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="wangkr">
+  <meta name="keywords" content="">
+  <meta name="description" content="JSP1、什么是JSPJava Server Pages ： Java服务器端页面，也和Servlet一样，用于动态Web技术！ 最大的特点：  写JSP就像在写HTML 区别： HTML只给用户提供静态的数据 JSP页面中可以嵌入JAVA代码，为用户提供动态数据；    2、JSP原理思路：JSP到底怎么执行的！  代码层面没有任何问题  服务器内部工作  tomcat中有一个work目录">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="https://wangkr0127.github.io/2022/03/24/java/JavaWeb%E5%85%A5%E9%97%A8/7-JSP/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="JSP1、什么是JSPJava Server Pages ： Java服务器端页面，也和Servlet一样，用于动态Web技术！ 最大的特点：  写JSP就像在写HTML 区别： HTML只给用户提供静态的数据 JSP页面中可以嵌入JAVA代码，为用户提供动态数据；    2、JSP原理思路：JSP到底怎么执行的！  代码层面没有任何问题  服务器内部工作  tomcat中有一个work目录">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://wangkr0127.github.io/.io//1711857-20210816225159513-816497645.png">
+<meta property="og:image" content="https://wangkr0127.github.io/.io//1363376-20210216220926289-1784071746.png">
+<meta property="og:image" content="https://wangkr0127.github.io/.io//1363376-20210216223311190-2004601916.png">
+<meta property="og:image" content="https://wangkr0127.github.io/.io//copycode.gif">
+<meta property="og:image" content="https://wangkr0127.github.io/.io//1363376-20210216224529290-293287669.png">
+<meta property="og:image" content="https://wangkr0127.github.io/.io//20200507213158259.png">
+<meta property="og:image" content="https://wangkr0127.github.io/.io//watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2JlbGxfbG92ZQ==,size_16,color_FFFFFF,t_70.png">
+<meta property="article:published_time" content="2022-03-24T11:43:27.197Z">
+<meta property="article:modified_time" content="2022-03-19T06:53:29.994Z">
+<meta property="article:author" content="wangkr">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://wangkr0127.github.io/.io//1711857-20210816225159513-816497645.png">
+  
+  <title>Hexo</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"wangkr0127.github.io","root":"/","version":"1.8.11","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>每一个不曾起舞的日子，都是对生命的辜负</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2022-03-24 19:43" pubdate>
+        2022年3月24日 晚上
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      9.5k 字
+    </span>
+  
+
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      30 分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none"></h1>
+            
+            <div class="markdown-body">
+              <h2 id="JSP"><a href="#JSP" class="headerlink" title="JSP"></a>JSP</h2><h3 id="1、什么是JSP"><a href="#1、什么是JSP" class="headerlink" title="1、什么是JSP"></a>1、什么是JSP</h3><p>Java Server Pages ： Java服务器端页面，也和Servlet一样，用于动态Web技术！</p>
+<p>最大的特点：</p>
+<ul>
+<li>写JSP就像在写HTML</li>
+<li>区别：<ul>
+<li>HTML只给用户提供静态的数据</li>
+<li>JSP页面中可以嵌入JAVA代码，为用户提供动态数据；</li>
+</ul>
+</li>
+</ul>
+<h3 id="2、JSP原理"><a href="#2、JSP原理" class="headerlink" title="2、JSP原理"></a>2、JSP原理</h3><p>思路：JSP到底怎么执行的！</p>
+<ul>
+<li><p>代码层面没有任何问题</p>
+</li>
+<li><p>服务器内部工作</p>
+<ul>
+<li>tomcat中有一个work目录</li>
+</ul>
+</li>
+<li><p>在IDEA中使用Tomcat会在IDEA的Tomcat中生成一个work目录</p>
+<ul>
+<li>**浏览器向浏览器发送请求，不管访问什么资源，其实都是在访问<u>Servlet</u>**。</li>
+</ul>
+</li>
+<li><p>JSP最终也会被转化为一个Java类</p>
+<ul>
+<li><strong>JSP 本质上就是一个Servlet</strong></li>
+</ul>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">//初始化</span><br>  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">_jspInit</span><span class="hljs-params">()</span> </span>&#123;&#125;<br><br><span class="hljs-comment">//销毁</span><br>  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">_jspDestroy</span><span class="hljs-params">()</span> </span>&#123;&#125;<br><br><span class="hljs-comment">//JSPService</span><br>  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">_jspService</span><span class="hljs-params">(.HttpServletRequest request,HttpServletResponse response)</span></span><br></code></pre></td></tr></table></figure>
+
+<p>判断请求</p>
+<p>内置一些对象（可以直接使用）</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">final</span> javax.servlet.jsp.PageContext pageContext;  <span class="hljs-comment">//页面上下文</span><br>javax.servlet.http.HttpSession session = <span class="hljs-keyword">null</span>;    <span class="hljs-comment">//session</span><br><span class="hljs-keyword">final</span> javax.servlet.ServletContext application;   <span class="hljs-comment">//applicationContext</span><br><span class="hljs-keyword">final</span> javax.servlet.ServletConfig config;         <span class="hljs-comment">//config</span><br>javax.servlet.jsp.JspWriter out = <span class="hljs-keyword">null</span>;           <span class="hljs-comment">//out</span><br><span class="hljs-keyword">final</span> java.lang.Object page = <span class="hljs-keyword">this</span>;               <span class="hljs-comment">//page：当前</span><br>HttpServletRequest request                        <span class="hljs-comment">//请求</span><br>HttpServletResponse response                      <span class="hljs-comment">//响应</span><br></code></pre></td></tr></table></figure>
+
+<p>输出页面前增加的代码</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs java">response.setContentType(<span class="hljs-string">&quot;text/html&quot;</span>);       <span class="hljs-comment">//设置响应的页面类型</span><br>pageContext = _jspxFactory.getPageContext(<span class="hljs-keyword">this</span>, request, response,<br>       <span class="hljs-keyword">null</span>, <span class="hljs-keyword">true</span>, <span class="hljs-number">8192</span>, <span class="hljs-keyword">true</span>);<br>_jspx_page_context = pageContext;<br>application = pageContext.getServletContext();<br>config = pageContext.getServletConfig();<br>session = pageContext.getSession();<br>out = pageContext.getOut();<br>_jspx_out = out;<br></code></pre></td></tr></table></figure>
+
+<p>以上的这些个对象我们可以在JSP页面中直接使用！</p>
+<p><img src="/.io//1711857-20210816225159513-816497645.png" srcset="/img/loading.gif" lazyload alt="image"></p>
+<p><strong>在JSP页面中：</strong></p>
+<p><strong>只要是 JAVA代码就会原封不动的输出；</strong></p>
+<p><strong>如果是HTML代码，就会被转换为：</strong></p>
+<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs pgsql"><span class="hljs-keyword">out</span>.<span class="hljs-keyword">write</span>(&quot;&lt;html&gt;\r\n&quot;);<br></code></pre></td></tr></table></figure>
+
+<p>这样的格式，输出到前端！</p>
+<h3 id="3、JSP基础语法"><a href="#3、JSP基础语法" class="headerlink" title="3、JSP基础语法"></a>3、JSP基础语法</h3><p>JSP不仅支持Java的所有语法，还有自己的一些扩充语法。</p>
+<h4 id="JSP表达式"><a href="#JSP表达式" class="headerlink" title="JSP表达式"></a>JSP表达式</h4><p>注：&lt;%–注释内容–%&gt;</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs java">&lt;%--JSP表达式<br>作用：用来将程序的输出，输出到客户端<br>&lt;%= 变量或者表达式%&gt;<br>--%&gt;<br>&lt;%= <span class="hljs-keyword">new</span> java.util.Date()%&gt;<br></code></pre></td></tr></table></figure>
+
+<h4 id="jsp脚本片段"><a href="#jsp脚本片段" class="headerlink" title="jsp脚本片段"></a>jsp脚本片段</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs java">&lt;%--jsp脚本片段--%&gt;<br>&lt;%<br>  <span class="hljs-keyword">int</span> sum = <span class="hljs-number">0</span>;<br>  <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>; i &lt;=<span class="hljs-number">100</span> ; i++) &#123;<br>    sum+=i;<br>  &#125;<br>  out.println(<span class="hljs-string">&quot;&lt;h1&gt;Sum=&quot;</span>+sum+<span class="hljs-string">&quot;&lt;/h1&gt;&quot;</span>);<br>%&gt;<br></code></pre></td></tr></table></figure>
+
+<p>脚本片段的再实现</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs java">&lt;%<br>  <span class="hljs-keyword">int</span> x = <span class="hljs-number">10</span>;<br>  out.println(x);<br>%&gt;<br>&lt;p&gt;这是一个JSP文档&lt;/p&gt;<br>&lt;%<br>  <span class="hljs-keyword">int</span> y = <span class="hljs-number">2</span>;<br>  out.println(y);<br>%&gt;<br><br>&lt;hr&gt;<br><br><br>&lt;%--在代码嵌入HTML元素--%&gt;<br>&lt;%<br>  <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">5</span>; i++) &#123;<br>%&gt;<br>  &lt;h1&gt;Hello,World  &lt;%=i%&gt; &lt;/h1&gt;<br>&lt;%<br>  &#125;<br>%&gt;<br></code></pre></td></tr></table></figure>
+
+<h4 id="JSP声明"><a href="#JSP声明" class="headerlink" title="JSP声明"></a>JSP声明</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs java">&lt;%!<br>  <span class="hljs-keyword">static</span> &#123;<br>    System.out.println(<span class="hljs-string">&quot;Loading Servlet!&quot;</span>);<br>  &#125;<br><br>  <span class="hljs-keyword">private</span> <span class="hljs-keyword">int</span> globalVar = <span class="hljs-number">0</span>;<br><br>  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">kuang</span><span class="hljs-params">()</span></span>&#123;<br>    System.out.println(<span class="hljs-string">&quot;进入了方法Kuang！&quot;</span>);<br>  &#125;<br>%&gt;<br></code></pre></td></tr></table></figure>
+
+<p>JSP声明：会被编译到JSP生成Java的类中！其他的，就会被生成到_jspService方法中！</p>
+<p>在JSP，嵌入Java代码即可！</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs java">&lt;%%&gt;<br>&lt;%=%&gt;<br>&lt;%!%&gt;<br><br>&lt;%--注释--%&gt;<br></code></pre></td></tr></table></figure>
+
+<p><strong>JSP的注释，不会在客户端显示，HTML就会！</strong></p>
+<h3 id="4、JSP指令"><a href="#4、JSP指令" class="headerlink" title="4、JSP指令"></a>4、JSP指令</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs java">&lt;%<span class="hljs-meta">@page</span> args.... %&gt;<br>&lt;%<span class="hljs-meta">@include</span> file=<span class="hljs-string">&quot;&quot;</span>%&gt;<br><br>&lt;%--<span class="hljs-meta">@include</span>会将两个页面合二为一--%&gt;<br><br>&lt;%<span class="hljs-meta">@include</span> file=<span class="hljs-string">&quot;common/header.jsp&quot;</span>%&gt;<br>&lt;h1&gt;网页主体&lt;/h1&gt;<br><br>&lt;%<span class="hljs-meta">@include</span> file=<span class="hljs-string">&quot;common/footer.jsp&quot;</span>%&gt;<br><br>&lt;hr&gt;<br><br><br>&lt;%--jSP标签<br>    jsp:include：拼接页面，本质还是三个（推荐使用）<br>    --%&gt;<br>&lt;jsp:include page=<span class="hljs-string">&quot;/common/header.jsp&quot;</span>/&gt;<br>&lt;h1&gt;网页主体&lt;/h1&gt;<br>&lt;jsp:include page=<span class="hljs-string">&quot;/common/footer.jsp&quot;</span>/&gt;<br></code></pre></td></tr></table></figure>
+
+<p>对于第一种很可能会出现变量名重复的问题，第二种当变量名重复时在编码阶段就会报错。还有要注意的是方法一是文件的相对路径</p>
+<p>方法二是网页路径，多了一个\来表示默认的根路径。</p>
+<p><img src="/.io//1363376-20210216220926289-1784071746.png" srcset="/img/loading.gif" lazyload alt="img"></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs html">&lt;%@ page contentType=&quot;text/html;charset=UTF-8&quot; language=&quot;java&quot; %&gt;<br>&lt;%--自定义出错路径--%&gt;<br>&lt;%@page errorPage=&quot;error/error.jsp&quot; %&gt;<br>&lt;%--导包--%&gt;<br>&lt;%@page import=&quot;java.util.Date&quot; %&gt;<br><span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>Title<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span><br>&lt;%<br>    Date date = new Date();<br>    out.print(date);<br>    int i = 1/0;<br>%&gt;<br><span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<p>　　</p>
+<h3 id="5、9大内置对象"><a href="#5、9大内置对象" class="headerlink" title="5、9大内置对象"></a>5、9大内置对象</h3><ul>
+<li>PageContext 存东西</li>
+<li>Request 存东西</li>
+<li>Response</li>
+<li>Session 存东西</li>
+<li>Application 【SerlvetContext】 存东西</li>
+<li>config 【SerlvetConfig】</li>
+<li>out</li>
+<li>page ，不用了解</li>
+<li>exception</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs java">pageContext.setAttribute(<span class="hljs-string">&quot;name1&quot;</span>,<span class="hljs-string">&quot;秦疆1号&quot;</span>); <span class="hljs-comment">//保存的数据只在一个页面中有效</span><br>request.setAttribute(<span class="hljs-string">&quot;name2&quot;</span>,<span class="hljs-string">&quot;秦疆2号&quot;</span>); <span class="hljs-comment">//保存的数据只在一次请求中有效，请求转发会携带这个数据</span><br>session.setAttribute(<span class="hljs-string">&quot;name3&quot;</span>,<span class="hljs-string">&quot;秦疆3号&quot;</span>); <span class="hljs-comment">//保存的数据只在一次会话中有效，从打开浏览器到关闭浏览器</span><br>application.setAttribute(<span class="hljs-string">&quot;name4&quot;</span>,<span class="hljs-string">&quot;秦疆4号&quot;</span>);  <span class="hljs-comment">//保存的数据只在服务器中有效，从打开服务器到关闭服务器</span><br></code></pre></td></tr></table></figure>
+
+<p>request：客户端向服务器发送请求，产生的数据，用户看完就没用了，比如：新闻，用户看完没用的！</p>
+<p>session：客户端向服务器发送请求，产生的数据，用户用完一会还有用，比如：购物车；</p>
+<p>application：客户端向服务器发送请求，产生的数据，一个用户用完了，其他用户还可能使用，比如：聊天数据；</p>
+<p>testJsp2.jsp文件</p>
+<figure class="highlight vbscript-html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><code class="hljs vbscript-html"><span class="vbscript">&lt;%--</span><br><span class="vbscript">  Created by IntelliJ IDEA.</span><br><span class="vbscript">  User: <span class="hljs-number">19575</span></span><br><span class="vbscript">  Date: <span class="hljs-number">2021</span>/<span class="hljs-number">2</span>/<span class="hljs-number">16</span></span><br><span class="vbscript">  Time: <span class="hljs-number">22</span>:<span class="hljs-number">22</span></span><br><span class="vbscript">  <span class="hljs-keyword">To</span> change this template use File | Settings | File Templates.</span><br><span class="vbscript">--%&gt;</span><span class="xml"></span><br><span class="xml"></span><span class="vbscript">&lt;%@ page contentType=<span class="hljs-string">&quot;text/html;charset=UTF-8&quot;</span> language=<span class="hljs-string">&quot;java&quot;</span> %&gt;</span><span class="xml"></span><br><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span></span><br><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span></span><br><span class="xml">    <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>测试内置对象<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span></span><br><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span></span><br><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span></span><br><span class="xml"></span><span class="vbscript">&lt;%</span><br><span class="vbscript">    pageContext.setAttribute(<span class="hljs-string">&quot;name1&quot;</span>,<span class="hljs-string">&quot;刘1&quot;</span>);</span><br><span class="vbscript">    <span class="hljs-built_in">request</span>.setAttribute(<span class="hljs-string">&quot;name2&quot;</span>,<span class="hljs-string">&quot;刘2&quot;</span>);</span><br><span class="vbscript">    session.setAttribute(<span class="hljs-string">&quot;name3&quot;</span>,<span class="hljs-string">&quot;刘3&quot;</span>);</span><br><span class="vbscript">    application.setAttribute(<span class="hljs-string">&quot;name4&quot;</span>,<span class="hljs-string">&quot;刘4&quot;</span>);</span><br><span class="vbscript"></span><br><span class="vbscript">    String name1 = (String) pageContext.getAttribute(<span class="hljs-string">&quot;name1&quot;</span>);</span><br><span class="vbscript">    String name2 = (String) <span class="hljs-built_in">request</span>.getAttribute(<span class="hljs-string">&quot;name2&quot;</span>);</span><br><span class="vbscript">    String name3 = (String) session.getAttribute(<span class="hljs-string">&quot;name3&quot;</span>);</span><br><span class="vbscript">    String name4 = (String) application.getAttribute(<span class="hljs-string">&quot;name4&quot;</span>);</span><br><span class="vbscript">    String name5 = (String) application.getAttribute(<span class="hljs-string">&quot;name5&quot;</span>);</span><br><span class="vbscript"></span><br><span class="vbscript">%&gt;</span><span class="xml"></span><br><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>取出的值为:<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span></span><br><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">h2</span>&gt;</span>$&#123;name1&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span></span><br><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">h2</span>&gt;</span>$&#123;name2&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span></span><br><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">h2</span>&gt;</span>$&#123;name3&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span></span><br><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">h2</span>&gt;</span>$&#123;name4&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span></span><br><span class="xml"></span><span class="vbscript">&lt;%--会输出<span class="hljs-literal">null</span>--%&gt;</span><span class="xml"></span><br><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">h2</span>&gt;</span>$&#123;name5&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span></span><br><span class="xml"></span><span class="vbscript">&lt;%--更严格，没有值就直接不输出--%&gt;</span><span class="xml"></span><br><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">h2</span>&gt;</span></span><span class="vbscript">&lt;%= name5 %&gt;</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span></span><br><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span></span><br><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span></span><br></code></pre></td></tr></table></figure>
+
+<p><img src="/.io//1363376-20210216223311190-2004601916.png" srcset="/img/loading.gif" lazyload alt="img"></p>
+<p>testJsp3.jsp文件</p>
+<figure class="highlight vbscript-html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><code class="hljs vbscript-html"><span class="vbscript">&lt;%--</span><br><span class="vbscript">  Created by IntelliJ IDEA.</span><br><span class="vbscript">  User: <span class="hljs-number">19575</span></span><br><span class="vbscript">  Date: <span class="hljs-number">2021</span>/<span class="hljs-number">2</span>/<span class="hljs-number">16</span></span><br><span class="vbscript">  Time: <span class="hljs-number">22</span>:<span class="hljs-number">22</span></span><br><span class="vbscript">  <span class="hljs-keyword">To</span> change this template use File | Settings | File Templates.</span><br><span class="vbscript">--%&gt;</span><span class="xml"></span><br><span class="xml"></span><span class="vbscript">&lt;%@ page contentType=<span class="hljs-string">&quot;text/html;charset=UTF-8&quot;</span> language=<span class="hljs-string">&quot;java&quot;</span> %&gt;</span><span class="xml"></span><br><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span></span><br><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span></span><br><span class="xml">    <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>测试内置对象<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span></span><br><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span></span><br><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span></span><br><span class="xml"></span><span class="vbscript">&lt;%</span><br><span class="vbscript">    pageContext.setAttribute(<span class="hljs-string">&quot;name1&quot;</span>,<span class="hljs-string">&quot;刘1&quot;</span>);</span><br><span class="vbscript">    <span class="hljs-built_in">request</span>.setAttribute(<span class="hljs-string">&quot;name2&quot;</span>,<span class="hljs-string">&quot;刘2&quot;</span>);</span><br><span class="vbscript">    session.setAttribute(<span class="hljs-string">&quot;name3&quot;</span>,<span class="hljs-string">&quot;刘3&quot;</span>);</span><br><span class="vbscript">    application.setAttribute(<span class="hljs-string">&quot;name4&quot;</span>,<span class="hljs-string">&quot;刘4&quot;</span>);</span><br><span class="vbscript"></span><br><span class="vbscript">    String name1 = (String) pageContext.getAttribute(<span class="hljs-string">&quot;name1&quot;</span>);</span><br><span class="vbscript">    String name2 = (String) <span class="hljs-built_in">request</span>.getAttribute(<span class="hljs-string">&quot;name2&quot;</span>);</span><br><span class="vbscript">    String name3 = (String) session.getAttribute(<span class="hljs-string">&quot;name3&quot;</span>);</span><br><span class="vbscript">    String name4 = (String) application.getAttribute(<span class="hljs-string">&quot;name4&quot;</span>);</span><br><span class="vbscript">    String name5 = (String) application.getAttribute(<span class="hljs-string">&quot;name5&quot;</span>);</span><br><span class="vbscript"></span><br><span class="vbscript">%&gt;</span><span class="xml"></span><br><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>取出的值为:<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span></span><br><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">h2</span>&gt;</span>$&#123;name1&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span></span><br><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">h2</span>&gt;</span>$&#123;name2&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span></span><br><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">h2</span>&gt;</span>$&#123;name3&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span></span><br><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">h2</span>&gt;</span>$&#123;name4&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span></span><br><span class="xml"></span><span class="vbscript">&lt;%--会输出<span class="hljs-literal">null</span>--%&gt;</span><span class="xml"></span><br><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">h2</span>&gt;</span>$&#123;name5&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span></span><br><span class="xml"></span><span class="vbscript">&lt;%--更严格，没有值就直接不输出--%&gt;</span><span class="xml"></span><br><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">h2</span>&gt;</span></span><span class="vbscript">&lt;%= name5 %&gt;</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span></span><br><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span></span><br><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span></span><br></code></pre></td></tr></table></figure>
+
+<p><a href="javascript:void(0);"><img src="/.io//copycode.gif" srcset="/img/loading.gif" lazyload alt="复制代码"></a></p>
+<p><img src="/.io//1363376-20210216224529290-293287669.png" srcset="/img/loading.gif" lazyload alt="img"></p>
+<p>会发现换了个页面后，pageContext就无法取到name1的值，因为name1只在当前页面有效。</p>
+<p><img src="/.io//20200507213158259.png" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"></p>
+<p>对于pageContext去找变量的时候先是在当前页寻找，再去request，session，application，找不到就为null，找到就不再向上找，双亲委派机制原理类似，顺序相反，是从高到低，高覆盖度。比如自己声明的String类是无效的，因为rt架包有了，自定义的就是无效。对于pageContext则是先看本页声明了吗，没有看request有没有设置的，再看session的内容，再看application里的内容。</p>
+<h3 id="6、JSP标签、JSTL标签、EL表达式"><a href="#6、JSP标签、JSTL标签、EL表达式" class="headerlink" title="6、JSP标签、JSTL标签、EL表达式"></a>6、JSP标签、JSTL标签、EL表达式</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-comment">&lt;!-- JSTL表达式的依赖 --&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>javax.servlet.jsp.jstl<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>jstl-api<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>1.2<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br><span class="hljs-comment">&lt;!-- standard标签库 --&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>taglibs<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>standard<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>1.1.2<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<p>EL表达式： ${ }</p>
+<ul>
+<li>获取数据</li>
+<li>执行运算</li>
+<li>获取web开发的常用对象</li>
+</ul>
+<p>JSP标签</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs java">&lt;%--jsp:include--%&gt;<br><br>&lt;%--<br>http:<span class="hljs-comment">//localhost:8080/jsptag.jsp?name=kuangshen&amp;age=12</span><br>--%&gt;<br><br>&lt;jsp:forward page=<span class="hljs-string">&quot;/jsptag2.jsp&quot;</span>&gt;<br>    &lt;jsp:param name=<span class="hljs-string">&quot;name&quot;</span> value=<span class="hljs-string">&quot;kuangshen&quot;</span>&gt;&lt;/jsp:param&gt;<br>    &lt;jsp:param name=<span class="hljs-string">&quot;age&quot;</span> value=<span class="hljs-string">&quot;12&quot;</span>&gt;&lt;/jsp:param&gt;<br>&lt;/jsp:forward&gt;<br>另一个页面是<br>&lt;%=request.getParameter(<span class="hljs-string">&quot;name&quot;</span>)%&gt;<br>&lt;%=request.getParameter(<span class="hljs-string">&quot;age&quot;</span>)%&gt;<br></code></pre></td></tr></table></figure>
+
+<p>JSTL表达式</p>
+<p>JSTL标签库的使用就是为了弥补HTML标签的不足；它自定义许多标签，可以供我们使用，标签的功能和Java代码一样！</p>
+<p>格式化标签</p>
+<p>SQL标签</p>
+<p>XML 标签</p>
+<p>核心标签 （掌握部分）</p>
+<p><img src="/.io//watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2JlbGxfbG92ZQ==,size_16,color_FFFFFF,t_70.png" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"></p>
+<p>JSTL标签库使用步骤</p>
+<ul>
+<li>引入对应的 taglib</li>
+<li>使用其中的方法</li>
+<li>在Tomcat 也需要引入 jstl的包，否则会报错：JSTL解析错误</li>
+</ul>
+<p>c：if</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><code class="hljs java">&lt;head&gt;<br>    &lt;title&gt;Title&lt;/title&gt;<br>&lt;/head&gt;<br>&lt;body&gt;<br><br><br>&lt;h4&gt;<span class="hljs-keyword">if</span>测试&lt;/h4&gt;<br><br>&lt;hr&gt;<br><br>&lt;form action=<span class="hljs-string">&quot;coreif.jsp&quot;</span> method=<span class="hljs-string">&quot;get&quot;</span>&gt;<br>    &lt;%--<br>    EL表达式获取表单中的数据<br>    $&#123;param.参数名&#125;<br>    --%&gt;<br>    &lt;input type=<span class="hljs-string">&quot;text&quot;</span> name=<span class="hljs-string">&quot;username&quot;</span> value=<span class="hljs-string">&quot;$&#123;param.username&#125;&quot;</span>&gt;<br>    &lt;input type=<span class="hljs-string">&quot;submit&quot;</span> value=<span class="hljs-string">&quot;登录&quot;</span>&gt;<br>&lt;/form&gt;<br><br>&lt;%--判断如果提交的用户名是管理员，则登录成功--%&gt;<br>&lt;c:<span class="hljs-keyword">if</span> test=<span class="hljs-string">&quot;$&#123;param.username==&#x27;admin&#x27;&#125;&quot;</span> <span class="hljs-keyword">var</span>=<span class="hljs-string">&quot;isAdmin&quot;</span>&gt;<br>    &lt;c:out value=<span class="hljs-string">&quot;管理员欢迎您！&quot;</span>/&gt;<br>&lt;/c:<span class="hljs-keyword">if</span>&gt;<br><br>&lt;%--自闭合标签--%&gt;<br>&lt;c:out value=<span class="hljs-string">&quot;$&#123;isAdmin&#125;&quot;</span>/&gt;<br><br>&lt;/body&gt;<br></code></pre></td></tr></table></figure>
+
+<p>c:choose c:when</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs java">&lt;body&gt;<br><br>&lt;%--定义一个变量score，值为<span class="hljs-number">85</span>--%&gt;<br>&lt;c:set <span class="hljs-keyword">var</span>=<span class="hljs-string">&quot;score&quot;</span> value=<span class="hljs-string">&quot;55&quot;</span>/&gt;<br><br>&lt;c:choose&gt;<br>    &lt;c:when test=<span class="hljs-string">&quot;$&#123;score&gt;=90&#125;&quot;</span>&gt;<br>        你的成绩为优秀<br>    &lt;/c:when&gt;<br>    &lt;c:when test=<span class="hljs-string">&quot;$&#123;score&gt;=80&#125;&quot;</span>&gt;<br>        你的成绩为一般<br>    &lt;/c:when&gt;<br>    &lt;c:when test=<span class="hljs-string">&quot;$&#123;score&gt;=70&#125;&quot;</span>&gt;<br>        你的成绩为良好<br>    &lt;/c:when&gt;<br>    &lt;c:when test=<span class="hljs-string">&quot;$&#123;score&lt;=60&#125;&quot;</span>&gt;<br>        你的成绩为不及格<br>    &lt;/c:when&gt;<br>&lt;/c:choose&gt;<br><br>&lt;/body&gt;<br></code></pre></td></tr></table></figure>
+
+<p>c:forEach</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><code class="hljs java">&lt;%<br><br>    ArrayList&lt;String&gt; people = <span class="hljs-keyword">new</span> ArrayList&lt;&gt;();<br>    people.add(<span class="hljs-number">0</span>,<span class="hljs-string">&quot;张三&quot;</span>);<br>    people.add(<span class="hljs-number">1</span>,<span class="hljs-string">&quot;李四&quot;</span>);<br>    people.add(<span class="hljs-number">2</span>,<span class="hljs-string">&quot;王五&quot;</span>);<br>    people.add(<span class="hljs-number">3</span>,<span class="hljs-string">&quot;赵六&quot;</span>);<br>    people.add(<span class="hljs-number">4</span>,<span class="hljs-string">&quot;田六&quot;</span>);<br>    request.setAttribute(<span class="hljs-string">&quot;list&quot;</span>,people);<br>%&gt;<br><br><br>&lt;%--<br><span class="hljs-keyword">var</span> , 每一次遍历出来的变量<br>items, 要遍历的对象<br>begin,   哪里开始<br>end,     到哪里<br>step,   步长<br>--%&gt;<br>&lt;c:forEach <span class="hljs-keyword">var</span>=<span class="hljs-string">&quot;people&quot;</span> items=<span class="hljs-string">&quot;$&#123;list&#125;&quot;</span>&gt;<br>    &lt;c:out value=<span class="hljs-string">&quot;$&#123;people&#125;&quot;</span>/&gt; &lt;br&gt;<br>&lt;/c:forEach&gt;<br><br>&lt;hr&gt;<br><br>&lt;c:forEach <span class="hljs-keyword">var</span>=<span class="hljs-string">&quot;people&quot;</span> items=<span class="hljs-string">&quot;$&#123;list&#125;&quot;</span> begin=<span class="hljs-string">&quot;1&quot;</span> end=<span class="hljs-string">&quot;3&quot;</span> step=<span class="hljs-string">&quot;1&quot;</span> &gt;<br>    &lt;c:out value=<span class="hljs-string">&quot;$&#123;people&#125;&quot;</span>/&gt; &lt;br&gt;<br>&lt;/c:forEach&gt;<br></code></pre></td></tr></table></figure>
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2022/03/24/java/JavaWeb%E5%85%A5%E9%97%A8/8-JavaBean/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile"></span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2022/03/24/java/JavaWeb%E5%85%A5%E9%97%A8/6-Cookie%20&amp;%20Session/">
+                        <span class="hidden-mobile"></span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js" ></script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>

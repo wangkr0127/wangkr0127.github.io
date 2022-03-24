@@ -190,23 +190,19 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2022/02/09/Django%E5%90%8E%E7%AB%AF/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%93%8D%E4%BD%9C/" target="_self">
-          数据库操作
+        <a href="/2022/03/24/java/JavaWeb%E5%85%A5%E9%97%A8/13-Spring%20Boot%E5%8F%96%E4%BB%A3JSP/" target="_self">
+          
         </a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2022/02/09/Django%E5%90%8E%E7%AB%AF/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%93%8D%E4%BD%9C/" target="_self">
+        <a href="/2022/03/24/java/JavaWeb%E5%85%A5%E9%97%A8/13-Spring%20Boot%E5%8F%96%E4%BB%A3JSP/" target="_self">
           
           
             
           
-          后端开发基本都需要操作数据，包括数据的存储、查询、修改、删除。
-通常，这些都是通过数据库来完成的。目前业界最广泛使用的数据库还是：关系型数据库。
-关系型数据库系统，常用的开源数据库有 mysql 和 postgresql。
-我们先使用另一种更简单数据库： sqlite
-sqlite 没有独立的数据库服务进程，数据操作被做成库直接供应用程序调用。 Django中可以直接使用，无须先搭建数据服务。
-创
+          Spring Boot一部分取代了jsp：以前老的方式是：1.客户端请求2.服务端的servlet或controller接收请求（路由规则由后端制定，整个项目开发的权重大部分在后端）3.调用service,dao代码完成业务逻辑4.返回jsp5.jsp展现一些动态的代码
+新的方式是：1.浏览器发送请求2.直接到达html页面（路由规则由前端制定，整个项目开发的权重前移）3.html页面负责调用服务
         </a>
       </p>
 
@@ -214,8 +210,191 @@ sqlite 没有独立的数据库服务进程，数据操作被做成库直接供�
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2022-02-09 21:32" pubdate>
-              2022-02-09
+            <time datetime="2022-03-24 19:43" pubdate>
+              2022-03-24
+            </time>
+          </div>
+        
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2022/03/24/java/JavaWeb%E5%85%A5%E9%97%A8/12-JDBC/" target="_self">
+          
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2022/03/24/java/JavaWeb%E5%85%A5%E9%97%A8/12-JDBC/" target="_self">
+          
+          
+            
+          
+          JDBC1、什么是JDBCJava Database Connectivity —— Java连接数据库
+思想——架构：没有什么是加一层解决不了的
+
+需要jar包的支持：
+
+java.sql
+javax.sql
+mysql-conneter-java… 连接驱动（必须要导入）
+
+2、实验环境搭建2.1 创建MySQL数据库表格1234567891011121314151617CREATE TABL
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-03-24 19:43" pubdate>
+              2022-03-24
+            </time>
+          </div>
+        
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2022/03/24/java/JavaWeb%E5%85%A5%E9%97%A8/11-%E7%9B%91%E5%90%AC%E5%99%A8/" target="_self">
+          
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2022/03/24/java/JavaWeb%E5%85%A5%E9%97%A8/11-%E7%9B%91%E5%90%AC%E5%99%A8/" target="_self">
+          
+          
+            
+          
+          监听器实现一个监听器的接口；（有n种监听器）
+
+编写一个监听器
+实现监听器的接口依赖的jar包
+
+
+
+1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950//统计网站在线人数 ： 统计sessionpublic class OnlineCountListener imp
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-03-24 19:43" pubdate>
+              2022-03-24
+            </time>
+          </div>
+        
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2022/03/24/java/JavaWeb%E5%85%A5%E9%97%A8/10-Filter%E8%BF%87%E6%BB%A4%E5%99%A8/" target="_self">
+          
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2022/03/24/java/JavaWeb%E5%85%A5%E9%97%A8/10-Filter%E8%BF%87%E6%BB%A4%E5%99%A8/" target="_self">
+          
+          
+            
+          
+          Filter比如 Shiro安全框架技术就是用Filter来实现的
+Filter：过滤器 ，用来过滤网站的数据；
+
+处理中文乱码
+登录验证….
+
+（比如用来过滤网上骂人的话，我***我自己 0-0）
+Filter开发步骤：
+
+导包
+
+编写过滤器
+导包不要错 （注意）
+
+
+
+实现Filter接口，重写对应的方法即可
+123456789101112131415161718192021222324252
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-03-24 19:43" pubdate>
+              2022-03-24
+            </time>
+          </div>
+        
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2022/03/21/LeetCode/Java%E7%9A%84HashMap%E4%BD%BF%E7%94%A8/" target="_self">
+          Java的HashMap使用
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2022/03/21/LeetCode/Java%E7%9A%84HashMap%E4%BD%BF%E7%94%A8/" target="_self">
+          
+          
+            
+          
+          题目链接：https://leetcode-cn.com/problems/two-sum-iv-input-is-a-bst/
+题意：给定一个二叉搜索树 root 和一个目标结果 k，如果 BST 中存在两个元素且它们的和等于给定的目标结果，则返回 true。
+
+
+
+
+1、注意HashMap作为形参的传递形式2、containsKey( ) 的使用Code：1234567891011121314
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-03-21 00:47" pubdate>
+              2022-03-21
             </time>
           </div>
         
@@ -223,7 +402,7 @@ sqlite 没有独立的数据库服务进程，数据操作被做成库直接供�
           <div class="post-meta mr-3">
             <i class="iconfont icon-category"></i>
             
-              <a href="/categories/Django%E5%90%8E%E7%AB%AF/">Django后端</a>
+              <a href="/categories/LeetCode/">LeetCode</a>
             
           </div>
         
@@ -238,22 +417,23 @@ sqlite 没有独立的数据库服务进程，数据操作被做成库直接供�
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2022/02/09/Django%E5%90%8E%E7%AB%AF/%E5%AF%B9%E8%B5%84%E6%BA%90%E7%9A%84%E5%A2%9E%E5%88%A0%E6%94%B9%E6%9F%A5%E5%A4%84%E7%90%86/" target="_self">
-          对资源的增删改查处理
+        <a href="/2022/03/20/LeetCode/606.%20%E6%A0%B9%E6%8D%AE%E4%BA%8C%E5%8F%89%E6%A0%91%E5%88%9B%E5%BB%BA%E5%AD%97%E7%AC%A6%E4%B8%B2/" target="_self">
+          606.根据二叉树创建字符串——Java递归
         </a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2022/02/09/Django%E5%90%8E%E7%AB%AF/%E5%AF%B9%E8%B5%84%E6%BA%90%E7%9A%84%E5%A2%9E%E5%88%A0%E6%94%B9%E6%9F%A5%E5%A4%84%E7%90%86/" target="_self">
+        <a href="/2022/03/20/LeetCode/606.%20%E6%A0%B9%E6%8D%AE%E4%BA%8C%E5%8F%89%E6%A0%91%E5%88%9B%E5%BB%BA%E5%AD%97%E7%AC%A6%E4%B8%B2/" target="_self">
           
           
             
           
-          对资源的增删改查处理前面已经说过如果采用前后端分离的架构开发， 后端几乎不负责任何展现界面的工作，只负责管理数据。
-数据的管理主要就是：响应前端的请求， 对数据资源的：增加、删除、修改、查询（curd） 。
-下面我们就以 BYSMS 系统中 customer 数据为例，看看如何进行数据的增删改查操作。
-现在我们的系统的API接口已经由架构师定义好了， 点击这里查看。
-现在我们就根据这个接口文档，来
+          题目链接：https://leetcode-cn.com/problems/construct-string-from-binary-tree/
+题意：你需要采用前序遍历的方式，将一个二叉树转换成一个由括号和整数组成的字符串。
+空节点则用一对空括号 “()” 表示。而且你需要省略所有不影响字符串与原始二叉树之间的一对一映射关系的空括号对。
+样例：
+
+Solve:我们可以使用递归的方法得到二叉树的前
         </a>
       </p>
 
@@ -261,8 +441,8 @@ sqlite 没有独立的数据库服务进程，数据操作被做成库直接供�
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2022-02-09 21:32" pubdate>
-              2022-02-09
+            <time datetime="2022-03-20 21:47" pubdate>
+              2022-03-20
             </time>
           </div>
         
@@ -270,7 +450,7 @@ sqlite 没有独立的数据库服务进程，数据操作被做成库直接供�
           <div class="post-meta mr-3">
             <i class="iconfont icon-category"></i>
             
-              <a href="/categories/Django%E5%90%8E%E7%AB%AF/">Django后端</a>
+              <a href="/categories/LeetCode/">LeetCode</a>
             
           </div>
         
@@ -285,32 +465,21 @@ sqlite 没有独立的数据库服务进程，数据操作被做成库直接供�
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2022/02/09/Django%E5%90%8E%E7%AB%AF/%E5%AE%9E%E7%8E%B0%E7%99%BB%E5%BD%95/" target="_self">
-          实现登录
+        <a href="/2022/03/11/%E5%B0%8FSkills/%E5%90%88%E5%B9%B6%E5%A4%9A%E4%B8%AATXT%E6%96%87%E4%BB%B6/" target="_self">
+          合并多个TXT文件
         </a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2022/02/09/Django%E5%90%8E%E7%AB%AF/%E5%AE%9E%E7%8E%B0%E7%99%BB%E5%BD%95/" target="_self">
+        <a href="/2022/03/11/%E5%B0%8FSkills/%E5%90%88%E5%B9%B6%E5%A4%9A%E4%B8%AATXT%E6%96%87%E4%BB%B6/" target="_self">
           
           
             
           
-          实现登录前面我们实现了服务端管理员的一些增删改查操作，现在我们根据API接口文档来实现 管理员登录 功能。
-API接口文档内容如下：
-
-
-
-
-
-
-
-
-
-
-处理登录、登出请求我们可以在mgr目录里面创建一个代码文件 sign_in_out.py，用来处理 管理员登录和登出 的API请求。
-如何处理登录请求呢，无非就把请求参数里面的用户名、密码取出来， 和数据库中记录的用户名密码进行比对。
-如果和数据
+          1、将需要合并的多个TXT文件复制到同一文件夹下，按下“win+R”，输入“cmd”，点击“确定”
+2、在弹出窗口中，输入文件夹所在的磁盘，以F盘为例，输入完成按下“回车”，再次输入例如“cd F：\baidu”，输入完成按下“回车”。
+3、输入“type *.txt.&gt;&gt;f：\baidu\111.txt”，按下“回车”键即可。
+4、此时界面下方会显示所复制的txt和合并后的txt的名
         </a>
       </p>
 
@@ -318,8 +487,8 @@ API接口文档内容如下：
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2022-02-09 21:32" pubdate>
-              2022-02-09
+            <time datetime="2022-03-11 14:24" pubdate>
+              2022-03-11
             </time>
           </div>
         
@@ -327,7 +496,7 @@ API接口文档内容如下：
           <div class="post-meta mr-3">
             <i class="iconfont icon-category"></i>
             
-              <a href="/categories/Django%E5%90%8E%E7%AB%AF/">Django后端</a>
+              <a href="/categories/%E5%B0%8FSkills/">小Skills</a>
             
           </div>
         
@@ -342,20 +511,30 @@ API接口文档内容如下：
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2022/02/09/Django%E5%90%8E%E7%AB%AF/%E5%89%8D%E5%90%8E%E7%AB%AF%E5%88%86%E7%A6%BB%E6%9E%B6%E6%9E%84/" target="_self">
-          前后端分离框架
+        <a href="/2022/03/11/%E5%B0%8FSkills/%E6%89%B9%E9%87%8F%E4%BF%AE%E6%94%B9%E6%96%87%E4%BB%B6%E5%90%8D%E5%90%8E%E7%BC%80/" target="_self">
+          批量修改文件名后缀
         </a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2022/02/09/Django%E5%90%8E%E7%AB%AF/%E5%89%8D%E5%90%8E%E7%AB%AF%E5%88%86%E7%A6%BB%E6%9E%B6%E6%9E%84/" target="_self">
+        <a href="/2022/03/11/%E5%B0%8FSkills/%E6%89%B9%E9%87%8F%E4%BF%AE%E6%94%B9%E6%96%87%E4%BB%B6%E5%90%8D%E5%90%8E%E7%BC%80/" target="_self">
           
           
             
           
-          现在随着浏览器中 javascript 解释器性能的突飞猛进，以及一些前端模板库和框架的流行。很多架构师将页面的html 内容生成的任务放到前端。
-这样服务端（后端）就只负责提供数据，界面的构成全部在前端（浏览器前端或者手机前端）进行称之为前端渲染。只是这个工作在前端执行，使用前端的框架库去完成，比如 Angular，React，Vue。
-这样界面完全交给前端开发人员去做，后端开发只需要提供前端界
+          如下图所示，如何将Word 97 -2003文档(*.doc)的后缀名批量更改为.docx？
+
+
+
+在文件夹里面新建一个txt，之后输入代码ren *.doc *.docx，然后按Ctrl+S保存，随后将记事本的后缀名更改为bat，双击即可更改。
+
+
+注意：ren后面是有空格的。
+
+
+ren是DOS命令之一，rename的缩写，如果需要给文件重命名，就可以使用rename命令。
+*表示任意字符
+
         </a>
       </p>
 
@@ -363,8 +542,8 @@ API接口文档内容如下：
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2022-02-09 21:32" pubdate>
-              2022-02-09
+            <time datetime="2022-03-11 14:16" pubdate>
+              2022-03-11
             </time>
           </div>
         
@@ -372,7 +551,7 @@ API接口文档内容如下：
           <div class="post-meta mr-3">
             <i class="iconfont icon-category"></i>
             
-              <a href="/categories/Django%E5%90%8E%E7%AB%AF/">Django后端</a>
+              <a href="/categories/%E5%B0%8FSkills/">小Skills</a>
             
           </div>
         
@@ -387,27 +566,30 @@ API接口文档内容如下：
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2022/02/09/Django%E5%90%8E%E7%AB%AF/%E5%88%86%E9%A1%B5%E5%92%8C%E8%BF%87%E6%BB%A4/" target="_self">
-          分页和过滤
+        <a href="/2022/03/11/java/%E6%B3%A8%E8%A7%A3%E4%B8%8E%E5%8F%8D%E5%B0%84/" target="_self">
+          注解与反射
         </a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2022/02/09/Django%E5%90%8E%E7%AB%AF/%E5%88%86%E9%A1%B5%E5%92%8C%E8%BF%87%E6%BB%A4/" target="_self">
+        <a href="/2022/03/11/java/%E6%B3%A8%E8%A7%A3%E4%B8%8E%E5%8F%8D%E5%B0%84/" target="_self">
           
           
             
           
-          我们的系统在列出药品、客户、订单等数据的时候，都是用一张表在一页里面显示全部内容。
-但是如果我们有大量的数据，比如系统中存储10万种药品，这个表将会非常的长，需要后端程序从数据库中读取大量的数据，并传递给前端。而用户通常只需要看其中的一点点数据，这是非常大的性能浪费。
-解决方案：分页 和 过滤
+          1、注解
+注释：comment    给人看
+注解：annotation    给人和程序看
 
-分页：每次只读取一页的信息返回给前端
-过滤：根据用户提供的筛选条件，只读取符合条件的部分信息
+1.1、什么是注解
+Annotation是从JDK 5.0开始引入的新技术
+Annotation的作用：
+不是程序本身，可以对程序作出解释。(这一点和注释(comment)没什么区别)
+可以被其他程序(比如:编译器等)读取
 
 
-
-分
+Annotation的格式:
+注解是以”@注释名”在代码中存在的﹐还可以添加
         </a>
       </p>
 
@@ -415,8 +597,8 @@ API接口文档内容如下：
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2022-02-09 21:32" pubdate>
-              2022-02-09
+            <time datetime="2022-03-11 13:54" pubdate>
+              2022-03-11
             </time>
           </div>
         
@@ -424,7 +606,7 @@ API接口文档内容如下：
           <div class="post-meta mr-3">
             <i class="iconfont icon-category"></i>
             
-              <a href="/categories/Django%E5%90%8E%E7%AB%AF/">Django后端</a>
+              <a href="/categories/Java/">Java</a>
             
           </div>
         
@@ -439,26 +621,22 @@ API接口文档内容如下：
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2022/02/09/Django%E5%90%8E%E7%AB%AF/Web%20%E5%BC%80%E5%8F%91%E7%AE%80%E4%BB%8B%E5%8F%8A%E5%89%8D%E5%90%8E%E7%AB%AF%E5%88%86%E7%A6%BB/" target="_self">
-          Web 开发简介及前后端分离
+        <a href="/2022/03/11/LeetCode/15.%20%E4%B8%89%E6%95%B0%E4%B9%8B%E5%92%8C/" target="_self">
+          15. 三数之和
         </a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2022/02/09/Django%E5%90%8E%E7%AB%AF/Web%20%E5%BC%80%E5%8F%91%E7%AE%80%E4%BB%8B%E5%8F%8A%E5%89%8D%E5%90%8E%E7%AB%AF%E5%88%86%E7%A6%BB/" target="_self">
+        <a href="/2022/03/11/LeetCode/15.%20%E4%B8%89%E6%95%B0%E4%B9%8B%E5%92%8C/" target="_self">
           
           
             
           
-          web系统，通常可以分为 ： 客户端 和 服务端 。
-BS 模式是一种特殊的 CS 模式。
-比如，手机应用（比如微信）就是 客户端， 腾讯公司的微信服务程序（运行在腾讯的机房里面）就是服务端。
-客户端称之为前端 ，服务端称之为后端。
-我们先关注浏览器前端， 也就是web前端。
-
-
-Web 前端开发Web 前端开发的重点是 ： 提供用户界面给用户进行观看和操作。
-前端开发文件（html，css，js
+          题目链接：https://leetcode-cn.com/problems/3sum/
+题意：给你一个包含 n 个整数的数组 nums，判断 nums 中是否存在三个元素 a，b，c ，使得 a + b + c             = 0 ？请你找出所有和为 0 且不重复的三元组。
+注意：答案中不可以包含重复的三元组。
+样例：
+12输入：nums = [-1,0,1,2,-1,-4]输出：[[
         </a>
       </p>
 
@@ -466,8 +644,8 @@ Web 前端开发Web 前端开发的重点是 ： 提供用户界面给用户进�
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2022-02-09 21:32" pubdate>
-              2022-02-09
+            <time datetime="2022-03-11 11:32" pubdate>
+              2022-03-11
             </time>
           </div>
         
@@ -475,197 +653,7 @@ Web 前端开发Web 前端开发的重点是 ： 提供用户界面给用户进�
           <div class="post-meta mr-3">
             <i class="iconfont icon-category"></i>
             
-              <a href="/categories/Django%E5%90%8E%E7%AB%AF/">Django后端</a>
-            
-          </div>
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2022/02/09/Django%E5%90%8E%E7%AB%AF/session%20%E5%92%8C%20token/" target="_self">
-          session 和 token
-        </a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2022/02/09/Django%E5%90%8E%E7%AB%AF/session%20%E5%92%8C%20token/" target="_self">
-          
-          
-            
-          
-          session 和 token前面我们已经根据接口文档，编写代码，对前端发来的 Customer API请求进行处理了。
-并且我们也编写了用户登录处理的代码。
-但是还存在一个问题：前端发来的 Customer API 请求， 我们后端代码就直接处理了， 并没有验证 这个请求是不是已经登录的管理员发出的（或者是否有权限等）。
-如果是这样，客户端可以不需要登录，直接访问登录后的主页。
-这就需要我们在处
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2022-02-09 21:32" pubdate>
-              2022-02-09
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/Django%E5%90%8E%E7%AB%AF/">Django后端</a>
-            
-          </div>
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2022/02/09/Django%E5%90%8E%E7%AB%AF/ORM%E5%85%B3%E8%81%94%E8%A1%A8%E3%80%81%E4%BA%8B%E5%8A%A1/" target="_self">
-          ORM关联表、事务
-        </a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2022/02/09/Django%E5%90%8E%E7%AB%AF/ORM%E5%85%B3%E8%81%94%E8%A1%A8%E3%80%81%E4%BA%8B%E5%8A%A1/" target="_self">
-          
-          
-            
-          
-          ORM 对关联表的操作前面一对多，一对一，多对多关系表，都是通过外键来实现。
-接下来，我们通过一个实例演示 Django ORM 如何操作外键关联关系。
-在 models.py 中定义两个Model，对应两张表：
-123456789# 国家表class Country(models.Model):    name = models.CharField(max_length=100)# 学生表， c
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2022-02-09 21:32" pubdate>
-              2022-02-09
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/Django%E5%90%8E%E7%AB%AF/">Django后端</a>
-            
-          </div>
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2022/02/09/Django%E5%90%8E%E7%AB%AF/HTTP%E8%AF%B7%E6%B1%82%E7%9A%84url%E8%B7%AF%E7%94%B1/" target="_self">
-          HTTP请求的url路由
-        </a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2022/02/09/Django%E5%90%8E%E7%AB%AF/HTTP%E8%AF%B7%E6%B1%82%E7%9A%84url%E8%B7%AF%E7%94%B1/" target="_self">
-          
-          
-            
-          
-          创建项目appDjango 中的一个app 就是项目里面的一个应用的意思，一个项目包含多个app（功能应用）。
-一个app 通常就是一个相对独立的模块 ，实现相对独立的功能。                 
-比如，我们可以把一个系统的管理员管理功能放在一个名为 manage 的 app 里面，把销售人员的操作实现在另外一个名字为 sales的app里面。
-比如，现在我们需要一个 app 专门处理
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2022-02-09 21:32" pubdate>
-              2022-02-09
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/Django%E5%90%8E%E7%AB%AF/">Django后端</a>
-            
-          </div>
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2022/02/09/Django%E5%90%8E%E7%AB%AF/HTTP%E5%8D%8F%E8%AE%AE/" target="_self">
-          HTTP协议
-        </a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2022/02/09/Django%E5%90%8E%E7%AB%AF/HTTP%E5%8D%8F%E8%AE%AE/" target="_self">
-          
-          
-            
-          
-          HTTP协议Web前端系统 和 后端系统 之间就是通过HTTP协议进行通信的。
-
-
-
-
-HTTP协议简介Web API接口 大都是基于 HTTP 协议的。
-HTTP 协议 全称是 超文本传输协议， 英文是 Hypertext Transfer Protocol 。
-HTTP 最初是用来在浏览器和网站服务器（web服务）之间传输超文本（网页、视频、图片等）信息的。
-由于 HTTP 简洁易用，后来，不
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2022-02-09 21:32" pubdate>
-              2022-02-09
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/Django%E5%90%8E%E7%AB%AF/">Django后端</a>
+              <a href="/categories/LeetCode/">LeetCode</a>
             
           </div>
         
@@ -678,7 +666,7 @@ HTTP 最初是用来在浏览器和网站服务器（web服务）之间传输超
 
   <nav aria-label="navigation">
     <span class="pagination" id="pagination">
-      <a class="extend prev" rel="prev" href="/"><i class="iconfont icon-arrowleft"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/#board">3</a><a class="page-number" href="/page/4/#board">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/#board">8</a><a class="extend next" rel="next" href="/page/3/#board"><i class="iconfont icon-arrowright"></i></a>
+      <a class="extend prev" rel="prev" href="/"><i class="iconfont icon-arrowleft"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/#board">3</a><a class="page-number" href="/page/4/#board">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/#board">10</a><a class="extend next" rel="next" href="/page/3/#board"><i class="iconfont icon-arrowright"></i></a>
     </span>
   </nav>
 

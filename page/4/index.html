@@ -190,26 +190,27 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2022/01/11/%E9%AB%98%E7%BA%A7AI%E7%AC%94%E8%AE%B0/%E5%BA%8F%E5%88%97%E6%95%B0%E6%8D%AE%E7%9A%84%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E6%A8%A1%E5%9E%8B/" target="_self">
-          循环神经网络 RNN
+        <a href="/2022/02/09/Django%E5%90%8E%E7%AB%AF/%E5%88%86%E9%A1%B5%E5%92%8C%E8%BF%87%E6%BB%A4/" target="_self">
+          分页和过滤
         </a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2022/01/11/%E9%AB%98%E7%BA%A7AI%E7%AC%94%E8%AE%B0/%E5%BA%8F%E5%88%97%E6%95%B0%E6%8D%AE%E7%9A%84%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E6%A8%A1%E5%9E%8B/" target="_self">
+        <a href="/2022/02/09/Django%E5%90%8E%E7%AB%AF/%E5%88%86%E9%A1%B5%E5%92%8C%E8%BF%87%E6%BB%A4/" target="_self">
           
           
             
           
-          循环神经网络 RNN（Recurrent Neural Networks）Hidden Layer会有连向下一时间Hidden Layer的边
-一般来说，RNN每一时间的输入和输出是不一样的
-时序展开在RNN中每一个时间步骤用到的参数都是一样的
+          我们的系统在列出药品、客户、订单等数据的时候，都是用一张表在一页里面显示全部内容。
+但是如果我们有大量的数据，比如系统中存储10万种药品，这个表将会非常的长，需要后端程序从数据库中读取大量的数据，并传递给前端。而用户通常只需要看其中的一点点数据，这是非常大的性能浪费。
+解决方案：分页 和 过滤
+
+分页：每次只读取一页的信息返回给前端
+过滤：根据用户提供的筛选条件，只读取符合条件的部分信息
 
 
-权值一致的BP算法BP算法容易实现权值间的线性约束
-同样计算梯度，然后改变梯度以满足约束
-如果权值开始时满足约束，那就会一直满足约束
-RNN可看作权值
+
+分
         </a>
       </p>
 
@@ -217,8 +218,8 @@ RNN可看作权值
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2022-01-11 21:52" pubdate>
-              2022-01-11
+            <time datetime="2022-02-09 21:32" pubdate>
+              2022-02-09
             </time>
           </div>
         
@@ -226,7 +227,7 @@ RNN可看作权值
           <div class="post-meta mr-3">
             <i class="iconfont icon-category"></i>
             
-              <a href="/categories/%E9%AB%98%E7%BA%A7AI%E7%AC%94%E8%AE%B0/">高级AI笔记</a>
+              <a href="/categories/Django%E5%90%8E%E7%AB%AF/">Django后端</a>
             
           </div>
         
@@ -241,20 +242,26 @@ RNN可看作权值
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2022/01/11/%E9%AB%98%E7%BA%A7AI%E7%AC%94%E8%AE%B0/%E5%9B%BE%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" target="_self">
-          图卷积神经网络
+        <a href="/2022/02/09/Django%E5%90%8E%E7%AB%AF/Web%20%E5%BC%80%E5%8F%91%E7%AE%80%E4%BB%8B%E5%8F%8A%E5%89%8D%E5%90%8E%E7%AB%AF%E5%88%86%E7%A6%BB/" target="_self">
+          Web 开发简介及前后端分离
         </a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2022/01/11/%E9%AB%98%E7%BA%A7AI%E7%AC%94%E8%AE%B0/%E5%9B%BE%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" target="_self">
+        <a href="/2022/02/09/Django%E5%90%8E%E7%AB%AF/Web%20%E5%BC%80%E5%8F%91%E7%AE%80%E4%BB%8B%E5%8F%8A%E5%89%8D%E5%90%8E%E7%AB%AF%E5%88%86%E7%A6%BB/" target="_self">
           
           
             
           
-          图卷积神经网络：Graph Convolutional Network, GCN图神经网络：Graph Neural Network，GNN
+          web系统，通常可以分为 ： 客户端 和 服务端 。
+BS 模式是一种特殊的 CS 模式。
+比如，手机应用（比如微信）就是 客户端， 腾讯公司的微信服务程序（运行在腾讯的机房里面）就是服务端。
+客户端称之为前端 ，服务端称之为后端。
+我们先关注浏览器前端， 也就是web前端。
 
-Convolutional Neural NetworkThe power of CNN lies in its ability to learn local stationary structures, via localized  convolutio
+
+Web 前端开发Web 前端开发的重点是 ： 提供用户界面给用户进行观看和操作。
+前端开发文件（html，css，js
         </a>
       </p>
 
@@ -262,8 +269,8 @@ Convolutional Neural NetworkThe power of CNN lies in its ability to learn local 
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2022-01-11 21:52" pubdate>
-              2022-01-11
+            <time datetime="2022-02-09 21:32" pubdate>
+              2022-02-09
             </time>
           </div>
         
@@ -271,7 +278,7 @@ Convolutional Neural NetworkThe power of CNN lies in its ability to learn local 
           <div class="post-meta mr-3">
             <i class="iconfont icon-category"></i>
             
-              <a href="/categories/%E9%AB%98%E7%BA%A7AI%E7%AC%94%E8%AE%B0/">高级AI笔记</a>
+              <a href="/categories/Django%E5%90%8E%E7%AB%AF/">Django后端</a>
             
           </div>
         
@@ -286,26 +293,22 @@ Convolutional Neural NetworkThe power of CNN lies in its ability to learn local 
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2022/01/11/%E9%AB%98%E7%BA%A7AI%E7%AC%94%E8%AE%B0/%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9CCNN/" target="_self">
-          卷积神经网络CNN
+        <a href="/2022/02/09/Django%E5%90%8E%E7%AB%AF/session%20%E5%92%8C%20token/" target="_self">
+          session 和 token
         </a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2022/01/11/%E9%AB%98%E7%BA%A7AI%E7%AC%94%E8%AE%B0/%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9CCNN/" target="_self">
+        <a href="/2022/02/09/Django%E5%90%8E%E7%AB%AF/session%20%E5%92%8C%20token/" target="_self">
           
           
             
           
-          卷积神经网络CNN深度神经网络(Deep Neural Networks，DNN)神经网络是基于感知机的扩展，而DNN可以理解为有很多隐藏层的神经网络。多层神经网络和深度神经网络DNN其实也是指的一个东西，DNN有时也叫做多层感知机。
-
-
-卷积神经网络是一种特殊的深层神经网络模型
-它的神经元间的连接是非全连接的 —— 减少参数的数量
-表达能力不如全连接网络，但是更好训练
-
-
-同一层中某些神经元之间
+          session 和 token前面我们已经根据接口文档，编写代码，对前端发来的 Customer API请求进行处理了。
+并且我们也编写了用户登录处理的代码。
+但是还存在一个问题：前端发来的 Customer API 请求， 我们后端代码就直接处理了， 并没有验证 这个请求是不是已经登录的管理员发出的（或者是否有权限等）。
+如果是这样，客户端可以不需要登录，直接访问登录后的主页。
+这就需要我们在处
         </a>
       </p>
 
@@ -313,8 +316,8 @@ Convolutional Neural NetworkThe power of CNN lies in its ability to learn local 
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2022-01-11 21:52" pubdate>
-              2022-01-11
+            <time datetime="2022-02-09 21:32" pubdate>
+              2022-02-09
             </time>
           </div>
         
@@ -322,7 +325,7 @@ Convolutional Neural NetworkThe power of CNN lies in its ability to learn local 
           <div class="post-meta mr-3">
             <i class="iconfont icon-category"></i>
             
-              <a href="/categories/%E9%AB%98%E7%BA%A7AI%E7%AC%94%E8%AE%B0/">高级AI笔记</a>
+              <a href="/categories/Django%E5%90%8E%E7%AB%AF/">Django后端</a>
             
           </div>
         
@@ -337,80 +340,21 @@ Convolutional Neural NetworkThe power of CNN lies in its ability to learn local 
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2022/01/11/%E9%AB%98%E7%BA%A7AI%E7%AC%94%E8%AE%B0/%E5%8D%9A%E5%BC%88/" target="_self">
-          博弈
+        <a href="/2022/02/09/Django%E5%90%8E%E7%AB%AF/ORM%E5%85%B3%E8%81%94%E8%A1%A8%E3%80%81%E4%BA%8B%E5%8A%A1/" target="_self">
+          ORM关联表、事务
         </a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2022/01/11/%E9%AB%98%E7%BA%A7AI%E7%AC%94%E8%AE%B0/%E5%8D%9A%E5%BC%88/" target="_self">
+        <a href="/2022/02/09/Django%E5%90%8E%E7%AB%AF/ORM%E5%85%B3%E8%81%94%E8%A1%A8%E3%80%81%E4%BA%8B%E5%8A%A1/" target="_self">
           
           
             
           
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+          ORM 对关联表的操作前面一对多，一对一，多对多关系表，都是通过外键来实现。
+接下来，我们通过一个实例演示 Django ORM 如何操作外键关联关系。
+在 models.py 中定义两个Model，对应两张表：
+123456789# 国家表class Country(models.Model):    name = models.CharField(max_length=100)# 学生表， c
         </a>
       </p>
 
@@ -418,8 +362,8 @@ Convolutional Neural NetworkThe power of CNN lies in its ability to learn local 
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2022-01-11 21:52" pubdate>
-              2022-01-11
+            <time datetime="2022-02-09 21:32" pubdate>
+              2022-02-09
             </time>
           </div>
         
@@ -427,7 +371,7 @@ Convolutional Neural NetworkThe power of CNN lies in its ability to learn local 
           <div class="post-meta mr-3">
             <i class="iconfont icon-category"></i>
             
-              <a href="/categories/%E9%AB%98%E7%BA%A7AI%E7%AC%94%E8%AE%B0/">高级AI笔记</a>
+              <a href="/categories/Django%E5%90%8E%E7%AB%AF/">Django后端</a>
             
           </div>
         
@@ -442,25 +386,21 @@ Convolutional Neural NetworkThe power of CNN lies in its ability to learn local 
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2022/01/11/%E9%AB%98%E7%BA%A7AI%E7%AC%94%E8%AE%B0/%E4%BA%BA%E5%B7%A5%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9CANN/" target="_self">
-          人工神经网络 ANN
+        <a href="/2022/02/09/Django%E5%90%8E%E7%AB%AF/HTTP%E8%AF%B7%E6%B1%82%E7%9A%84url%E8%B7%AF%E7%94%B1/" target="_self">
+          HTTP请求的url路由
         </a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2022/01/11/%E9%AB%98%E7%BA%A7AI%E7%AC%94%E8%AE%B0/%E4%BA%BA%E5%B7%A5%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9CANN/" target="_self">
+        <a href="/2022/02/09/Django%E5%90%8E%E7%AB%AF/HTTP%E8%AF%B7%E6%B1%82%E7%9A%84url%E8%B7%AF%E7%94%B1/" target="_self">
           
           
             
           
-          人工神经网络 ANN联结主义学派：又称仿生学派，认为人的思维基元是神经元，而不是符号处理过程
-核心：智能的本质是联接机制
-原理：神经网络及神经网络间的连接机制和学习算法
-人工神经网络：基于模仿生物大脑的结构和功能而构成的一种信息处理系统
-自底向上，起源于生物神经系统 ，从 结构模拟 到 功能模拟 
-生物里的神经元：
-
-兴奋状态：对输入信息整合后使细胞膜电位升高，当高于动作电位的阈值时，产生神经冲动
+          创建项目appDjango 中的一个app 就是项目里面的一个应用的意思，一个项目包含多个app（功能应用）。
+一个app 通常就是一个相对独立的模块 ，实现相对独立的功能。                 
+比如，我们可以把一个系统的管理员管理功能放在一个名为 manage 的 app 里面，把销售人员的操作实现在另外一个名字为 sales的app里面。
+比如，现在我们需要一个 app 专门处理
         </a>
       </p>
 
@@ -468,8 +408,8 @@ Convolutional Neural NetworkThe power of CNN lies in its ability to learn local 
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2022-01-11 21:52" pubdate>
-              2022-01-11
+            <time datetime="2022-02-09 21:32" pubdate>
+              2022-02-09
             </time>
           </div>
         
@@ -477,7 +417,7 @@ Convolutional Neural NetworkThe power of CNN lies in its ability to learn local 
           <div class="post-meta mr-3">
             <i class="iconfont icon-category"></i>
             
-              <a href="/categories/%E9%AB%98%E7%BA%A7AI%E7%AC%94%E8%AE%B0/">高级AI笔记</a>
+              <a href="/categories/Django%E5%90%8E%E7%AB%AF/">Django后端</a>
             
           </div>
         
@@ -492,23 +432,26 @@ Convolutional Neural NetworkThe power of CNN lies in its ability to learn local 
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2022/01/11/LeetCode/16.%20%E6%9C%80%E6%8E%A5%E8%BF%91%E7%9A%84%E4%B8%89%E6%95%B0%E4%B9%8B%E5%92%8C/" target="_self">
-          双指针-最接近的三数之和
+        <a href="/2022/02/09/Django%E5%90%8E%E7%AB%AF/HTTP%E5%8D%8F%E8%AE%AE/" target="_self">
+          HTTP协议
         </a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2022/01/11/LeetCode/16.%20%E6%9C%80%E6%8E%A5%E8%BF%91%E7%9A%84%E4%B8%89%E6%95%B0%E4%B9%8B%E5%92%8C/" target="_self">
+        <a href="/2022/02/09/Django%E5%90%8E%E7%AB%AF/HTTP%E5%8D%8F%E8%AE%AE/" target="_self">
           
           
             
           
-          题目链接：https://leetcode-cn.com/problems/3sum-closest/
-题意：给你一个长度为 n 的整数数组 nums 和 一个目标值 target。请你从 nums 中选出三个整数，使它们的和与 target 最接近。返回这三个数的和。
+          HTTP协议Web前端系统 和 后端系统 之间就是通过HTTP协议进行通信的。
 
 
-样例：
-123输入：nums = [-1,2,1,-4], target = 1输出：2解释：与 target 最接近的和是
+
+
+HTTP协议简介Web API接口 大都是基于 HTTP 协议的。
+HTTP 协议 全称是 超文本传输协议， 英文是 Hypertext Transfer Protocol 。
+HTTP 最初是用来在浏览器和网站服务器（web服务）之间传输超文本（网页、视频、图片等）信息的。
+由于 HTTP 简洁易用，后来，不
         </a>
       </p>
 
@@ -516,8 +459,101 @@ Convolutional Neural NetworkThe power of CNN lies in its ability to learn local 
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2022-01-11 21:36" pubdate>
-              2022-01-11
+            <time datetime="2022-02-09 21:32" pubdate>
+              2022-02-09
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/Django%E5%90%8E%E7%AB%AF/">Django后端</a>
+            
+          </div>
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2022/02/09/Django%E5%90%8E%E7%AB%AF/Django%E5%AE%89%E8%A3%85%E4%B8%8E%E8%BF%90%E8%A1%8C/" target="_self">
+          Django安装与运行
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2022/02/09/Django%E5%90%8E%E7%AB%AF/Django%E5%AE%89%E8%A3%85%E4%B8%8E%E8%BF%90%E8%A1%8C/" target="_self">
+          
+          
+            
+          
+          安装DjangoDjango 框架是用Python语言开发的， 所以安装Django 就像安装其他的 Python库一样，执行如下命令即可
+1pip install django
+
+你可以执行如下命令检查Django是否安装好， 并且查看安装的Django版本
+12python -m django --version2.1.3
+
+如果像上面那样显示出一个版本数字（比如这里就是2.1.3） 表示已经
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-02-09 21:32" pubdate>
+              2022-02-09
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/Django%E5%90%8E%E7%AB%AF/">Django后端</a>
+            
+          </div>
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2022/01/28/LeetCode/1996.%20%E6%B8%B8%E6%88%8F%E4%B8%AD%E5%BC%B1%E8%A7%92%E8%89%B2%E7%9A%84%E6%95%B0%E9%87%8F/" target="_self">
+          1996. 游戏中弱角色的数量
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2022/01/28/LeetCode/1996.%20%E6%B8%B8%E6%88%8F%E4%B8%AD%E5%BC%B1%E8%A7%92%E8%89%B2%E7%9A%84%E6%95%B0%E9%87%8F/" target="_self">
+          
+          
+            
+          
+          题目链接：https://leetcode-cn.com/problems/the-number-of-weak-characters-in-the-game/
+题意：你正在参加一个多角色游戏，每个角色都有两个主要属性：攻击 和 防御 。给你一个二维整数数组 properties ，其中 properties[i] = [attacki, defensei] 表示游戏中第 i 个角色的属性。 如果
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-01-28 00:31" pubdate>
+              2022-01-28
             </time>
           </div>
         
@@ -540,24 +576,24 @@ Convolutional Neural NetworkThe power of CNN lies in its ability to learn local 
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2021/11/26/Vue.js/%E5%BC%82%E6%AD%A5%E8%AF%B7%E6%B1%82%E5%8D%B3%E6%97%B6%E5%93%8D%E5%BA%94/" target="_self">
-          异步请求即时响应
+        <a href="/2022/01/26/%E6%96%87%E4%BB%B6%E5%A4%84%E7%90%86/txt%20%E5%A4%84%E7%90%86/" target="_self">
+          txt 处理
         </a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2021/11/26/Vue.js/%E5%BC%82%E6%AD%A5%E8%AF%B7%E6%B1%82%E5%8D%B3%E6%97%B6%E5%93%8D%E5%BA%94/" target="_self">
+        <a href="/2022/01/26/%E6%96%87%E4%BB%B6%E5%A4%84%E7%90%86/txt%20%E5%A4%84%E7%90%86/" target="_self">
           
           
             
           
-          Problem发送 axios AJAX 请求后，.then回调函数的执行有时间间隔（另一个线程），之后的代码即时执行会出Bug
-
-
-Solve将之后的代码都放到 .then =&gt; {} 内执行即可
-
-
-Code12345678910111213141516171819202122232425methods: &#123;    query: function () &#123;      
+          
+几种读写方式比较
+r 打开只读文件，该文件必须存在。
+r+ 打开可读写的文件，该文件必须存在。
+w 打开只写文件，若文件存在则文件长度清为0，即该文件内容会消失。若文件不存在则建立该文件。
+w+ 打开可读写文件，若文件存在则文件长度清为零，即该文件内容会消失。若文件不存在则建立该文件。
+a 以追加的方式打开只写文件。若文件不存在，则会建立该文件，如果文件存在，写入的数据会被加到文件尾，即文件原先
         </a>
       </p>
 
@@ -565,8 +601,8 @@ Code12345678910111213141516171819202122232425methods: &#123;    query: function 
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2021-11-26 23:12" pubdate>
-              2021-11-26
+            <time datetime="2022-01-26 20:27" pubdate>
+              2022-01-26
             </time>
           </div>
         
@@ -574,7 +610,7 @@ Code12345678910111213141516171819202122232425methods: &#123;    query: function 
           <div class="post-meta mr-3">
             <i class="iconfont icon-category"></i>
             
-              <a href="/categories/Vue-js/">Vue.js</a>
+              <a href="/categories/%E6%96%87%E4%BB%B6%E5%A4%84%E7%90%86/">文件处理</a>
             
           </div>
         
@@ -589,19 +625,20 @@ Code12345678910111213141516171819202122232425methods: &#123;    query: function 
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2021/11/26/Vue.js/%E9%A1%B5%E9%9D%A2%E5%8A%A0%E8%BD%BD%E5%90%8E%E8%87%AA%E5%8A%A8%E5%8A%A0%E8%BD%BD%E8%87%AA%E5%AE%9A%E4%B9%89%E5%87%BD%E6%95%B0/" target="_self">
-          页面加载后自动加载自定义函数
+        <a href="/2022/01/26/%E6%96%87%E4%BB%B6%E5%A4%84%E7%90%86/CSV%20%E5%A4%84%E7%90%86/" target="_self">
+          CSV 处理
         </a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2021/11/26/Vue.js/%E9%A1%B5%E9%9D%A2%E5%8A%A0%E8%BD%BD%E5%90%8E%E8%87%AA%E5%8A%A8%E5%8A%A0%E8%BD%BD%E8%87%AA%E5%AE%9A%E4%B9%89%E5%87%BD%E6%95%B0/" target="_self">
+        <a href="/2022/01/26/%E6%96%87%E4%BB%B6%E5%A4%84%E7%90%86/CSV%20%E5%A4%84%E7%90%86/" target="_self">
           
           
             
           
-          created：在模板渲染成 html 前调用，即通常初始化某些属性值，然后再渲染成视图。
-1234567891011121314151617methods: &#123;            indexs:function()&#123;                this.$http.post(&#x27;&#123;:url(&quot;Index/fun&quot;)&#125;&#
+          csv 表格里的第一行默认为 key 值，即数据索引
+如下为 csv 转 txt：（app和bug为列属性索引）
+读 CSV 文件1234567891011121314151617181920212223import csvbid_info = csv.DictReader(open(&#x27;./2021/communication/res.csv&#x27;,&#x27;r&#x27;))d
         </a>
       </p>
 
@@ -609,8 +646,8 @@ Code12345678910111213141516171819202122232425methods: &#123;    query: function 
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2021-11-26 01:49" pubdate>
-              2021-11-26
+            <time datetime="2022-01-26 20:27" pubdate>
+              2022-01-26
             </time>
           </div>
         
@@ -618,105 +655,7 @@ Code12345678910111213141516171819202122232425methods: &#123;    query: function 
           <div class="post-meta mr-3">
             <i class="iconfont icon-category"></i>
             
-              <a href="/categories/Vue-js/">Vue.js</a>
-            
-          </div>
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2021/11/20/%E5%89%8D%E7%AB%AF%E6%9D%82%E8%AE%B0/%E6%B5%8F%E8%A7%88%E5%99%A8%E5%8D%8F%E5%90%8C%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/" target="_self">
-          浏览器协同前端开发
-        </a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2021/11/20/%E5%89%8D%E7%AB%AF%E6%9D%82%E8%AE%B0/%E6%B5%8F%E8%A7%88%E5%99%A8%E5%8D%8F%E5%90%8C%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/" target="_self">
-          
-          
-            
-          
-          打开网页，右键选中检查，即可在 Elements 中查看网页各个组件所在的 HTML 标签。
-使用该方法可进行精确定位（选中左上角鼠标定位功能）。
-也可以看到该元素的 css 样式
-同时还可以在网页上直接修改代码进行调试。
-
-
-
-
-→ accelerate 网页开发
-
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2021-11-20 21:52" pubdate>
-              2021-11-20
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/%E5%89%8D%E7%AB%AF%E6%9D%82%E8%AE%B0/">前端杂记</a>
-            
-          </div>
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2021/11/17/%E5%89%8D%E7%AB%AF%E6%9D%82%E8%AE%B0/ECharts/" target="_self">
-          ECharts数据可视化图表库
-        </a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2021/11/17/%E5%89%8D%E7%AB%AF%E6%9D%82%E8%AE%B0/ECharts/" target="_self">
-          
-          
-            
-          
-          ECharts 是一个使用 JavaScript 实现的开源可视化库，涵盖各行业图表，满足各种需求。
-ECharts 遵循 Apache-2.0 开源协议，免费商用。
-ECharts 兼容当前绝大部分浏览器（IE8/9/10/11，Chrome，Firefox，Safari等）及兼容多种设备，可随时随地任性展示。
-教程：https://www.runoob.com/echarts/echarts-
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2021-11-17 17:09" pubdate>
-              2021-11-17
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/%E5%89%8D%E7%AB%AF%E6%9D%82%E8%AE%B0/">前端杂记</a>
+              <a href="/categories/%E6%96%87%E4%BB%B6%E5%A4%84%E7%90%86/">文件处理</a>
             
           </div>
         
@@ -729,7 +668,7 @@ ECharts 兼容当前绝大部分浏览器（IE8/9/10/11，Chrome，Firefox，Saf
 
   <nav aria-label="navigation">
     <span class="pagination" id="pagination">
-      <a class="extend prev" rel="prev" href="/page/3/#board"><i class="iconfont icon-arrowleft"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/#board">2</a><a class="page-number" href="/page/3/#board">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/#board">5</a><a class="page-number" href="/page/6/#board">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/#board">8</a><a class="extend next" rel="next" href="/page/5/#board"><i class="iconfont icon-arrowright"></i></a>
+      <a class="extend prev" rel="prev" href="/page/3/#board"><i class="iconfont icon-arrowleft"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/#board">2</a><a class="page-number" href="/page/3/#board">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/#board">5</a><a class="page-number" href="/page/6/#board">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/#board">10</a><a class="extend next" rel="next" href="/page/5/#board"><i class="iconfont icon-arrowright"></i></a>
     </span>
   </nav>
 
