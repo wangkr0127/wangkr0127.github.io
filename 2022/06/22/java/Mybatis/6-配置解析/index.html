@@ -1,0 +1,582 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" href="/img/favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="wangkr">
+  <meta name="keywords" content="">
+  <meta name="description" content="配置解析1、核心配置文件 mybatis-config.xml  MyBatis 的配置文件包含了会深深影响 MyBatis 行为的设置和属性信息。  12345678910111213configuration（配置）properties（属性）settings（设置）typeAliases（类型别名）typeHandlers（类型处理器）objectFactory（对象工厂）plugins（插">
+<meta property="og:type" content="article">
+<meta property="og:title" content="6-配置解析">
+<meta property="og:url" content="https://wangkr0127.github.io/2022/06/22/java/Mybatis/6-%E9%85%8D%E7%BD%AE%E8%A7%A3%E6%9E%90/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="配置解析1、核心配置文件 mybatis-config.xml  MyBatis 的配置文件包含了会深深影响 MyBatis 行为的设置和属性信息。  12345678910111213configuration（配置）properties（属性）settings（设置）typeAliases（类型别名）typeHandlers（类型处理器）objectFactory（对象工厂）plugins（插">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://wangkr0127.github.io/.io//image-20220324145628274.png">
+<meta property="og:image" content="https://wangkr0127.github.io/.io//1569656528134.png">
+<meta property="og:image" content="https://wangkr0127.github.io/.io//image-20220324190825776.png">
+<meta property="og:image" content="https://wangkr0127.github.io/.io//image-20220324153551954.png">
+<meta property="og:image" content="https://wangkr0127.github.io/.io//1569657659080.png">
+<meta property="og:image" content="https://wangkr0127.github.io/.io//1569657672791.png">
+<meta property="og:image" content="https://wangkr0127.github.io/.io//1569660357745.png">
+<meta property="og:image" content="https://wangkr0127.github.io/.io//1569660737088.png">
+<meta property="article:published_time" content="2022-06-22T04:35:15.849Z">
+<meta property="article:modified_time" content="2022-06-22T05:13:42.148Z">
+<meta property="article:author" content="wangkr">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://wangkr0127.github.io/.io//image-20220324145628274.png">
+  
+  <title>6-配置解析 - Hexo</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"wangkr0127.github.io","root":"/","version":"1.8.11","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>每一个不曾起舞的日子，都是对生命的辜负</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="6-配置解析">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2022-06-22 12:35" pubdate>
+        2022年6月22日 下午
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      2.9k 字
+    </span>
+  
+
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      9 分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">6-配置解析</h1>
+            
+            <div class="markdown-body">
+              <h2 id="配置解析"><a href="#配置解析" class="headerlink" title="配置解析"></a>配置解析</h2><h3 id="1、核心配置文件"><a href="#1、核心配置文件" class="headerlink" title="1、核心配置文件"></a>1、核心配置文件</h3><ul>
+<li><p>mybatis-config.xml</p>
+</li>
+<li><p>MyBatis 的配置文件包含了会深深影响 MyBatis 行为的设置和属性信息。 </p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs xml">configuration（配置）<br>properties（属性）<br>settings（设置）<br>typeAliases（类型别名）<br>typeHandlers（类型处理器）<br>objectFactory（对象工厂）<br>plugins（插件）<br>environments（环境配置）<br>environment（环境变量）<br>transactionManager（事务管理器）<br>dataSource（数据源）<br>databaseIdProvider（数据库厂商标识）<br>mappers（映射器）<br></code></pre></td></tr></table></figure></li>
+</ul>
+<br>
+
+<h3 id="2、环境配置（environments）"><a href="#2、环境配置（environments）" class="headerlink" title="2、环境配置（environments）"></a>2、环境配置（environments）</h3><p>MyBatis 可以配置成适应多种环境</p>
+<p><strong>不过要记住：尽管可以配置多个环境，但每个 SqlSessionFactory 实例<u>只能选择一种环境</u>。</strong></p>
+<p><strong>通过 default 选择当前使用的环境：</strong></p>
+<p><img src="/.io//image-20220324145628274.png" srcset="/img/loading.gif" lazyload alt="image-20220324145628274"></p>
+<p>学会使用配置多套运行环境！</p>
+<p>Mybatis默认的<strong>事务管理器就是 JDBC</strong>  ， <strong>连接池 ： POOLED</strong></p>
+<p>注：连接池是将已经创建好的连接保存在池中，当有请求来时，直接使用已经创建好的连接对数据库进行访问。这样省略了创建连接和销毁连接的过程。</p>
+<p>官网：<a target="_blank" rel="noopener" href="https://mybatis.org/mybatis-3/zh/configuration.html#environments">https://mybatis.org/mybatis-3/zh/configuration.html#environments</a></p>
+<br>
+
+<h3 id="3、属性（properties）"><a href="#3、属性（properties）" class="headerlink" title="3、属性（properties）"></a>3、属性（properties）</h3><p>我们可以通过properties属性来实现引用配置文件</p>
+<p>这些属性都是可外部配置且可动态替换的，既可以在典型的 Java 属性文件中配置，亦可通过 properties 元素的子元素来传递。【db.properties】</p>
+<p><img src="/.io//1569656528134.png" srcset="/img/loading.gif" lazyload alt="1569656528134"></p>
+<p>编写一个配置文件</p>
+<p>db.properties</p>
+<figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs properties"><span class="hljs-attr">driver</span>=<span class="hljs-string">com.mysql.jdbc.Driver</span><br><span class="hljs-attr">url</span>=<span class="hljs-string">jdbc:mysql://localhost:3306/mybatis?useSSL=true&amp;useUnicode=true&amp;characterEncoding=UTF-8</span><br><span class="hljs-attr">username</span>=<span class="hljs-string">root</span><br><span class="hljs-attr">password</span>=<span class="hljs-string">123456</span><br></code></pre></td></tr></table></figure>
+
+<img src="/.io//image-20220324190825776.png" srcset="/img/loading.gif" lazyload alt="image-20220324190825776" style="zoom:33%;">
+
+
+
+<p>在核心配置文件mybatis-config.xml中引入</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-comment">&lt;!--引入外部配置文件--&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">properties</span> <span class="hljs-attr">resource</span>=<span class="hljs-string">&quot;db.properties&quot;</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;username&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;root&quot;</span>/&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;pwd&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;11111&quot;</span>/&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">properties</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>可以直接引入外部文件</li>
+<li>可以在其中增加一些属性配置</li>
+<li>如果两个文件有同一个字段，优先使用外部配置文件的！</li>
+</ul>
+<p>此时 environment 配置不用再写死：</p>
+<img src="/.io//image-20220324153551954.png" srcset="/img/loading.gif" lazyload alt="image-20220324153551954" style="zoom:50%;">
+
+
+
+<br>
+
+<h3 id="4、类型别名（typeAliases）"><a href="#4、类型别名（typeAliases）" class="headerlink" title="4、类型别名（typeAliases）"></a>4、类型别名（typeAliases）</h3><ul>
+<li>类型别名是为 Java 类型设置一个短的名字</li>
+<li>存在的意义仅在于用来减少类完全限定名的冗余</li>
+</ul>
+<p>方式一 ：</p>
+<p>mybatis-config.xml中：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-comment">&lt;!--可以给实体类起别名--&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">typeAliases</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">typeAlias</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;com.wang.pojo.User&quot;</span> <span class="hljs-attr">alias</span>=<span class="hljs-string">&quot;User&quot;</span>/&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">typeAliases</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+
+
+<p>方式二：</p>
+<p>也可以指定一个包名，MyBatis 会在包名下面搜索需要的 Java Bean，比如：</p>
+<p><strong>扫描实体类的包</strong>，它的默认别名就为这个类的<u>类名</u>，<u>首字母小写</u></p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-comment">&lt;!--可以给实体类起别名--&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">typeAliases</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">package</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;com.wang.pojo&quot;</span>/&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">typeAliases</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+
+
+<p>在实体类比较少的时候，使用第一种方式。</p>
+<p>如果实体类十分多，建议使用第二种。</p>
+<p><strong>第一种可以DIY自定义别名，第二种则不行，如果非要改，需要在实体上增加注解</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">//需要先扫描实体类的包</span><br><span class="hljs-meta">@Alias(&quot;user&quot;)</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">User</span> </span>&#123;&#125;<br></code></pre></td></tr></table></figure>
+
+
+
+<br>
+
+<h3 id="5、设置"><a href="#5、设置" class="headerlink" title="5、设置"></a>5、设置</h3><p>这是 MyBatis 中极为重要的调整设置，它们会改变 MyBatis 的运行时行为。 </p>
+<p><img src="/.io//1569657659080.png" srcset="/img/loading.gif" lazyload alt="1569657659080"></p>
+<p><img src="/.io//1569657672791.png" srcset="/img/loading.gif" lazyload alt="1569657672791"></p>
+<br>
+
+<h3 id="6、其他配置"><a href="#6、其他配置" class="headerlink" title="6、其他配置"></a>6、其他配置</h3><ul>
+<li><a target="_blank" rel="noopener" href="https://mybatis.org/mybatis-3/zh/configuration.html#typeHandlers">typeHandlers（类型处理器）</a></li>
+<li><a target="_blank" rel="noopener" href="https://mybatis.org/mybatis-3/zh/configuration.html#objectFactory">objectFactory（对象工厂）</a></li>
+<li>plugins插件<ul>
+<li>mybatis-generator-core</li>
+<li>mybatis-plus</li>
+<li>通用mapper</li>
+</ul>
+</li>
+</ul>
+<br>
+
+<h3 id="7、映射器（mappers）"><a href="#7、映射器（mappers）" class="headerlink" title="7、映射器（mappers）"></a>7、映射器（mappers）</h3><p>MapperRegistry：注册绑定我们的Mapper文件；</p>
+<p>方式一： 【推荐使用】</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-comment">&lt;!--每一个Mapper.XML都需要在Mybatis核心配置文件中注册！--&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">mappers</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">mapper</span> <span class="hljs-attr">resource</span>=<span class="hljs-string">&quot;com/wang/dao/UserMapper.xml&quot;</span>/&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">mappers</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+
+
+<p>方式二：使用class文件绑定注册</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-comment">&lt;!--每一个Mapper.XML都需要在Mybatis核心配置文件中注册！--&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">mappers</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">mapper</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;com.wang.dao.UserMapper&quot;</span>/&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">mappers</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<p>优点：<strong>class 可以让注解和 xml 同时生效</strong></p>
+<p>注意点：</p>
+<ul>
+<li>接口和他的Mapper配置文件必须同名！</li>
+<li>接口和他的Mapper配置文件必须在同一个包下！</li>
+</ul>
+<p>方式三：使用扫描包进行注入绑定</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-comment">&lt;!--每一个Mapper.XML都需要在Mybatis核心配置文件中注册！--&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">mappers</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">package</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;com.wang.dao&quot;</span>/&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">mappers</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<p>注意点：</p>
+<ul>
+<li>接口和他的Mapper配置文件必须同名！</li>
+<li>接口和他的Mapper配置文件必须在同一个包下！</li>
+</ul>
+<br>
+
+<h3 id="8、生命周期和作用域"><a href="#8、生命周期和作用域" class="headerlink" title="8、生命周期和作用域"></a>8、生命周期和作用域</h3><p><img src="/.io//1569660357745.png" srcset="/img/loading.gif" lazyload alt="1569660357745"></p>
+<p>生命周期，和作用域，是至关重要的，因为错误的使用会导致非常严重的<strong>并发问题</strong>。</p>
+<h4 id="SqlSessionFactoryBuilder"><a href="#SqlSessionFactoryBuilder" class="headerlink" title="SqlSessionFactoryBuilder"></a><strong>SqlSessionFactoryBuilder</strong></h4><ul>
+<li>一旦创建了 SqlSessionFactory，就不再需要它了</li>
+<li>局部变量</li>
+</ul>
+<h4 id="SqlSessionFactory"><a href="#SqlSessionFactory" class="headerlink" title="SqlSessionFactory"></a><strong>SqlSessionFactory</strong></h4><ul>
+<li>说白了就是可以想象为 ：<strong>数据库连接池</strong></li>
+<li>SqlSessionFactory 一旦被创建就应该在应用的运行期间一直存在，<strong>没有任何理由丢弃它或重新创建另一个实例。</strong> </li>
+<li>因此 SqlSessionFactory 的最佳作用域是应用作用域。 </li>
+<li>最简单的就是使用<strong>单例模式</strong>或者静态单例模式。</li>
+</ul>
+<h4 id="SqlSession"><a href="#SqlSession" class="headerlink" title="SqlSession"></a><strong>SqlSession</strong></h4><ul>
+<li>连接到连接池的一个请求！</li>
+<li>SqlSession 的实例不是线程安全的，因此是不能被共享的，所以它的最佳的作用域是请求或方法作用域。</li>
+<li>用完之后需要赶紧关闭，否则资源被占用！</li>
+</ul>
+<p><img src="/.io//1569660737088.png" srcset="/img/loading.gif" lazyload alt="1569660737088"></p>
+<h4 id="Mapper"><a href="#Mapper" class="headerlink" title="Mapper"></a>Mapper</h4><p>这里面的每一个Mapper，就代表一个具体的<strong>业务</strong>！</p>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/Java/">Java</a>
+                    
+                      <a class="hover-with-bg" href="/categories/Java/Mybatis/">Mybatis</a>
+                    
+                  </div>
+                
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2022/06/22/java/Mybatis/5-Map%E5%92%8C%E6%A8%A1%E7%B3%8A%E6%9F%A5%E8%AF%A2/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">5-Map和模糊查询</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2022/06/22/java/Mybatis/7-ResultMap%E7%BB%93%E6%9E%9C%E9%9B%86%E6%98%A0%E5%B0%84/">
+                        <span class="hidden-mobile">7-ResultMap结果集映射</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js" ></script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>

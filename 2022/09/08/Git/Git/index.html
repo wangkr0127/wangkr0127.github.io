@@ -1,0 +1,661 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" href="/img/favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="wangkr">
+  <meta name="keywords" content="">
+  <meta name="description" content="1、版本控制版本控制（Revision control）是一种在开发的过程中用于管理我们对文件、目录或工程等内容的修改历史，方便查看更改历史记录，备份以便恢复以前的版本的软件工程技术。  实现跨区域多人协同开发 追踪和记载一个或者多个文件的历史记录 组织和保护你的源代码和文档 统计工作量 并行开发、提高开发效率 跟踪记录整个软件的开发过程 减轻开发人员的负担，节省时间，同时降低人为错误  简单说就">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="https://wangkr0127.github.io/2022/09/08/Git/Git/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="1、版本控制版本控制（Revision control）是一种在开发的过程中用于管理我们对文件、目录或工程等内容的修改历史，方便查看更改历史记录，备份以便恢复以前的版本的软件工程技术。  实现跨区域多人协同开发 追踪和记载一个或者多个文件的历史记录 组织和保护你的源代码和文档 统计工作量 并行开发、提高开发效率 跟踪记录整个软件的开发过程 减轻开发人员的负担，节省时间，同时降低人为错误  简单说就">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://wangkr0127.github.io/.io//image-20220710121040919.png">
+<meta property="og:image" content="https://wangkr0127.github.io/.io//image-20220710121334399.png">
+<meta property="og:image" content="https://wangkr0127.github.io/.io//image-20220710122105649.png">
+<meta property="og:image" content="https://wangkr0127.github.io/.io//image-20220711110520392.png">
+<meta property="og:image" content="https://wangkr0127.github.io/.io//image-20220711110754861.png">
+<meta property="og:image" content="https://wangkr0127.github.io/.io//image-20220711112455083.png">
+<meta property="og:image" content="https://wangkr0127.github.io/.io//image-20220711114301167.png">
+<meta property="og:image" content="https://wangkr0127.github.io/.io//image-20220711114846115.png">
+<meta property="og:image" content="https://wangkr0127.github.io/.io//image-20220711114942152.png">
+<meta property="og:image" content="https://wangkr0127.github.io/.io//image-20220712112331675.png">
+<meta property="og:image" content="https://wangkr0127.github.io/.io//image-20220712112724020.png">
+<meta property="og:image" content="https://wangkr0127.github.io/.io//image-20220712112748446.png">
+<meta property="og:image" content="https://wangkr0127.github.io/.io//image-20220712112818858.png">
+<meta property="og:image" content="https://wangkr0127.github.io/.io//image-20220712112849321.png">
+<meta property="og:image" content="https://wangkr0127.github.io/.io//image-20220713122617080.png">
+<meta property="og:image" content="https://wangkr0127.github.io/.io//image-20220713122640228.png">
+<meta property="og:image" content="https://wangkr0127.github.io/.io//image-20220713122730624.png">
+<meta property="og:image" content="https://wangkr0127.github.io/.io//image-20220713124033649.png">
+<meta property="og:image" content="https://wangkr0127.github.io/.io//image-20220713124045957.png">
+<meta property="og:image" content="https://wangkr0127.github.io/.io//image-20220713124554375.png">
+<meta property="article:published_time" content="2022-09-07T16:05:57.220Z">
+<meta property="article:modified_time" content="2022-07-13T05:01:02.411Z">
+<meta property="article:author" content="wangkr">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://wangkr0127.github.io/.io//image-20220710121040919.png">
+  
+  <title>Hexo</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"wangkr0127.github.io","root":"/","version":"1.8.11","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>每一个不曾起舞的日子，都是对生命的辜负</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2022-09-08 00:05" pubdate>
+        2022年9月8日 凌晨
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      6.4k 字
+    </span>
+  
+
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      20 分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none"></h1>
+            
+            <div class="markdown-body">
+              <h2 id="1、版本控制"><a href="#1、版本控制" class="headerlink" title="1、版本控制"></a>1、版本控制</h2><p>版本控制（Revision control）是一种在开发的过程中用于管理我们对文件、目录或工程等内容的修改历史，方便查看更改历史记录，备份以便恢复以前的版本的软件工程技术。</p>
+<ul>
+<li>实现跨区域多人协同开发</li>
+<li>追踪和记载一个或者多个文件的历史记录</li>
+<li>组织和保护你的源代码和文档</li>
+<li>统计工作量</li>
+<li>并行开发、提高开发效率</li>
+<li>跟踪记录整个软件的开发过程</li>
+<li>减轻开发人员的负担，节省时间，同时降低人为错误</li>
+</ul>
+<p>简单说就是用于管理多人协同开发项目的技术。</p>
+<p>没有进行版本控制或者版本控制本身缺乏正确的流程管理，在软件开发过程中将会引入很多问题，如软件代码的一致性、软件内容的冗余、软件过程的事物性、软件开发过程中的并发性、软件源代码的安全性，以及软件的整合等问题。</p>
+<p>无论是工作还是学习，或者是自己做笔记，都经历过这样一个阶段！我们就迫切需要一个版本控制工具！</p>
+<p>多人开发就必须要使用版本控制！</p>
+<h2 id="2、常见的版本控制工具"><a href="#2、常见的版本控制工具" class="headerlink" title="2、常见的版本控制工具"></a>2、常见的版本控制工具</h2><p>主流的版本控制器有如下这些：</p>
+<ul>
+<li>Git</li>
+<li>SVN（Subversion）</li>
+<li>CVS（Concurrent Versions System）</li>
+<li>VSS（Micorosoft Visual SourceSafe）</li>
+<li>TFS（Team Foundation Server）</li>
+<li>Visual Studio Online</li>
+</ul>
+<p>版本控制产品非常的多（Perforce、Rational ClearCase、RCS（GNU Revision Control System）、Serena Dimention、SVK、BitKeeper、Monotone、Bazaar、Mercurial、SourceGear Vault），现在影响力最大且使用最广泛的是Git与SVN。</p>
+<h2 id="3、版本控制分类"><a href="#3、版本控制分类" class="headerlink" title="3、版本控制分类"></a>3、版本控制分类</h2><h3 id="3-1、本地版本控制"><a href="#3-1、本地版本控制" class="headerlink" title="3-1、本地版本控制"></a>3-1、本地版本控制</h3><p>记录文件每次的更新，可以对每个版本做一个快照，或是记录补丁文件，适合个人用，如RCS。</p>
+<img src="/.io//image-20220710121040919.png" srcset="/img/loading.gif" lazyload alt="image-20220710121040919" style="zoom: 33%;">
+
+
+
+<h3 id="3-2、集中版本控制-SVN"><a href="#3-2、集中版本控制-SVN" class="headerlink" title="3-2、集中版本控制 SVN"></a>3-2、集中版本控制 SVN</h3><p>所有的版本数据都保存在服务器上，协同开发者从服务器上同步更新或上传自己的修改</p>
+<img src="/.io//image-20220710121334399.png" srcset="/img/loading.gif" lazyload alt="image-20220710121334399" style="zoom:33%;">
+
+<p>所有的版本数据都存在服务器上，用户的本地只有自己以前所同步的版本，如果不连网的话，用户就看不到历史版本，也无法切换版本验证问题，或在不同分支工作。而且，所有数据都保存在单一的服务器上，有很大的风险这个服务器会损坏，这样就会丢失所有的数据，当然可以定期备份。代表产品：SVN、CVS、VSS。</p>
+<h3 id="3-3、分布式版本控制-Git"><a href="#3-3、分布式版本控制-Git" class="headerlink" title="3-3、分布式版本控制 Git"></a>3-3、分布式版本控制 Git</h3><p>每个人都拥有全部的代码！安全隐患！</p>
+<p>所有版本信息仓库全部同步到本地的每个用户，这样就可以在本地查看所有版本历史，可以离线在本地提交，只需在连网时push到相应的服务器或其他用户那里。由于每个用户那里保存的都是所有的版本数据，只要有一个用户的设备没有问题就可以恢复所有的数据，但这增加了本地存储空间的占用。</p>
+<p>不会因为服务器损坏或者网络问题，造成不能工作的情况！<br>                                            <img src="/.io//image-20220710122105649.png" srcset="/img/loading.gif" lazyload alt="image-20220710122105649" style="zoom:33%;"> </p>
+<h2 id="4、Git与SVN的主要区别"><a href="#4、Git与SVN的主要区别" class="headerlink" title="4、Git与SVN的主要区别"></a>4、Git与SVN的主要区别</h2><p>SVN是集中式版本控制系统，版本库是集中放在中央服务器的，而工作的时候，用的都是自己的电脑，所以首先要从中央服务器得到最新的版本，然后工作，完成工作后，需要把自己做完的活推送到中央服务器。集中式版本控制系统是必须联网才能工作，对网络带宽要求较高。</p>
+<p>Git是分布式版本控制系统，没有中央服务器，每个人的电脑就是一个完整的版本库，工作的时候不需要联网了，因为版本都在自己电脑上。协同的方法是这样的：比如说自己在电脑上改了文件A，其他人也在电脑上改了文件A，这时，你们两之间只需把各自的修改推送给对方，就可以互相看到对方的修改了。Git可以直接看到更新了哪些代码和文件！</p>
+<p><strong>Git是目前世界上最先进的分布式版本控制系统。</strong></p>
+<p><strong>聊聊Git的历史：</strong></p>
+<p>同生活中的许多伟大事物一样，Git 诞生于一个极富纷争大举创新的年代。</p>
+<p>Linux 内核开源项目有着为数众广的参与者。绝大多数的 Linux 内核维护工作都花在了提交补丁和保存归档的繁琐事务上(1991－2002年间)。到 2002 年，整个项目组开始启用一个专有的分布式版本控制系统 BitKeeper 来管理和维护代码。</p>
+<p>Linux社区中存在很多的大佬！破解研究 BitKeeper ！</p>
+<p>到了 2005 年，开发 BitKeeper 的商业公司同 Linux 内核开源社区的合作关系结束，他们收回了 Linux 内核社区免费使用 BitKeeper 的权力。这就迫使 Linux 开源社区(特别是 Linux 的缔造者 Linus Torvalds)基于使用 BitKeeper 时的经验教训，开发出自己的版本系统。（2周左右！） 也就是后来的 Git！</p>
+<p>Git是免费、开源的，最初Git是为辅助 Linux 内核开发的，来替代 BitKeeper！</p>
+<p>Linux和Git之父李纳斯·托沃兹（Linus Benedic Torvalds）1969、芬兰</p>
+<h2 id="5、软件下载"><a href="#5、软件下载" class="headerlink" title="5、软件下载"></a>5、软件下载</h2><p>官网下载太慢，我们可以使用淘宝镜像下载：<a target="_blank" rel="noopener" href="http://npm.taobao.org/mirrors/git-for-windows/">http://npm.taobao.org/mirrors/git-for-windows/</a></p>
+<p>（先卸载——直接反安装uninstall）</p>
+<p>查找环境变量，有就移除</p>
+<p>下载对应的版本即可安装！</p>
+<p>安装：无脑下一步即可！安装完毕就可以使用了！</p>
+<h2 id="6、启动Git"><a href="#6、启动Git" class="headerlink" title="6、启动Git"></a>6、启动Git</h2><p><strong>Git Bash：</strong>Unix与Linux风格的命令行，使用最多，推荐最多</p>
+<p><strong>Git CMD：</strong>Windows风格的命令行</p>
+<p><strong>Git GUI</strong>：图形界面的Git，不建议初学者使用，尽量先熟悉常用命令</p>
+<h2 id="7、常用的Linux命令"><a href="#7、常用的Linux命令" class="headerlink" title="7、常用的Linux命令"></a>7、常用的Linux命令</h2><p>平时一定要多使用这些基础的命令！</p>
+<p>1）cd : 改变目录。</p>
+<p>2）cd . . 回退到上一个目录，直接cd进入默认目录</p>
+<p>3）pwd : 显示当前所在的目录路径。</p>
+<p>4）ls(ll): 都是列出当前目录中的所有文件，只不过ll(两个l)列出的内容更为详细。</p>
+<p>5）touch : 新建一个文件 如 touch index.js 就会在当前目录下新建一个index.js文件。</p>
+<p>6）rm: 删除一个文件, rm index.js 就会把index.js文件删除。</p>
+<p>7）mkdir: 新建一个目录,就是新建一个文件夹。</p>
+<p>8）rm -r : 删除一个文件夹, rm -r src     删除src目录</p>
+<p>​        rm -rf / 切勿在Linux中尝试！删除电脑中全部文件！</p>
+<p>9）mv 移动文件, mv index.html src </p>
+<p>​        index.html 是我们要移动的文件，src 是目标文件夹，这样写必须保证文件和目标文件夹在同一目录下。</p>
+<p>10）reset 重新初始化终端/清屏。</p>
+<p>11）clear 清屏。</p>
+<p>12）history 查看命令历史。</p>
+<p>13）help 帮助。</p>
+<p>14）exit 退出。</p>
+<p>15）# 表示注释</p>
+<h2 id="8、Git配置"><a href="#8、Git配置" class="headerlink" title="8、Git配置"></a>8、Git配置</h2><p>所有的配置文件，其实都保存在本地！</p>
+<p>查看配置 git config -l</p>
+<img src="/.io//image-20220711110520392.png" srcset="/img/loading.gif" lazyload alt="image-20220711110520392" style="zoom:50%;">
+
+
+
+<p>查看不同级别的配置文件：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs linux">#查看系统config   				 git config --system --list　<br>#查看当前用户（global）配置		 git config --global  --list<br></code></pre></td></tr></table></figure>
+
+<img src="/.io//image-20220711110754861.png" srcset="/img/loading.gif" lazyload alt="image-20220711110754861" style="zoom:50%;">
+
+<p>Git相关的配置文件：</p>
+<p>1）Git\etc\gitconfig ：Git 安装目录下的 gitconfig –system 系统级</p>
+<p>2）C:\Users\wangkr\ .gitconfig 只适用于当前登录用户的配置 –global 全局</p>
+<p>这里可以直接编辑配置文件，通过命令设置后会响应到这里。</p>
+<h2 id="9、设置用户名与邮箱（用户标识，必要）"><a href="#9、设置用户名与邮箱（用户标识，必要）" class="headerlink" title="9、设置用户名与邮箱（用户标识，必要）"></a>9、设置用户名与邮箱（用户标识，必要）</h2><p>当你安装Git后首先要做的事情是设置你的用户名称和e-mail地址。这是非常重要的，因为每次Git提交都会使用该信息。它被永远的嵌入到了你的提交中：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs linux">git config --global user.name &quot;wangkr0127&quot;  #名称<br><br>git config --global user.email 854764005@qq.com   #邮箱<br></code></pre></td></tr></table></figure>
+
+<p>只需要做一次这个设置，如果你传递了–global 选项，因为Git将总是会使用该信息来处理你在系统中所做的一切操作。如果你希望在一个特定的项目中使用不同的名称或e-mail地址，你可以在该项目中运行该命令而不要–global选项。总之–global为全局配置，不加为某个项目的特定配置。</p>
+<h2 id="10、三个区域"><a href="#10、三个区域" class="headerlink" title="10、三个区域"></a>10、三个区域</h2><p>Git本地有三个工作区域：工作目录（Working Directory）、暂存区(Stage/Index)、资源库(Repository或Git Directory)。如果在加上远程的git仓库(Remote Directory)就可以分为四个工作区域。文件在这四个区域之间的转换关系如下：<br>                                             <img src="/.io//image-20220711112455083.png" srcset="/img/loading.gif" lazyload alt="image-20220711112455083" style="zoom: 33%;"></p>
+<ul>
+<li>Workspace：工作区，就是你平时存放项目代码的地方</li>
+<li>Index / Stage：暂存区，用于临时存放你的改动，事实上它只是一个文件，保存即将提交到文件列表信息</li>
+<li>Repository：仓库区（或本地仓库），就是安全存放数据的位置，这里面有你提交到所有版本的数据。其中HEAD指向最新放入仓库的版本</li>
+<li>Remote：远程仓库，托管代码的服务器，可以简单的认为是你项目组中的一台电脑用于远程数据交换</li>
+</ul>
+<p>本地的三个区域确切的说应该是git仓库中HEAD指向的版本：</p>
+<img src="/.io//image-20220711114301167.png" srcset="/img/loading.gif" lazyload alt="image-20220711114301167" style="zoom:40%;">
+
+<ul>
+<li>Directory：使用Git管理的一个目录，也就是一个仓库，包含我们的工作空间和Git的管理空间。</li>
+<li>WorkSpace：需要通过Git进行版本控制的目录和文件，这些目录和文件组成了工作空间。</li>
+<li>.git：存放Git管理信息的目录，初始化仓库的时候自动创建。</li>
+<li>Index/Stage：暂存区，或者叫待提交更新区，在提交进入repo之前，我们可以把所有的更新放在暂存区。</li>
+<li>Local Repo：本地仓库，一个存放在本地的版本库；HEAD会只是当前的开发分支（branch）。</li>
+<li>Stash：隐藏，是一个工作状态保存栈，用于保存/恢复WorkSpace中的临时状态。</li>
+</ul>
+<h2 id="11、工作流程"><a href="#11、工作流程" class="headerlink" title="11、工作流程"></a>11、工作流程</h2><p>git 的工作流程一般是这样的：</p>
+<p>１、在工作目录中添加、修改文件；</p>
+<p>２、将需要进行版本管理的文件放入暂存区域；</p>
+<p>３、将暂存区域的文件提交到 git 仓库。</p>
+<p>因此，git 管理的文件有三种状态：已修改（modified）,已暂存（staged）,已提交(committed)</p>
+<img src="/.io//image-20220711114846115.png" srcset="/img/loading.gif" lazyload alt="image-20220711114846115" style="zoom:40%;">
+
+
+
+<h2 id="12、创建工作目录与常用指令"><a href="#12、创建工作目录与常用指令" class="headerlink" title="12、创建工作目录与常用指令"></a>12、创建工作目录与常用指令</h2><p>工作目录（WorkSpace)一般就是你希望Git帮助你管理的文件夹，可以是你项目的目录，也可以是一个空目录，建议不要有中文。</p>
+<p>日常使用只要记住下图6个命令：</p>
+<img src="/.io//image-20220711114942152.png" srcset="/img/loading.gif" lazyload alt="image-20220711114942152" style="zoom:50%;">
+
+
+
+<h2 id="13、本地仓库搭建"><a href="#13、本地仓库搭建" class="headerlink" title="13、本地仓库搭建"></a>13、本地仓库搭建</h2><p>创建本地仓库的方法有两种：一种是创建全新的仓库，另一种是克隆远程仓库。</p>
+<h3 id="13-1、创建全新仓库"><a href="#13-1、创建全新仓库" class="headerlink" title="13-1、创建全新仓库"></a>13-1、创建全新仓库</h3><p>需要用GIT管理的项目的根目录执行</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-meta"># 在当前目录新建一个Git代码库</span><br><br>$ git <span class="hljs-keyword">init</span><br></code></pre></td></tr></table></figure>
+
+<p>执行后可以看到，仅仅在项目目录多出了一个.git目录，关于版本等的所有信息都在这个目录里面。</p>
+<h3 id="13-2、克隆远程仓库"><a href="#13-2、克隆远程仓库" class="headerlink" title="13-2、克隆远程仓库"></a>13-2、克隆远程仓库</h3><p>另一种方式是克隆远程目录，由于是将远程服务器上的仓库完全镜像一份至本地！</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs awk"><span class="hljs-comment"># 克隆一个项目和它的整个代码历史(版本信息)$ git clone [url] </span><br><br>$ git clone https:<span class="hljs-regexp">//gi</span>tee.com<span class="hljs-regexp">/kuangstudy/</span>kuang_livenote.git<br></code></pre></td></tr></table></figure>
+
+
+
+<h2 id="14、文件的四种状态-amp-上传流程"><a href="#14、文件的四种状态-amp-上传流程" class="headerlink" title="14、文件的四种状态 &amp; 上传流程"></a>14、文件的四种状态 &amp; 上传流程</h2><p>版本控制就是对文件的版本控制，要对文件进行修改、提交等操作，首先要知道文件当前在什么状态，不然可能会提交了现在还不想提交的文件，或者要提交的文件没提交上。</p>
+<ul>
+<li>Untracked: 未跟踪, 此文件在文件夹中但并没有加入到git库，不参与版本控制。通过git add状态变为Staged</li>
+<li>Unmodify: 文件已经入库，未修改，即版本库中的文件快照内容与文件夹中完全一致。这种类型的文件有两种去处，如果它被修改，会变为Modified。如果使用git rm移出版本库，则成为Untracked文件</li>
+<li>Modified: 文件已修改，仅仅是修改，并没有进行其他的操作。这个文件也有两个去处，通过git add可进入暂存staged状态, 使用git checkout 则丢弃修改过，返回到unmodify状态，这个git checkout即从库中取出文件，覆盖当前修改 !</li>
+<li>Staged: 暂存状态。执行git commit则将修改同步到库中，这时库中的文件和本地文件又变为一致，文件为Unmodify状态。执行git reset HEAD filename取消暂存，文件状态为Modified</li>
+</ul>
+<p>上面说文件有4种状态，通过如下命令可以查看到文件的状态：</p>
+<figure class="highlight vala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs vala"><span class="hljs-meta">#查看指定文件状态</span><br>git status [filename]<br><br><span class="hljs-meta">#查看所有文件状态</span><br>git status<br><br><span class="hljs-meta"># git add .                添加所有文件到暂存区</span><br><br><span class="hljs-meta"># git commit -m &quot;消息内容&quot;    提交暂存区中的内容到本地仓库 -m 提交信息</span><br></code></pre></td></tr></table></figure>
+
+
+
+<h2 id="15、忽略文件"><a href="#15、忽略文件" class="headerlink" title="15、忽略文件"></a>15、忽略文件</h2><p>有些时候我们不想把某些文件纳入版本控制中，比如数据库文件，临时文件，设计文件等</p>
+<p>在主目录下建立”.gitignore”文件，此文件有如下规则：</p>
+<ol>
+<li>忽略文件中的空行或以井号（#）开始的行将会被忽略。</li>
+<li>可以使用Linux通配符。例如：星号（*）代表任意多个字符，问号（？）代表一个字符，方括号（[abc]）代表可选字符范围，大括号（{string1,string2,…}）代表可选的字符串等。</li>
+<li>如果名称的最前面有一个感叹号（!），表示例外规则，将不被忽略。</li>
+<li>如果名称的最前面是一个路径分隔符（/），表示要忽略的文件在此目录下，而子目录中的文件不忽略。</li>
+<li>如果名称的最后面是一个路径分隔符（/），表示要忽略的是此目录下该名称的子目录，而非文件（默认文件或目录都忽略）。</li>
+</ol>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs awk"><span class="hljs-comment">#为注释</span><br>*.txt   <span class="hljs-comment">#忽略所有 .txt结尾的文件,这样的话上传就不会被选中！</span><br><br>!lib.txt <span class="hljs-comment">#但lib.txt除外</span><br><br>/temp    <span class="hljs-comment">#仅忽略项目根目录下的TODO文件,不包括其它目录</span><br><br>tempbuild<span class="hljs-regexp">/  #忽略build/</span>目录下的所有文件<br><br>doc<span class="hljs-regexp">/*.txt   #会忽略doc/</span>notes.txt 	但不包括 doc<span class="hljs-regexp">/server/</span>arch.txt<br></code></pre></td></tr></table></figure>
+
+
+
+<h2 id="16、使用码云-Gitee"><a href="#16、使用码云-Gitee" class="headerlink" title="16、使用码云(Gitee)"></a>16、使用码云(Gitee)</h2><p><strong>github 是有墙的，比较慢，在国内的话，我们一般使用 gitee ，公司中有时候会搭建自己的gitlab服务器</strong></p>
+<p>这个其实可以作为大家未来找工作的一个重要信息！</p>
+<p>码云网址：<a target="_blank" rel="noopener" href="https://gitee.com/explore">https://gitee.com/explore</a></p>
+<p>1、注册登录码云，完善个人信息</p>
+<p>2、设置本机绑定SSH公钥，实现免密码登录！（免密码登录，这一步挺重要的，码云是远程仓库，我们是平时工作在本地仓库！)</p>
+<figure class="highlight vala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs vala"><span class="hljs-meta"># 进入 C:\Users\wangkr\.ssh 目录</span><br><span class="hljs-meta"># 生成公钥</span><br>ssh-keygen<br></code></pre></td></tr></table></figure>
+
+<p><img src="/.io//image-20220712112331675.png" srcset="/img/loading.gif" lazyload alt="image-20220712112331675"></p>
+<p>3、将公钥信息public key 添加到码云账户中即可！</p>
+<p><img src="/.io//image-20220712112724020.png" srcset="/img/loading.gif" lazyload alt="image-20220712112724020"></p>
+<p>4、使用码云创建一个自己的仓库！</p>
+<p><img src="/.io//image-20220712112748446.png" srcset="/img/loading.gif" lazyload alt="image-20220712112748446"></p>
+<p>许可证：开源是否可以随意转载，开源但是不能商业使用，不能转载，… 限制！</p>
+<img src="/.io//image-20220712112818858.png" srcset="/img/loading.gif" lazyload alt="image-20220712112818858" style="zoom: 50%;">
+
+<p>克隆到本地！</p>
+<p><img src="/.io//image-20220712112849321.png" srcset="/img/loading.gif" lazyload alt="image-20220712112849321"></p>
+<h2 id="17、IDEA中集成Git"><a href="#17、IDEA中集成Git" class="headerlink" title="17、IDEA中集成Git"></a>17、IDEA中集成Git</h2><p>1、新建项目，绑定git。</p>
+<p><img src="/.io//image-20220713122617080.png" srcset="/img/loading.gif" lazyload alt="image-20220713122617080"></p>
+<p>注意观察idea中的变化：</p>
+<p><img src="/.io//image-20220713122640228.png" srcset="/img/loading.gif" lazyload alt="image-20220713122640228"></p>
+<p>2、修改文件，使用IDEA操作git。</p>
+<ul>
+<li>添加到暂存区</li>
+<li>commit 提交</li>
+<li>push到远程仓库</li>
+</ul>
+<p>3、提交测试</p>
+<p><img src="/.io//image-20220713122730624.png" srcset="/img/loading.gif" lazyload alt="image-20220713122730624"></p>
+<h2 id="18、说明：GIT分支"><a href="#18、说明：GIT分支" class="headerlink" title="18、说明：GIT分支"></a>18、说明：GIT分支</h2><p>分支在GIT中相对较难，分支就是科幻电影里面的平行宇宙，如果两个平行宇宙互不干扰，那对现在的你也没啥影响。不过，在某个时间点，两个平行宇宙合并了，我们就需要处理一些问题了！</p>
+<img src="/.io//image-20220713124033649.png" srcset="/img/loading.gif" lazyload alt="image-20220713124033649" style="zoom:33%;">
+
+<img src="/.io//image-20220713124045957.png" srcset="/img/loading.gif" lazyload alt="image-20220713124045957" style="zoom: 50%;">
+
+
+
+<p>git分支中常用指令：</p>
+<figure class="highlight vala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs vala"><span class="hljs-meta"># 列出所有本地分支</span><br>git branch<br><br><span class="hljs-meta"># 列出所有远程分支</span><br>git branch -r<br><br><span class="hljs-meta"># 新建一个分支，但依然停留在当前分支</span><br>git branch [branch-name]<br><br><span class="hljs-meta"># 新建一个分支，并切换到该分支</span><br>git checkout -b [branch]<br><br><span class="hljs-meta"># 合并指定分支到当前分支</span><br>$ git merge [branch]<br><br><span class="hljs-meta"># 删除分支</span><br>$ git branch -d [branch-name]<br><br><span class="hljs-meta"># 删除远程分支</span><br>$ git push origin --delete [branch-name]<br>$ git branch -dr [remote/branch]<br></code></pre></td></tr></table></figure>
+
+
+
+<p>IDEA中操作：</p>
+<img src="/.io//image-20220713124554375.png" srcset="/img/loading.gif" lazyload alt="image-20220713124554375" style="zoom:50%;">
+
+
+
+<p>如果同一个文件在合并分支时都被修改了则会引起冲突：解决的办法是我们可以修改冲突文件后重新提交！选择要保留他的代码还是你的代码！</p>
+<p>master主分支应该非常稳定，用来发布新版本，一般情况下不允许在上面工作，工作一般情况下在新建的dev分支上工作，工作完后，比如上要发布，或者说dev分支代码稳定后可以合并到主分支master上来。</p>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2022/09/08/java/Java%E5%9F%BA%E7%A1%80/Java%E5%9F%BA%E7%A1%80/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile"></span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2022/06/22/java/SSM%E6%95%B4%E5%90%88/SSM%E6%95%B4%E5%90%88/">
+                        <span class="hidden-mobile">SSM框架整合</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js" ></script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>

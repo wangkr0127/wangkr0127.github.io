@@ -190,20 +190,19 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2022/02/09/Django%E5%90%8E%E7%AB%AF/%E5%89%8D%E5%90%8E%E7%AB%AF%E5%88%86%E7%A6%BB%E6%9E%B6%E6%9E%84/" target="_self">
-          前后端分离框架
+        <a href="/2022/05/24/Vue.js/created%20&amp;%20mounted/" target="_self">
+          created &amp; mounted
         </a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2022/02/09/Django%E5%90%8E%E7%AB%AF/%E5%89%8D%E5%90%8E%E7%AB%AF%E5%88%86%E7%A6%BB%E6%9E%B6%E6%9E%84/" target="_self">
+        <a href="/2022/05/24/Vue.js/created%20&amp;%20mounted/" target="_self">
           
           
             
           
-          现在随着浏览器中 javascript 解释器性能的突飞猛进，以及一些前端模板库和框架的流行。很多架构师将页面的html 内容生成的任务放到前端。
-这样服务端（后端）就只负责提供数据，界面的构成全部在前端（浏览器前端或者手机前端）进行称之为前端渲染。只是这个工作在前端执行，使用前端的框架库去完成，比如 Angular，React，Vue。
-这样界面完全交给前端开发人员去做，后端开发只需要提供前端界
+          created：在模板渲染成 html 前调用，即通常初始化某些属性值，然后再渲染成视图。
+1234567891011121314151617methods: &#123;            indexs:function()&#123;                this.$http.post(&#x27;&#123;:url(&quot;Index/fun&quot;)&#125;&#
         </a>
       </p>
 
@@ -211,8 +210,8 @@
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2022-02-09 21:32" pubdate>
-              2022-02-09
+            <time datetime="2022-05-24 16:04" pubdate>
+              2022-05-24
             </time>
           </div>
         
@@ -220,7 +219,7 @@
           <div class="post-meta mr-3">
             <i class="iconfont icon-category"></i>
             
-              <a href="/categories/Django%E5%90%8E%E7%AB%AF/">Django后端</a>
+              <a href="/categories/Vue-js/">Vue.js</a>
             
           </div>
         
@@ -235,27 +234,29 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2022/02/09/Django%E5%90%8E%E7%AB%AF/%E5%88%86%E9%A1%B5%E5%92%8C%E8%BF%87%E6%BB%A4/" target="_self">
-          分页和过滤
+        <a href="/2022/04/08/%E5%89%8D%E7%AB%AF%E6%9D%82%E8%AE%B0/%E9%87%8D%E5%AE%9A%E5%90%91%E5%92%8C%E8%BD%AC%E5%8F%91/" target="_self">
+          重定向和转发的区别
         </a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2022/02/09/Django%E5%90%8E%E7%AB%AF/%E5%88%86%E9%A1%B5%E5%92%8C%E8%BF%87%E6%BB%A4/" target="_self">
+        <a href="/2022/04/08/%E5%89%8D%E7%AB%AF%E6%9D%82%E8%AE%B0/%E9%87%8D%E5%AE%9A%E5%90%91%E5%92%8C%E8%BD%AC%E5%8F%91/" target="_self">
           
           
             
           
-          我们的系统在列出药品、客户、订单等数据的时候，都是用一张表在一页里面显示全部内容。
-但是如果我们有大量的数据，比如系统中存储10万种药品，这个表将会非常的长，需要后端程序从数据库中读取大量的数据，并传递给前端。而用户通常只需要看其中的一点点数据，这是非常大的性能浪费。
-解决方案：分页 和 过滤
-
-分页：每次只读取一页的信息返回给前端
-过滤：根据用户提供的筛选条件，只读取符合条件的部分信息
+          面试题：请你聊聊重定向和转发的区别
+相同点：
+页面都会实现跳转
 
 
+不同点：
+请求转发的时候，url 不会发生变化         307
+重定向的时候，url 地址栏会发生改变     302
 
-分
+
+
+
         </a>
       </p>
 
@@ -263,8 +264,8 @@
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2022-02-09 21:32" pubdate>
-              2022-02-09
+            <time datetime="2022-04-08 11:20" pubdate>
+              2022-04-08
             </time>
           </div>
         
@@ -272,7 +273,7 @@
           <div class="post-meta mr-3">
             <i class="iconfont icon-category"></i>
             
-              <a href="/categories/Django%E5%90%8E%E7%AB%AF/">Django后端</a>
+              <a href="/categories/%E5%89%8D%E7%AB%AF%E6%9D%82%E8%AE%B0/">前端杂记</a>
             
           </div>
         
@@ -287,26 +288,22 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2022/02/09/Django%E5%90%8E%E7%AB%AF/Web%20%E5%BC%80%E5%8F%91%E7%AE%80%E4%BB%8B%E5%8F%8A%E5%89%8D%E5%90%8E%E7%AB%AF%E5%88%86%E7%A6%BB/" target="_self">
-          Web 开发简介及前后端分离
+        <a href="/2022/03/26/%E5%B0%8FSkills/Python%E5%88%97%E8%A1%A8%E5%85%83%E7%B4%A0%E5%8E%BB%E9%87%8D/" target="_self">
+          
         </a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2022/02/09/Django%E5%90%8E%E7%AB%AF/Web%20%E5%BC%80%E5%8F%91%E7%AE%80%E4%BB%8B%E5%8F%8A%E5%89%8D%E5%90%8E%E7%AB%AF%E5%88%86%E7%A6%BB/" target="_self">
+        <a href="/2022/03/26/%E5%B0%8FSkills/Python%E5%88%97%E8%A1%A8%E5%85%83%E7%B4%A0%E5%8E%BB%E9%87%8D/" target="_self">
           
           
             
           
-          web系统，通常可以分为 ： 客户端 和 服务端 。
-BS 模式是一种特殊的 CS 模式。
-比如，手机应用（比如微信）就是 客户端， 腾讯公司的微信服务程序（运行在腾讯的机房里面）就是服务端。
-客户端称之为前端 ，服务端称之为后端。
-我们先关注浏览器前端， 也就是web前端。
+          一般情况：1234# 将list1转化为集合的形式进行去重（集合具有唯一性），单获取的新列表是经过升序展示的list3 = list(set(list1))  # 降序# list3.sort(reverse=True)  # 升序print(list3)
 
 
-Web 前端开发Web 前端开发的重点是 ： 提供用户界面给用户进行观看和操作。
-前端开发文件（html，css，js
+
+当列表list的元素为字典dic时：12345678910111213141516from functools import reduc
         </a>
       </p>
 
@@ -314,8 +311,85 @@ Web 前端开发Web 前端开发的重点是 ： 提供用户界面给用户进�
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2022-02-09 21:32" pubdate>
-              2022-02-09
+            <time datetime="2022-03-26 00:46" pubdate>
+              2022-03-26
+            </time>
+          </div>
+        
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2022/03/25/%E6%96%87%E4%BB%B6%E5%A4%84%E7%90%86/Word%20%E5%A4%84%E7%90%86/" target="_self">
+          
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2022/03/25/%E6%96%87%E4%BB%B6%E5%A4%84%E7%90%86/Word%20%E5%A4%84%E7%90%86/" target="_self">
+          
+          
+            
+          
+          123456789101112131415161718from docx import Document######################## 创建 ########################document = Document()  # 新建文档对象for issue in issue_type:    file = &#x27;data/&#x27; + issue + &#
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-03-25 19:27" pubdate>
+              2022-03-25
+            </time>
+          </div>
+        
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2022/03/24/java/JavaWeb%E5%85%A5%E9%97%A8/9-MVC%E4%B8%89%E5%B1%82%E6%9E%B6%E6%9E%84/" target="_self">
+          9-MVC三层架构
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2022/03/24/java/JavaWeb%E5%85%A5%E9%97%A8/9-MVC%E4%B8%89%E5%B1%82%E6%9E%B6%E6%9E%84/" target="_self">
+          
+          
+            
+          
+          MVC三层架构
+什么是MVC： Model view Controller 模型、视图、控制器
+
+1、以前的架构
+用户直接访问控制层，控制层就可以直接操作数据库；
+1234567891011servlet--CRUD--&gt;数据库    弊端：程序十分臃肿，不利于维护  servlet的代码中：处理请求、响应、视图跳转、处理JDBC、处理业务代码、处理逻辑代码架构：没有什么是加一层解决不了的！
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-03-24 19:43" pubdate>
+              2022-03-24
             </time>
           </div>
         
@@ -323,7 +397,9 @@ Web 前端开发Web 前端开发的重点是 ： 提供用户界面给用户进�
           <div class="post-meta mr-3">
             <i class="iconfont icon-category"></i>
             
-              <a href="/categories/Django%E5%90%8E%E7%AB%AF/">Django后端</a>
+              <a href="/categories/Java/">Java</a>
+            
+              <a href="/categories/Java/JavaWeb%E5%85%A5%E9%97%A8/">JavaWeb入门</a>
             
           </div>
         
@@ -338,22 +414,57 @@ Web 前端开发Web 前端开发的重点是 ： 提供用户界面给用户进�
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2022/02/09/Django%E5%90%8E%E7%AB%AF/session%20%E5%92%8C%20token/" target="_self">
-          session 和 token
+        <a href="/2022/03/24/java/JavaWeb%E5%85%A5%E9%97%A8/8-JavaBean/" target="_self">
+          8-JavaBean
         </a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2022/02/09/Django%E5%90%8E%E7%AB%AF/session%20%E5%92%8C%20token/" target="_self">
+        <a href="/2022/03/24/java/JavaWeb%E5%85%A5%E9%97%A8/8-JavaBean/" target="_self">
           
           
             
           
-          session 和 token前面我们已经根据接口文档，编写代码，对前端发来的 Customer API请求进行处理了。
-并且我们也编写了用户登录处理的代码。
-但是还存在一个问题：前端发来的 Customer API 请求， 我们后端代码就直接处理了， 并没有验证 这个请求是不是已经登录的管理员发出的（或者是否有权限等）。
-如果是这样，客户端可以不需要登录，直接访问登录后的主页。
-这就需要我们在处
+          JavaBean实体类
+JavaBean有特定的写法：
+
+必须要有一个无参构造
+属性必须私有化
+必须有对应的get/set方法；
+
+一般用来和数据库的字段做映射 ORM；
+ORM ：对象关系映射
+
+表—&gt;类
+字段–&gt;属性
+行记录—-&gt;对象
+
+people表
+
+
+
+id
+name
+age
+address
+
+
+
+1
+秦疆1号
+3
+西安
+
+
+2
+秦疆2号
+18
+西安
+
+
+3
+秦疆3号
+
         </a>
       </p>
 
@@ -361,8 +472,8 @@ Web 前端开发Web 前端开发的重点是 ： 提供用户界面给用户进�
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2022-02-09 21:32" pubdate>
-              2022-02-09
+            <time datetime="2022-03-24 19:43" pubdate>
+              2022-03-24
             </time>
           </div>
         
@@ -370,7 +481,9 @@ Web 前端开发Web 前端开发的重点是 ： 提供用户界面给用户进�
           <div class="post-meta mr-3">
             <i class="iconfont icon-category"></i>
             
-              <a href="/categories/Django%E5%90%8E%E7%AB%AF/">Django后端</a>
+              <a href="/categories/Java/">Java</a>
+            
+              <a href="/categories/Java/JavaWeb%E5%85%A5%E9%97%A8/">JavaWeb入门</a>
             
           </div>
         
@@ -385,21 +498,37 @@ Web 前端开发Web 前端开发的重点是 ： 提供用户界面给用户进�
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2022/02/09/Django%E5%90%8E%E7%AB%AF/ORM%E5%85%B3%E8%81%94%E8%A1%A8%E3%80%81%E4%BA%8B%E5%8A%A1/" target="_self">
-          ORM关联表、事务
+        <a href="/2022/03/24/java/JavaWeb%E5%85%A5%E9%97%A8/7-JSP/" target="_self">
+          7-JSP
         </a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2022/02/09/Django%E5%90%8E%E7%AB%AF/ORM%E5%85%B3%E8%81%94%E8%A1%A8%E3%80%81%E4%BA%8B%E5%8A%A1/" target="_self">
+        <a href="/2022/03/24/java/JavaWeb%E5%85%A5%E9%97%A8/7-JSP/" target="_self">
           
           
             
           
-          ORM 对关联表的操作前面一对多，一对一，多对多关系表，都是通过外键来实现。
-接下来，我们通过一个实例演示 Django ORM 如何操作外键关联关系。
-在 models.py 中定义两个Model，对应两张表：
-123456789# 国家表class Country(models.Model):    name = models.CharField(max_length=100)# 学生表， c
+          JSP1、什么是JSPJava Server Pages ： Java服务器端页面，也和Servlet一样，用于动态Web技术！
+最大的特点：
+
+写JSP就像在写HTML
+区别：
+HTML只给用户提供静态的数据
+JSP页面中可以嵌入JAVA代码，为用户提供动态数据；
+
+
+
+2、JSP原理思路：JSP到底怎么执行的！
+
+代码层面没有任何问题
+
+服务器内部工作
+
+tomcat中有一个work目录
+
+
+
         </a>
       </p>
 
@@ -407,8 +536,8 @@ Web 前端开发Web 前端开发的重点是 ： 提供用户界面给用户进�
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2022-02-09 21:32" pubdate>
-              2022-02-09
+            <time datetime="2022-03-24 19:43" pubdate>
+              2022-03-24
             </time>
           </div>
         
@@ -416,7 +545,9 @@ Web 前端开发Web 前端开发的重点是 ： 提供用户界面给用户进�
           <div class="post-meta mr-3">
             <i class="iconfont icon-category"></i>
             
-              <a href="/categories/Django%E5%90%8E%E7%AB%AF/">Django后端</a>
+              <a href="/categories/Java/">Java</a>
+            
+              <a href="/categories/Java/JavaWeb%E5%85%A5%E9%97%A8/">JavaWeb入门</a>
             
           </div>
         
@@ -431,21 +562,24 @@ Web 前端开发Web 前端开发的重点是 ： 提供用户界面给用户进�
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2022/02/09/Django%E5%90%8E%E7%AB%AF/HTTP%E8%AF%B7%E6%B1%82%E7%9A%84url%E8%B7%AF%E7%94%B1/" target="_self">
-          HTTP请求的url路由
+        <a href="/2022/03/24/java/JavaWeb%E5%85%A5%E9%97%A8/6-Cookie%20&amp;%20Session/" target="_self">
+          6-Cookie &amp; Session
         </a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2022/02/09/Django%E5%90%8E%E7%AB%AF/HTTP%E8%AF%B7%E6%B1%82%E7%9A%84url%E8%B7%AF%E7%94%B1/" target="_self">
+        <a href="/2022/03/24/java/JavaWeb%E5%85%A5%E9%97%A8/6-Cookie%20&amp;%20Session/" target="_self">
           
           
             
           
-          创建项目appDjango 中的一个app 就是项目里面的一个应用的意思，一个项目包含多个app（功能应用）。
-一个app 通常就是一个相对独立的模块 ，实现相对独立的功能。                 
-比如，我们可以把一个系统的管理员管理功能放在一个名为 manage 的 app 里面，把销售人员的操作实现在另外一个名字为 sales的app里面。
-比如，现在我们需要一个 app 专门处理
+          Cookie、Session会话会话：用户打开一个浏览器，点击了很多超链接，访问多个web资源，关闭浏览器，这个过程可以称之为会话；
+有状态会话：一个同学来过教室，下次再来教室，我们会知道这个同学，曾经来过，称之为有状态会话；
+一个网站，怎么证明你来过？
+客户端 服务端
+
+服务端给客户端一个 信件，客户端下次访问服务端带上信件就可以了； cookie
+服务器登记你来过了，下次你来的时候我来匹配你；
         </a>
       </p>
 
@@ -453,8 +587,8 @@ Web 前端开发Web 前端开发的重点是 ： 提供用户界面给用户进�
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2022-02-09 21:32" pubdate>
-              2022-02-09
+            <time datetime="2022-03-24 19:43" pubdate>
+              2022-03-24
             </time>
           </div>
         
@@ -462,7 +596,9 @@ Web 前端开发Web 前端开发的重点是 ： 提供用户界面给用户进�
           <div class="post-meta mr-3">
             <i class="iconfont icon-category"></i>
             
-              <a href="/categories/Django%E5%90%8E%E7%AB%AF/">Django后端</a>
+              <a href="/categories/Java/">Java</a>
+            
+              <a href="/categories/Java/JavaWeb%E5%85%A5%E9%97%A8/">JavaWeb入门</a>
             
           </div>
         
@@ -477,26 +613,27 @@ Web 前端开发Web 前端开发的重点是 ： 提供用户界面给用户进�
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2022/02/09/Django%E5%90%8E%E7%AB%AF/HTTP%E5%8D%8F%E8%AE%AE/" target="_self">
-          HTTP协议
+        <a href="/2022/03/24/java/JavaWeb%E5%85%A5%E9%97%A8/5-Servlet/" target="_self">
+          5-Servlet
         </a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2022/02/09/Django%E5%90%8E%E7%AB%AF/HTTP%E5%8D%8F%E8%AE%AE/" target="_self">
+        <a href="/2022/03/24/java/JavaWeb%E5%85%A5%E9%97%A8/5-Servlet/" target="_self">
           
           
             
           
-          HTTP协议Web前端系统 和 后端系统 之间就是通过HTTP协议进行通信的。
+          Servlet1、Servlet简介
+Servlet就是sun公司开发动态web的一门技术
+Sun在这些APi中提供一个接口叫做：Servlet，如果你想开发一个Servlet程序，只需要完成两个小步骤：
+编写一个类，实现Serlet接口
+把开发好java类部署到web服务器中。
 
 
 
-
-HTTP协议简介Web API接口 大都是基于 HTTP 协议的。
-HTTP 协议 全称是 超文本传输协议， 英文是 Hypertext Transfer Protocol 。
-HTTP 最初是用来在浏览器和网站服务器（web服务）之间传输超文本（网页、视频、图片等）信息的。
-由于 HTTP 简洁易用，后来，不
+把实现了Servlet接口的 Java 程序叫做，Servlet。
+2、HelloServletSerlvet接
         </a>
       </p>
 
@@ -504,8 +641,8 @@ HTTP 最初是用来在浏览器和网站服务器（web服务）之间传输超
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2022-02-09 21:32" pubdate>
-              2022-02-09
+            <time datetime="2022-03-24 19:43" pubdate>
+              2022-03-24
             </time>
           </div>
         
@@ -513,7 +650,9 @@ HTTP 最初是用来在浏览器和网站服务器（web服务）之间传输超
           <div class="post-meta mr-3">
             <i class="iconfont icon-category"></i>
             
-              <a href="/categories/Django%E5%90%8E%E7%AB%AF/">Django后端</a>
+              <a href="/categories/Java/">Java</a>
+            
+              <a href="/categories/Java/JavaWeb%E5%85%A5%E9%97%A8/">JavaWeb入门</a>
             
           </div>
         
@@ -528,24 +667,28 @@ HTTP 最初是用来在浏览器和网站服务器（web服务）之间传输超
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2022/02/09/Django%E5%90%8E%E7%AB%AF/Django%E5%AE%89%E8%A3%85%E4%B8%8E%E8%BF%90%E8%A1%8C/" target="_self">
-          Django安装与运行
+        <a href="/2022/03/24/java/JavaWeb%E5%85%A5%E9%97%A8/4-Maven/" target="_self">
+          4-Maven
         </a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2022/02/09/Django%E5%90%8E%E7%AB%AF/Django%E5%AE%89%E8%A3%85%E4%B8%8E%E8%BF%90%E8%A1%8C/" target="_self">
+        <a href="/2022/03/24/java/JavaWeb%E5%85%A5%E9%97%A8/4-Maven/" target="_self">
           
           
             
           
-          安装DjangoDjango 框架是用Python语言开发的， 所以安装Django 就像安装其他的 Python库一样，执行如下命令即可
-1pip install django
+          Maven我为什么要学习这个技术？
 
-你可以执行如下命令检查Django是否安装好， 并且查看安装的Django版本
-12python -m django --version2.1.3
+在Javaweb开发中，需要使用大量的jar包，我们手动去导入；
 
-如果像上面那样显示出一个版本数字（比如这里就是2.1.3） 表示已经
+如何能够让一个东西自动帮我导入和配置这个jar包。
+由此，Maven诞生了！
+
+
+1 Maven项目架构管理工具我们目前用来就是方便导入jar包的！Maven的核心思想：
+约定大于配置==&gt; 有约束，不要去违反
+Maven会规定好你该如何去编写我们 Java 代码，必须要按照这个规范来；
         </a>
       </p>
 
@@ -553,8 +696,8 @@ HTTP 最初是用来在浏览器和网站服务器（web服务）之间传输超
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2022-02-09 21:32" pubdate>
-              2022-02-09
+            <time datetime="2022-03-24 19:43" pubdate>
+              2022-03-24
             </time>
           </div>
         
@@ -562,100 +705,9 @@ HTTP 最初是用来在浏览器和网站服务器（web服务）之间传输超
           <div class="post-meta mr-3">
             <i class="iconfont icon-category"></i>
             
-              <a href="/categories/Django%E5%90%8E%E7%AB%AF/">Django后端</a>
+              <a href="/categories/Java/">Java</a>
             
-          </div>
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2022/01/28/LeetCode/1996.%20%E6%B8%B8%E6%88%8F%E4%B8%AD%E5%BC%B1%E8%A7%92%E8%89%B2%E7%9A%84%E6%95%B0%E9%87%8F/" target="_self">
-          1996. 游戏中弱角色的数量
-        </a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2022/01/28/LeetCode/1996.%20%E6%B8%B8%E6%88%8F%E4%B8%AD%E5%BC%B1%E8%A7%92%E8%89%B2%E7%9A%84%E6%95%B0%E9%87%8F/" target="_self">
-          
-          
-            
-          
-          题目链接：https://leetcode-cn.com/problems/the-number-of-weak-characters-in-the-game/
-题意：你正在参加一个多角色游戏，每个角色都有两个主要属性：攻击 和 防御 。给你一个二维整数数组 properties ，其中 properties[i] = [attacki, defensei] 表示游戏中第 i 个角色的属性。 如果
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2022-01-28 00:31" pubdate>
-              2022-01-28
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/LeetCode/">LeetCode</a>
-            
-          </div>
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2022/01/26/%E6%96%87%E4%BB%B6%E5%A4%84%E7%90%86/txt%20%E5%A4%84%E7%90%86/" target="_self">
-          txt 处理
-        </a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2022/01/26/%E6%96%87%E4%BB%B6%E5%A4%84%E7%90%86/txt%20%E5%A4%84%E7%90%86/" target="_self">
-          
-          
-            
-          
-          
-几种读写方式比较
-r 打开只读文件，该文件必须存在。
-r+ 打开可读写的文件，该文件必须存在。
-w 打开只写文件，若文件存在则文件长度清为0，即该文件内容会消失。若文件不存在则建立该文件。
-w+ 打开可读写文件，若文件存在则文件长度清为零，即该文件内容会消失。若文件不存在则建立该文件。
-a 以追加的方式打开只写文件。若文件不存在，则会建立该文件，如果文件存在，写入的数据会被加到文件尾，即文件原先
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2022-01-26 20:27" pubdate>
-              2022-01-26
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/%E6%96%87%E4%BB%B6%E5%A4%84%E7%90%86/">文件处理</a>
+              <a href="/categories/Java/JavaWeb%E5%85%A5%E9%97%A8/">JavaWeb入门</a>
             
           </div>
         
@@ -668,7 +720,7 @@ a 以追加的方式打开只写文件。若文件不存在，则会建立该文
 
   <nav aria-label="navigation">
     <span class="pagination" id="pagination">
-      <a class="extend prev" rel="prev" href="/page/3/#board"><i class="iconfont icon-arrowleft"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/#board">2</a><a class="page-number" href="/page/3/#board">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/#board">5</a><a class="page-number" href="/page/6/#board">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/#board">10</a><a class="extend next" rel="next" href="/page/5/#board"><i class="iconfont icon-arrowright"></i></a>
+      <a class="extend prev" rel="prev" href="/page/3/#board"><i class="iconfont icon-arrowleft"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/#board">2</a><a class="page-number" href="/page/3/#board">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/#board">5</a><a class="page-number" href="/page/6/#board">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/#board">11</a><a class="extend next" rel="next" href="/page/5/#board"><i class="iconfont icon-arrowright"></i></a>
     </span>
   </nav>
 

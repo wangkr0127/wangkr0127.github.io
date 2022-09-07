@@ -190,22 +190,28 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2022/03/11/LeetCode/15.%20%E4%B8%89%E6%95%B0%E4%B9%8B%E5%92%8C/" target="_self">
-          15. 三数之和
+        <a href="/2022/06/22/java/Mybatis/3-CRUD/" target="_self">
+          3-CRUD
         </a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2022/03/11/LeetCode/15.%20%E4%B8%89%E6%95%B0%E4%B9%8B%E5%92%8C/" target="_self">
+        <a href="/2022/06/22/java/Mybatis/3-CRUD/" target="_self">
           
           
             
           
-          题目链接：https://leetcode-cn.com/problems/3sum/
-题意：给你一个包含 n 个整数的数组 nums，判断 nums 中是否存在三个元素 a，b，c ，使得 a + b + c             = 0 ？请你找出所有和为 0 且不重复的三元组。
-注意：答案中不可以包含重复的三元组。
-样例：
-12输入：nums = [-1,0,1,2,-1,-4]输出：[[
+          CRUD增加(Create)、检索(Retrieve)、更新(Update)、删除(Delete)
+1、namespacenamespace中的包名要和 Dao/mapper 接口的包名一致！
+
+
+2、select选择，查询语句
+
+id : 就是对应的 namespace 中的方法名
+resultType：Sql 语句执行的返回值
+parameterType ： 参数类型（接口函数的形参类型）
+
+
         </a>
       </p>
 
@@ -213,8 +219,8 @@
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2022-03-11 11:32" pubdate>
-              2022-03-11
+            <time datetime="2022-06-22 12:35" pubdate>
+              2022-06-22
             </time>
           </div>
         
@@ -222,7 +228,9 @@
           <div class="post-meta mr-3">
             <i class="iconfont icon-category"></i>
             
-              <a href="/categories/LeetCode/">LeetCode</a>
+              <a href="/categories/Java/">Java</a>
+            
+              <a href="/categories/Java/Mybatis/">Mybatis</a>
             
           </div>
         
@@ -237,20 +245,27 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2022/03/10/%E8%A7%A3%E5%86%B3hexo%E6%97%A0%E6%B3%95%E6%98%BE%E7%A4%BA%E5%9B%BE%E7%89%87/" target="_self">
-          解决hexo无法显示图片
+        <a href="/2022/06/22/java/Mybatis/4-%E9%94%99%E8%AF%AF%E6%8E%92%E6%9F%A5/" target="_self">
+          4-错误排查
         </a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2022/03/10/%E8%A7%A3%E5%86%B3hexo%E6%97%A0%E6%B3%95%E6%98%BE%E7%A4%BA%E5%9B%BE%E7%89%87/" target="_self">
+        <a href="/2022/06/22/java/Mybatis/4-%E9%94%99%E8%AF%AF%E6%8E%92%E6%9F%A5/" target="_self">
           
           
             
           
-          1、将笔记md中的图片放入该images文件夹下
-2、在md中引入图片的方式如下：
-（记得路径前面要加’/‘）3、为了可以正常在md中看到图片，在文章所在的同级目录下新建images文件夹并放入指定的图片资源
+          分析错误
+标签不要匹配错
+resource 绑定mapper，需要使用路径！
+程序配置文件必须符合规范！
+NullPointerException，没有注册到资源!
+输出的xml文件中存在中文乱码问题！（注意打包后的target的乱码）
+maven资源没有导出问题！
+
+读错从后向前读
+
         </a>
       </p>
 
@@ -258,8 +273,8 @@
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2022-03-10 20:48" pubdate>
-              2022-03-10
+            <time datetime="2022-06-22 12:35" pubdate>
+              2022-06-22
             </time>
           </div>
         
@@ -267,7 +282,9 @@
           <div class="post-meta mr-3">
             <i class="iconfont icon-category"></i>
             
-              <a href="/categories/%E5%85%B6%E4%BB%96/">其他</a>
+              <a href="/categories/Java/">Java</a>
+            
+              <a href="/categories/Java/Mybatis/">Mybatis</a>
             
           </div>
         
@@ -282,24 +299,23 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2022/03/10/LeetCode/N%E5%8F%89%E6%A0%91%E7%9A%84%E5%89%8D%E5%BA%8F%E9%81%8D%E5%8E%86/" target="_self">
-          N 叉树的前序遍历——链表
+        <a href="/2022/06/22/java/Mybatis/5-Map%E5%92%8C%E6%A8%A1%E7%B3%8A%E6%9F%A5%E8%AF%A2/" target="_self">
+          5-Map和模糊查询
         </a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2022/03/10/LeetCode/N%E5%8F%89%E6%A0%91%E7%9A%84%E5%89%8D%E5%BA%8F%E9%81%8D%E5%8E%86/" target="_self">
+        <a href="/2022/06/22/java/Mybatis/5-Map%E5%92%8C%E6%A8%A1%E7%B3%8A%E6%9F%A5%E8%AF%A2/" target="_self">
           
           
             
           
-          题目链接：https://leetcode-cn.com/problems/n-ary-tree-preorder-traversal/
-题意：给定一个 n 叉树的根节点  root ，返回其节点值的前序遍历 。
-n 叉树在输入中按层序遍历进行序列化表示，每组子节点由空值 null 分隔（请参见示例）。
-样例：
+          1、万能的 Map假设我们的实体类，或者数据库中的表，字段或者参数过多，我们应当考虑使用 Map
+1234//万能的Mapint addUser2(Map&lt;String,Object&gt; map);User getUserById2(Map&lt;String,Object&gt; map);
 
-Solve:类似二叉树的先序遍历，每次从左到右依次 dfs 搜索即可。
-Code：1
+
+
+12345678&lt;!--对象中的属性，可以直接取出来    传递map的key--
         </a>
       </p>
 
@@ -307,8 +323,8 @@ Code：1
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2022-03-10 11:18" pubdate>
-              2022-03-10
+            <time datetime="2022-06-22 12:35" pubdate>
+              2022-06-22
             </time>
           </div>
         
@@ -316,7 +332,9 @@ Code：1
           <div class="post-meta mr-3">
             <i class="iconfont icon-category"></i>
             
-              <a href="/categories/LeetCode/">LeetCode</a>
+              <a href="/categories/Java/">Java</a>
+            
+              <a href="/categories/Java/Mybatis/">Mybatis</a>
             
           </div>
         
@@ -331,20 +349,22 @@ Code：1
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2022/03/09/LeetCode/454.%20%E5%9B%9B%E6%95%B0%E7%9B%B8%E5%8A%A0%20II/" target="_self">
-          454. 四数相加 II
+        <a href="/2022/06/22/java/Mybatis/6-%E9%85%8D%E7%BD%AE%E8%A7%A3%E6%9E%90/" target="_self">
+          6-配置解析
         </a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2022/03/09/LeetCode/454.%20%E5%9B%9B%E6%95%B0%E7%9B%B8%E5%8A%A0%20II/" target="_self">
+        <a href="/2022/06/22/java/Mybatis/6-%E9%85%8D%E7%BD%AE%E8%A7%A3%E6%9E%90/" target="_self">
           
           
             
           
-          题目链接：https://leetcode-cn.com/problems/4sum-ii/
-题意：给你四个整数数组 nums1、nums2、nums3 和 nums4 ，数组长度都是 n ，请你计算有多少个元组 (i, j, k, l) 能满足：0 &lt;= i, j, k, l &lt; n    nums1[i] + nums2[j] + nums3[k] + nums4[l] == 0
+          配置解析1、核心配置文件
+mybatis-config.xml
 
+MyBatis 的配置文件包含了会深深影响 MyBatis 行为的设置和属性信息。 
+12345678910111213configuration（配置）properties（属性）settings（设置）typeAliases（类型别名）typeHandlers（类型处理器）objectFactory（对象工厂）plugins（插
         </a>
       </p>
 
@@ -352,8 +372,8 @@ Code：1
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2022-03-09 14:15" pubdate>
-              2022-03-09
+            <time datetime="2022-06-22 12:35" pubdate>
+              2022-06-22
             </time>
           </div>
         
@@ -361,7 +381,9 @@ Code：1
           <div class="post-meta mr-3">
             <i class="iconfont icon-category"></i>
             
-              <a href="/categories/LeetCode/">LeetCode</a>
+              <a href="/categories/Java/">Java</a>
+            
+              <a href="/categories/Java/Mybatis/">Mybatis</a>
             
           </div>
         
@@ -376,21 +398,23 @@ Code：1
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2022/02/09/Django%E5%90%8E%E7%AB%AF/%E9%83%A8%E7%BD%B2/" target="_self">
-          部署
+        <a href="/2022/06/22/java/Mybatis/7-ResultMap%E7%BB%93%E6%9E%9C%E9%9B%86%E6%98%A0%E5%B0%84/" target="_self">
+          7-ResultMap结果集映射
         </a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2022/02/09/Django%E5%90%8E%E7%AB%AF/%E9%83%A8%E7%BD%B2/" target="_self">
+        <a href="/2022/06/22/java/Mybatis/7-ResultMap%E7%BB%93%E6%9E%9C%E9%9B%86%E6%98%A0%E5%B0%84/" target="_self">
           
           
             
           
-          部署当我们完成一个阶段的开发任务后，就需要把我们开发的网站服务给真正的用户使用了。
-那就需要我们的网站部署在公网机器上，而不是我们的个人电脑。这个给真正用户使用的网站服务器我们通常称之为 生产环境。
-通常，我们的web服务是部署在云服务厂商的云主机上，比如阿里云的ECS云主机。
-现在的web服务，基本都是采用 Linux 操作系统，而且生产环境不应该使用 SQLite 数据库，通常是 MySQL、
+          解决属性名和字段名不一致的问题1、问题数据库中的字段
+
+新建一个项目，拷贝之前的，测试实体类字段不一致的情况
+123456public class User &#123;        private int id;    private String name;    private String password;&#125;
+
+测试出现问题 —— password为 NULL 空（与 pwd
         </a>
       </p>
 
@@ -398,8 +422,8 @@ Code：1
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2022-02-09 21:32" pubdate>
-              2022-02-09
+            <time datetime="2022-06-22 12:35" pubdate>
+              2022-06-22
             </time>
           </div>
         
@@ -407,7 +431,9 @@ Code：1
           <div class="post-meta mr-3">
             <i class="iconfont icon-category"></i>
             
-              <a href="/categories/Django%E5%90%8E%E7%AB%AF/">Django后端</a>
+              <a href="/categories/Java/">Java</a>
+            
+              <a href="/categories/Java/Mybatis/">Mybatis</a>
             
           </div>
         
@@ -422,19 +448,32 @@ Code：1
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2022/02/09/Django%E5%90%8E%E7%AB%AF/%E7%BC%93%E5%AD%98/" target="_self">
-          缓存
+        <a href="/2022/06/22/java/Mybatis/8-%E6%97%A5%E5%BF%97/" target="_self">
+          8-日志
         </a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2022/02/09/Django%E5%90%8E%E7%AB%AF/%E7%BC%93%E5%AD%98/" target="_self">
+        <a href="/2022/06/22/java/Mybatis/8-%E6%97%A5%E5%BF%97/" target="_self">
           
           
             
           
-          教程网址：http://www.byhy.net/tut/webdev/django/17/
+          日志1、日志工厂如果一个数据库操作，出现了异常，我们需要排错。日志就是最好的助手！
+曾经：sout 、debug
+现在：日志工厂！
 
+
+SLF4J 
+LOG4J  【掌握】
+LOG4J2
+JDK_LOGGING
+COMMONS_LOGGING
+STDOUT_LOGGING   【掌握】
+NO_LOGGING
+
+在Mybatis中具体使用哪一个日志实现，在设置中设定！
+STDOUT_LOGGING 
         </a>
       </p>
 
@@ -442,8 +481,8 @@ Code：1
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2022-02-09 21:32" pubdate>
-              2022-02-09
+            <time datetime="2022-06-22 12:35" pubdate>
+              2022-06-22
             </time>
           </div>
         
@@ -451,7 +490,9 @@ Code：1
           <div class="post-meta mr-3">
             <i class="iconfont icon-category"></i>
             
-              <a href="/categories/Django%E5%90%8E%E7%AB%AF/">Django后端</a>
+              <a href="/categories/Java/">Java</a>
+            
+              <a href="/categories/Java/Mybatis/">Mybatis</a>
             
           </div>
         
@@ -466,23 +507,24 @@ Code：1
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2022/02/09/Django%E5%90%8E%E7%AB%AF/%E6%95%B0%E6%8D%AE%E5%BA%93%E8%A1%A8%E7%9A%84%E5%85%B3%E8%81%94/" target="_self">
-          数据库表的关联
+        <a href="/2022/06/22/java/Mybatis/1-Mybatis%E7%AE%80%E4%BB%8B/" target="_self">
+          1-Mybatis简介
         </a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2022/02/09/Django%E5%90%8E%E7%AB%AF/%E6%95%B0%E6%8D%AE%E5%BA%93%E8%A1%A8%E7%9A%84%E5%85%B3%E8%81%94/" target="_self">
+        <a href="/2022/06/22/java/Mybatis/1-Mybatis%E7%AE%80%E4%BB%8B/" target="_self">
           
           
             
           
-          数据库表的关联后端系统开发中，数据库设计是重中之重。
-特别是前后端分离的系统，后端的职责基本就是数据管理，开发的代码几乎都是围绕数据操作的。
-目前使用的数据库系统主要还是 关系型数据库 。
-什么是关系型数据库？就是建立在关系模型基础上的数据库。
-比如mysql、oracle、 sqlserver、SQLite 都是关系型数据库，而 mongodb则不是。
-（mongodb是基于分布式文件存储的数据
+          简介1、什么是Mybatis
+
+MyBatis 是一款优秀的持久层框架
+它支持定制化 SQL、存储过程以及高级映射。
+MyBatis 避免了几乎所有的 JDBC 代码和手动设置参数以及获取结果集。
+MyBatis 可以使用简单的 XML 或注解来配置和映射原生类型、接口和 Java 的 POJO（Plain Old Java Objects，普通老式 Java 对象）为数据库中的记录。
+MyBat
         </a>
       </p>
 
@@ -490,8 +532,8 @@ Code：1
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2022-02-09 21:32" pubdate>
-              2022-02-09
+            <time datetime="2022-06-22 12:35" pubdate>
+              2022-06-22
             </time>
           </div>
         
@@ -499,7 +541,9 @@ Code：1
           <div class="post-meta mr-3">
             <i class="iconfont icon-category"></i>
             
-              <a href="/categories/Django%E5%90%8E%E7%AB%AF/">Django后端</a>
+              <a href="/categories/Java/">Java</a>
+            
+              <a href="/categories/Java/Mybatis/">Mybatis</a>
             
           </div>
         
@@ -514,23 +558,18 @@ Code：1
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2022/02/09/Django%E5%90%8E%E7%AB%AF/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%93%8D%E4%BD%9C/" target="_self">
-          数据库操作
+        <a href="/2022/06/22/java/Mybatis/10-%E4%BD%BF%E7%94%A8%E6%B3%A8%E8%A7%A3%E5%BC%80%E5%8F%91/" target="_self">
+          10-使用注解开发
         </a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2022/02/09/Django%E5%90%8E%E7%AB%AF/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%93%8D%E4%BD%9C/" target="_self">
+        <a href="/2022/06/22/java/Mybatis/10-%E4%BD%BF%E7%94%A8%E6%B3%A8%E8%A7%A3%E5%BC%80%E5%8F%91/" target="_self">
           
           
             
           
-          后端开发基本都需要操作数据，包括数据的存储、查询、修改、删除。
-通常，这些都是通过数据库来完成的。目前业界最广泛使用的数据库还是：关系型数据库。
-关系型数据库系统，常用的开源数据库有 mysql 和 postgresql。
-我们先使用另一种更简单数据库： sqlite
-sqlite 没有独立的数据库服务进程，数据操作被做成库直接供应用程序调用。 Django中可以直接使用，无须先搭建数据服务。
-创
+          使用注解开发1、面向接口编程- 大家之前都学过面向对象编程，也学习过接口，但在真正的开发中，很多时候我们会选择面向接口编程- 根本原因 :  ==解耦== , 可拓展 , 提高复用 , 分层开发中 , 上层不用管具体的实现 , 大家都遵守共同的标准 , 使得开发变得容易 , 规范性更好- 在一个面向对象的系统中，系统的各种功能是由许许多多的不同对象协作完成的。在这种情况下，各个对象内部是如何实现自
         </a>
       </p>
 
@@ -538,8 +577,8 @@ sqlite 没有独立的数据库服务进程，数据操作被做成库直接供�
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2022-02-09 21:32" pubdate>
-              2022-02-09
+            <time datetime="2022-06-22 12:35" pubdate>
+              2022-06-22
             </time>
           </div>
         
@@ -547,7 +586,9 @@ sqlite 没有独立的数据库服务进程，数据操作被做成库直接供�
           <div class="post-meta mr-3">
             <i class="iconfont icon-category"></i>
             
-              <a href="/categories/Django%E5%90%8E%E7%AB%AF/">Django后端</a>
+              <a href="/categories/Java/">Java</a>
+            
+              <a href="/categories/Java/Mybatis/">Mybatis</a>
             
           </div>
         
@@ -562,22 +603,23 @@ sqlite 没有独立的数据库服务进程，数据操作被做成库直接供�
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2022/02/09/Django%E5%90%8E%E7%AB%AF/%E5%AF%B9%E8%B5%84%E6%BA%90%E7%9A%84%E5%A2%9E%E5%88%A0%E6%94%B9%E6%9F%A5%E5%A4%84%E7%90%86/" target="_self">
-          对资源的增删改查处理
+        <a href="/2022/06/22/java/Spring/Spring5%E7%AC%94%E8%AE%B0/" target="_self">
+          Spring
         </a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2022/02/09/Django%E5%90%8E%E7%AB%AF/%E5%AF%B9%E8%B5%84%E6%BA%90%E7%9A%84%E5%A2%9E%E5%88%A0%E6%94%B9%E6%9F%A5%E5%A4%84%E7%90%86/" target="_self">
+        <a href="/2022/06/22/java/Spring/Spring5%E7%AC%94%E8%AE%B0/" target="_self">
           
           
             
           
-          对资源的增删改查处理前面已经说过如果采用前后端分离的架构开发， 后端几乎不负责任何展现界面的工作，只负责管理数据。
-数据的管理主要就是：响应前端的请求， 对数据资源的：增加、删除、修改、查询（curd） 。
-下面我们就以 BYSMS 系统中 customer 数据为例，看看如何进行数据的增删改查操作。
-现在我们的系统的API接口已经由架构师定义好了， 点击这里查看。
-现在我们就根据这个接口文档，来
+          1.Spring1.1、简介
+Spring：春天—&gt; 给软件行业带来了春天
+2002年，Rod Jahnson首次推出了Spring框架雏形interface21框架。
+2004年3月24日，Spring框架以interface21框架为基础，经过重新设计，发布了1.0正式版。
+很难想象Rod Johnson的学历 , 他是悉尼大学的博士，然而他的专业不是计算机，而是音乐学。
+Spring理
         </a>
       </p>
 
@@ -585,8 +627,8 @@ sqlite 没有独立的数据库服务进程，数据操作被做成库直接供�
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2022-02-09 21:32" pubdate>
-              2022-02-09
+            <time datetime="2022-06-22 12:25" pubdate>
+              2022-06-22
             </time>
           </div>
         
@@ -594,7 +636,7 @@ sqlite 没有独立的数据库服务进程，数据操作被做成库直接供�
           <div class="post-meta mr-3">
             <i class="iconfont icon-category"></i>
             
-              <a href="/categories/Django%E5%90%8E%E7%AB%AF/">Django后端</a>
+              <a href="/categories/Java/">Java</a>
             
           </div>
         
@@ -609,32 +651,39 @@ sqlite 没有独立的数据库服务进程，数据操作被做成库直接供�
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2022/02/09/Django%E5%90%8E%E7%AB%AF/%E5%AE%9E%E7%8E%B0%E7%99%BB%E5%BD%95/" target="_self">
-          实现登录
+        <a href="/2022/06/21/%E5%B7%B2%E6%95%B4%E7%90%86/" target="_self">
+          
         </a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2022/02/09/Django%E5%90%8E%E7%AB%AF/%E5%AE%9E%E7%8E%B0%E7%99%BB%E5%BD%95/" target="_self">
+        <a href="/2022/06/21/%E5%B7%B2%E6%95%B4%E7%90%86/" target="_self">
           
           
             
           
-          实现登录前面我们实现了服务端管理员的一些增删改查操作，现在我们根据API接口文档来实现 管理员登录 功能。
-API接口文档内容如下：
+          
+ACM
+AJAX
+Django后端
+LeetCode
+Vue.js
+前端杂记
+文件处理
+小Skills
+java
+注解与反射
+Java基础
+Spring
+JavaWeb入门
+Mybatis
+SpringMVC
+SSM整合
 
 
+Debug汇总
 
 
-
-
-
-
-
-
-处理登录、登出请求我们可以在mgr目录里面创建一个代码文件 sign_in_out.py，用来处理 管理员登录和登出 的API请求。
-如何处理登录请求呢，无非就把请求参数里面的用户名、密码取出来， 和数据库中记录的用户名密码进行比对。
-如果和数据
         </a>
       </p>
 
@@ -642,18 +691,11 @@ API接口文档内容如下：
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2022-02-09 21:32" pubdate>
-              2022-02-09
+            <time datetime="2022-06-21 18:49" pubdate>
+              2022-06-21
             </time>
           </div>
         
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/Django%E5%90%8E%E7%AB%AF/">Django后端</a>
-            
-          </div>
         
         
       </div>
@@ -664,7 +706,7 @@ API接口文档内容如下：
 
   <nav aria-label="navigation">
     <span class="pagination" id="pagination">
-      <a class="extend prev" rel="prev" href="/page/2/#board"><i class="iconfont icon-arrowleft"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/#board">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/#board">4</a><a class="page-number" href="/page/5/#board">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/#board">10</a><a class="extend next" rel="next" href="/page/4/#board"><i class="iconfont icon-arrowright"></i></a>
+      <a class="extend prev" rel="prev" href="/page/2/#board"><i class="iconfont icon-arrowleft"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/#board">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/#board">4</a><a class="page-number" href="/page/5/#board">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/#board">11</a><a class="extend next" rel="next" href="/page/4/#board"><i class="iconfont icon-arrowright"></i></a>
     </span>
   </nav>
 

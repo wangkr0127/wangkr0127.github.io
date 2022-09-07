@@ -190,31 +190,26 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2021/10/11/AJAX/jQuery-AJAX/" target="_self">
-          jQuery-AJAX
+        <a href="/2021/11/08/Vue.js/CLI%20%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4/" target="_self">
+          CLI 常用指令
         </a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2021/10/11/AJAX/jQuery-AJAX/" target="_self">
+        <a href="/2021/11/08/Vue.js/CLI%20%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4/" target="_self">
           
           
             
           
-          jQuery 简介jQuery 是一个 JavaScript 函数库。
-jQuery 是一个轻量级的”写的少，做的多”的 JavaScript 库。
-jQuery 库包含以下功能：
+          ViewUI 的安装与引入安装
+cnpm install view-design –save
+引入
+123import ViewUI from &#x27;view-design&#x27;;import &#x27;view-design/dist/styles/iview.css&#x27;;Vue.use(ViewUI);
 
-HTML 元素选取
-HTML 元素操作
-CSS 操作
-HTML 事件函数
-JavaScript 特效和动画
-HTML DOM 遍历和修改
-AJAX
-Utilities
 
-tips：除此之外，jQuery 还提供了大量
+
+ElementUI 的安装与引入安装
+cnpm i eleme
         </a>
       </p>
 
@@ -222,8 +217,8 @@ tips：除此之外，jQuery 还提供了大量
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2021-10-11 15:50" pubdate>
-              2021-10-11
+            <time datetime="2021-11-08 16:02" pubdate>
+              2021-11-08
             </time>
           </div>
         
@@ -231,7 +226,7 @@ tips：除此之外，jQuery 还提供了大量
           <div class="post-meta mr-3">
             <i class="iconfont icon-category"></i>
             
-              <a href="/categories/AJAX/">AJAX</a>
+              <a href="/categories/Vue-js/">Vue.js</a>
             
           </div>
         
@@ -246,22 +241,27 @@ tips：除此之外，jQuery 还提供了大量
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2021/10/10/AJAX/%E8%A7%A3%E5%86%B3%E9%87%8D%E5%A4%8D%E5%8F%91%E9%80%81AJAX%E8%AF%B7%E6%B1%82%E9%97%AE%E9%A2%98/" target="_self">
-          解决重复发送AJAX请求问题
+        <a href="/2021/11/08/Vue.js/%E8%B8%A9%E5%9D%91%E6%B1%87%E6%80%BB/" target="_self">
+          踩坑汇总
         </a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2021/10/10/AJAX/%E8%A7%A3%E5%86%B3%E9%87%8D%E5%A4%8D%E5%8F%91%E9%80%81AJAX%E8%AF%B7%E6%B1%82%E9%97%AE%E9%A2%98/" target="_self">
+        <a href="/2021/11/08/Vue.js/%E8%B8%A9%E5%9D%91%E6%B1%87%E6%80%BB/" target="_self">
           
           
             
           
-          问题起因：
-用户连续点击发送按钮，这个按钮用于发送多条相同的ajax请求，导致服务器处理数据的负担太大，所以需要解决这个问题。
-思路：无论用户重复发送多少次请求，都把上一次未完成的请求取消，相同请求只发送一次
-Solve：通过一个变量 isSending 来标识是否正在发送请求。
-前端代码：123456789101112131415161718192021222324252627282930313
+          
+注意 ElementUI or IView 的 Vue 版本（Vue2.x / 3.x），实在不行就在浏览器定位模板组件，
+
+​       在使用该组件的文件内重新写一下css样式进行覆盖。
+
+
+
+POST 请求出现 400 (BAD REQUEST) 报错信息
+Solve：请求体 data 里采用 formData 格式
+1234567891011methods: &#123;  query
         </a>
       </p>
 
@@ -269,8 +269,8 @@ Solve：通过一个变量 isSending 来标识是否正在发送请求。
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2021-10-10 23:17" pubdate>
-              2021-10-10
+            <time datetime="2021-11-08 14:53" pubdate>
+              2021-11-08
             </time>
           </div>
         
@@ -278,7 +278,7 @@ Solve：通过一个变量 isSending 来标识是否正在发送请求。
           <div class="post-meta mr-3">
             <i class="iconfont icon-category"></i>
             
-              <a href="/categories/AJAX/">AJAX</a>
+              <a href="/categories/Vue-js/">Vue.js</a>
             
           </div>
         
@@ -293,22 +293,23 @@ Solve：通过一个变量 isSending 来标识是否正在发送请求。
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2021/10/10/AJAX/%E5%8F%96%E6%B6%88%E8%AF%B7%E6%B1%82/" target="_self">
-          取消请求
+        <a href="/2021/11/07/Vue.js/View%20UI/" target="_self">
+          View UI
         </a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2021/10/10/AJAX/%E5%8F%96%E6%B6%88%E8%AF%B7%E6%B1%82/" target="_self">
+        <a href="/2021/11/07/Vue.js/View%20UI/" target="_self">
           
           
             
           
-          可以利用xhr.timeout设置请求的超时自动取消，也可以手动取消请求。
-利用**abort()**方法取消请求
-注：（1）const 声明一个只读的常量，一旦声明，常量的值就不能改变
-​        （2）let 声明的变量只在 let 命令所在的代码块内有效
-前端代码：123456789101112131415161718192021222324252627282930&lt;!DOCTY
+          View UI 是一套基于 Vue.js 的开源 UI 组件库，主要服务于 PC 界面的中后台产品。
+相比于 Element UI，View UI 一直在更新和维护。
+官方文档：http://v1.iviewui.com/docs/introduce
+
+
+分页功能的实现https://blog.csdn.net/j1231230/article/details/113242354?utm_medi
         </a>
       </p>
 
@@ -316,8 +317,8 @@ Solve：通过一个变量 isSending 来标识是否正在发送请求。
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2021-10-10 18:39" pubdate>
-              2021-10-10
+            <time datetime="2021-11-07 21:39" pubdate>
+              2021-11-07
             </time>
           </div>
         
@@ -325,7 +326,7 @@ Solve：通过一个变量 isSending 来标识是否正在发送请求。
           <div class="post-meta mr-3">
             <i class="iconfont icon-category"></i>
             
-              <a href="/categories/AJAX/">AJAX</a>
+              <a href="/categories/Vue-js/">Vue.js</a>
             
           </div>
         
@@ -340,18 +341,22 @@ Solve：通过一个变量 isSending 来标识是否正在发送请求。
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2021/10/10/AJAX/%E8%AF%B7%E6%B1%82%E8%B6%85%E6%97%B6%E4%B8%8E%E7%BD%91%E7%BB%9C%E5%BC%82%E5%B8%B8/" target="_self">
-          请求超时与网络异常
+        <a href="/2021/11/07/Vue.js/Element%20UI/" target="_self">
+          Element UI
         </a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2021/10/10/AJAX/%E8%AF%B7%E6%B1%82%E8%B6%85%E6%97%B6%E4%B8%8E%E7%BD%91%E7%BB%9C%E5%BC%82%E5%B8%B8/" target="_self">
+        <a href="/2021/11/07/Vue.js/Element%20UI/" target="_self">
           
           
             
           
-          前端代码：1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859&lt;!DOCTYPE html&gt;&lt;html lang=&quot;en&quot;&gt;&lt;head&gt;    &lt;meta charset=
+          Element UI 是一套采用 Vue 2.0 作为基础框架实现的组件库
+官方文档：https://element.eleme.cn/#/zh-CN/component/installation
+项目案例：https://github.com/oinsd/Vue.js-Learning-Example 
+​                （NO.15_简介_简单组合效果_布局与容器）
+（样例的项
         </a>
       </p>
 
@@ -359,8 +364,8 @@ Solve：通过一个变量 isSending 来标识是否正在发送请求。
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2021-10-10 16:56" pubdate>
-              2021-10-10
+            <time datetime="2021-11-07 21:39" pubdate>
+              2021-11-07
             </time>
           </div>
         
@@ -368,7 +373,7 @@ Solve：通过一个变量 isSending 来标识是否正在发送请求。
           <div class="post-meta mr-3">
             <i class="iconfont icon-category"></i>
             
-              <a href="/categories/AJAX/">AJAX</a>
+              <a href="/categories/Vue-js/">Vue.js</a>
             
           </div>
         
@@ -383,21 +388,28 @@ Solve：通过一个变量 isSending 来标识是否正在发送请求。
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2021/10/10/AJAX/IE%E7%BC%93%E5%AD%98%E9%97%AE%E9%A2%98%E7%9A%84%E8%A7%A3%E5%86%B3/" target="_self">
-          解决IE缓存问题
+        <a href="/2021/11/07/Vue.js/Vue-CLI/" target="_self">
+          Vue-CLI
         </a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2021/10/10/AJAX/IE%E7%BC%93%E5%AD%98%E9%97%AE%E9%A2%98%E7%9A%84%E8%A7%A3%E5%86%B3/" target="_self">
+        <a href="/2021/11/07/Vue.js/Vue-CLI/" target="_self">
           
           
             
           
-          IE ajax缓存问题：在默认情况下，IE会缓存相同地址ajax请求的结果。IE的第一次ajax请求会发送到服务器端处理，如果后续的请求的参数与第一次的一样，IE浏览器会直接返回缓存的结果而不是去服务器获取。
-☞导致实时的数据不能及时呈现
-注：CHrome谷歌浏览器不存在此问题
-前端代码：Solve：利用Date.now() 获取当前的时间戳，向浏览器表明每次都是不同的请求(不同的url)，从而跳
+          Vue CLI 是一个基于 Vue.js 进行快速开发的完整系统，简单来说就是 Vue 搭建的架子。
+教程：https://cli.vuejs.org/zh/guide/
+通过 vue create 创建项目后不要修改里面文件的名称，以免之后的自动导包出错。
+
+本地运行使用 npm run serve  （见README）
+
+安装依赖包使用 npm install
+
+
+项目文件介绍
+main.js
         </a>
       </p>
 
@@ -405,8 +417,8 @@ Solve：通过一个变量 isSending 来标识是否正在发送请求。
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2021-10-10 16:24" pubdate>
-              2021-10-10
+            <time datetime="2021-11-07 21:39" pubdate>
+              2021-11-07
             </time>
           </div>
         
@@ -414,7 +426,7 @@ Solve：通过一个变量 isSending 来标识是否正在发送请求。
           <div class="post-meta mr-3">
             <i class="iconfont icon-category"></i>
             
-              <a href="/categories/AJAX/">AJAX</a>
+              <a href="/categories/Vue-js/">Vue.js</a>
             
           </div>
         
@@ -429,21 +441,22 @@ Solve：通过一个变量 isSending 来标识是否正在发送请求。
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2021/10/10/AJAX/%E6%9C%8D%E5%8A%A1%E7%AB%AF%E5%93%8D%E5%BA%94JSON%E6%95%B0%E6%8D%AE/" target="_self">
-          服务端响应JSON数据
+        <a href="/2021/11/07/Vue.js/Less/" target="_self">
+          Less (依赖包加载)
         </a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2021/10/10/AJAX/%E6%9C%8D%E5%8A%A1%E7%AB%AF%E5%93%8D%E5%BA%94JSON%E6%95%B0%E6%8D%AE/" target="_self">
+        <a href="/2021/11/07/Vue.js/Less/" target="_self">
           
           
             
           
-          JSON简介：JSON(JavaScript Object Notation) 是一种轻量级的数据交换格式。JSON采用完全独立于语言的文本格式，这些特性使JSON成为理想的数据交换语言。易于人阅读和编写，同时也易于机器解析和生成。
-JSON的两种基本结构：
+          Less简介Less 是一门 CSS 预处理语言，它扩充了 CSS 语言，增加了诸如变量、混合（mixin）、函数等功能，让 CSS 更易维护、方便制作主题、扩充。Less 可以运行在 Node 或浏览器端。
 
-键值对的集合（A collection of name/value pairs）。不同的语言中，它被理解为对象（object），记录（re
+
+Less加载注：安装依赖包 less 时需要注意 less 和 less-loader 的版本
+npm install less@3.0.4 less-loader@5.0.0 --sa
         </a>
       </p>
 
@@ -451,8 +464,8 @@ JSON的两种基本结构：
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2021-10-10 11:06" pubdate>
-              2021-10-10
+            <time datetime="2021-11-07 21:39" pubdate>
+              2021-11-07
             </time>
           </div>
         
@@ -460,7 +473,7 @@ JSON的两种基本结构：
           <div class="post-meta mr-3">
             <i class="iconfont icon-category"></i>
             
-              <a href="/categories/AJAX/">AJAX</a>
+              <a href="/categories/Vue-js/">Vue.js</a>
             
           </div>
         
@@ -475,20 +488,26 @@ JSON的两种基本结构：
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2021/10/10/AJAX/AJAX%20POST%20%E8%AF%B7%E6%B1%82/" target="_self">
-          AJAX POST 请求
+        <a href="/2021/11/07/Vue.js/Vue%E7%9A%84v-%E6%8C%87%E4%BB%A4/" target="_self">
+          Vue的v-指令
         </a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2021/10/10/AJAX/AJAX%20POST%20%E8%AF%B7%E6%B1%82/" target="_self">
+        <a href="/2021/11/07/Vue.js/Vue%E7%9A%84v-%E6%8C%87%E4%BB%A4/" target="_self">
           
           
             
           
-          前端代码：AJAX 的核心是 XMLHttpRequest 对象
-AJAX发送POST请求并设置请求体信息
-12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455&lt;!DOCTYPE html&gt;&lt;html lang=&quot;en&q
+          v-text 指令
+v-text 指令的作用：设置标签的内容（textContent）
+
+默认写法会替换标签内部内容，使用插值表达式&#123;&#123;&#125;&#125;可以替换指定内容
+
+内部支持写表达式（如字符串拼接）
+
+
+123456789101112131415161718192021222324&lt;!DOCTYPE html&gt;&lt;html lang=&quot;e
         </a>
       </p>
 
@@ -496,8 +515,8 @@ AJAX发送POST请求并设置请求体信息
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2021-10-10 01:50" pubdate>
-              2021-10-10
+            <time datetime="2021-11-07 21:39" pubdate>
+              2021-11-07
             </time>
           </div>
         
@@ -505,7 +524,7 @@ AJAX发送POST请求并设置请求体信息
           <div class="post-meta mr-3">
             <i class="iconfont icon-category"></i>
             
-              <a href="/categories/AJAX/">AJAX</a>
+              <a href="/categories/Vue-js/">Vue.js</a>
             
           </div>
         
@@ -520,19 +539,21 @@ AJAX发送POST请求并设置请求体信息
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2021/10/09/AJAX/AJAX%E7%AE%80%E4%BB%8B/" target="_self">
-          AJAX简介
+        <a href="/2021/11/07/Vue.js/Vue%E7%BB%84%E4%BB%B6/" target="_self">
+          Vue组件
         </a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2021/10/09/AJAX/AJAX%E7%AE%80%E4%BB%8B/" target="_self">
+        <a href="/2021/11/07/Vue.js/Vue%E7%BB%84%E4%BB%B6/" target="_self">
           
           
             
           
-          1、什么是AJAX？AJAX全称为“Asynchronous JavaScript and XML”（异步JavaScript和XML），是一种创建交互式网页应用的网页开发技术，通过在后台与服务器进行少量数据交换，AJAX 可以使网页实现异步更新。这意味着可以在不重新加载整个网页的情况下，对网页的某部分进行更新。 
-2、为什么要使用AJAX?这儿我们可以说到Ajax的优点之一：它可以在不刷新整个页
+          组件基础组件是可复用的 Vue 实例，且带有一个名字。在这个例子中定义了一个组件 &lt;button-counter&gt;。我们可以在一个通过 new Vue 创建的 **Vue 根实例(根组件)**中，把这个组件作为自定义元素来使用。
+组件可以理解为一个新的 元素 / 节点——提高代码复用率。
+利用 Vue.component 方法创建组件。
+详情见：https://cn.vuejs.org
         </a>
       </p>
 
@@ -540,8 +561,8 @@ AJAX发送POST请求并设置请求体信息
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2021-10-09 10:51" pubdate>
-              2021-10-09
+            <time datetime="2021-11-07 21:39" pubdate>
+              2021-11-07
             </time>
           </div>
         
@@ -549,7 +570,7 @@ AJAX发送POST请求并设置请求体信息
           <div class="post-meta mr-3">
             <i class="iconfont icon-category"></i>
             
-              <a href="/categories/AJAX/">AJAX</a>
+              <a href="/categories/Vue-js/">Vue.js</a>
             
           </div>
         
@@ -564,19 +585,24 @@ AJAX发送POST请求并设置请求体信息
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2021/10/09/AJAX/AJAX%20GET%20%E8%AF%B7%E6%B1%82/" target="_self">
-          AJAX GET 请求
+        <a href="/2021/11/07/Vue.js/Vue%E5%9F%BA%E7%A1%80/" target="_self">
+          Vue基础
         </a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2021/10/09/AJAX/AJAX%20GET%20%E8%AF%B7%E6%B1%82/" target="_self">
+        <a href="/2021/11/07/Vue.js/Vue%E5%9F%BA%E7%A1%80/" target="_self">
           
           
             
           
-          前端代码：AJAX 的核心是 XMLHttpRequest 对象
-123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566&lt;!DOCTYPE html&gt;&lt;html lang=&quot;en&
+          可以根据网页模板 + F12 查看 Elements 中的 HTML 源码分析模板中各个组件的布局情况，从而更好的进行前端页面开发。
+一、Vue简介
+javascript框架
+简化Dom操作
+响应式数据驱动
+参考文档：https://cn.vuejs.org/v2/guide/
+参考教程：https://space.bilibili.com/396891097/channel/detail?cid
         </a>
       </p>
 
@@ -584,8 +610,8 @@ AJAX发送POST请求并设置请求体信息
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2021-10-09 10:32" pubdate>
-              2021-10-09
+            <time datetime="2021-11-07 21:39" pubdate>
+              2021-11-07
             </time>
           </div>
         
@@ -593,7 +619,7 @@ AJAX发送POST请求并设置请求体信息
           <div class="post-meta mr-3">
             <i class="iconfont icon-category"></i>
             
-              <a href="/categories/AJAX/">AJAX</a>
+              <a href="/categories/Vue-js/">Vue.js</a>
             
           </div>
         
@@ -608,27 +634,26 @@ AJAX发送POST请求并设置请求体信息
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2021/09/20/LeetCode/%E6%9C%80%E9%95%BF%E9%80%92%E5%A2%9E%E5%AD%90%E5%BA%8F%E5%88%97%E7%9A%84%E4%B8%AA%E6%95%B0/" target="_self">
-          最长递增子序列的个数
+        <a href="/2021/11/07/Vue.js/Vue%E7%AE%80%E5%8D%95%E7%BD%91%E7%BB%9C%E5%BA%94%E7%94%A8--axios/" target="_self">
+          Vue简单网络应用--axios
         </a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2021/09/20/LeetCode/%E6%9C%80%E9%95%BF%E9%80%92%E5%A2%9E%E5%AD%90%E5%BA%8F%E5%88%97%E7%9A%84%E4%B8%AA%E6%95%B0/" target="_self">
+        <a href="/2021/11/07/Vue.js/Vue%E7%AE%80%E5%8D%95%E7%BD%91%E7%BB%9C%E5%BA%94%E7%94%A8--axios/" target="_self">
           
           
             
           
-          题目链接：673. 最长递增子序列的个数 - 力扣（LeetCode） (leetcode-cn.com)
-题意：给定一个未排序的整数数组，找到最长递增子序列的个数。
-样例：
-12输入: [1,3,5,4,7]输出: 2
+          axios基本使用
+axios：功能强大的网络请求库（AJAX）
+axios 必须先导入才可以使用
+使用 get 或 post 方法即可发送对应的请求
+then 方法中的回调函数会在请求成功或失败时触发
+通过回调函数的形参可以获取响应内容或错误信息
 
-
-
-solve：O(n^2)求LIS + cnt[]记录个数
-**dp[i]**：以nums[i]结尾的最长递增子序列的长度
-**cnt[i]**：以nums[i]为结尾的字符
+axios请求模板：
+12axios.get(地址?key=value&amp;key2=values).then(function(respons
         </a>
       </p>
 
@@ -636,8 +661,8 @@ solve：O(n^2)求LIS + cnt[]记录个数
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2021-09-20 11:13" pubdate>
-              2021-09-20
+            <time datetime="2021-11-07 21:38" pubdate>
+              2021-11-07
             </time>
           </div>
         
@@ -645,7 +670,7 @@ solve：O(n^2)求LIS + cnt[]记录个数
           <div class="post-meta mr-3">
             <i class="iconfont icon-category"></i>
             
-              <a href="/categories/ACM/">ACM</a>
+              <a href="/categories/Vue-js/">Vue.js</a>
             
           </div>
         
@@ -658,7 +683,7 @@ solve：O(n^2)求LIS + cnt[]记录个数
 
   <nav aria-label="navigation">
     <span class="pagination" id="pagination">
-      <a class="extend prev" rel="prev" href="/page/8/#board"><i class="iconfont icon-arrowleft"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/#board">7</a><a class="page-number" href="/page/8/#board">8</a><span class="page-number current">9</span><a class="page-number" href="/page/10/#board">10</a><a class="extend next" rel="next" href="/page/10/#board"><i class="iconfont icon-arrowright"></i></a>
+      <a class="extend prev" rel="prev" href="/page/8/#board"><i class="iconfont icon-arrowleft"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/#board">7</a><a class="page-number" href="/page/8/#board">8</a><span class="page-number current">9</span><a class="page-number" href="/page/10/#board">10</a><a class="page-number" href="/page/11/#board">11</a><a class="extend next" rel="next" href="/page/10/#board"><i class="iconfont icon-arrowright"></i></a>
     </span>
   </nav>
 
